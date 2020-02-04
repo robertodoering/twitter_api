@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:meta/meta.dart';
 import 'package:twitter_api/api/twitter_client.dart';
 
+import 'data/tweet.dart';
+
 class TweetService {
   const TweetService({
     @required this.client,
