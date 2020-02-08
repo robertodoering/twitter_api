@@ -76,8 +76,10 @@ class TwitterClient {
     Map<String, String> headers,
     Duration timeout = _kDefaultTimeout,
   }) async {
-    final request =
-        MultipartRequest('POST', uri is String ? Uri.parse(uri) : uri as Uri);
+    final request = MultipartRequest(
+      'POST',
+      uri is String ? Uri.parse(uri) : uri as Uri,
+    );
 
     if (fileBytes != null) {
       request.files.add(MultipartFile.fromBytes('media', fileBytes));
