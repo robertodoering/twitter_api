@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:twitter_api/api/users/data/derived.dart';
 
 part 'user.g.dart';
 
@@ -31,13 +32,14 @@ class User {
 
   /// Enterprise APIs only Collection of Enrichment metadata derived for user.
   /// Provides the Profile Geo Enrichment metadata.
-  // todo
-  //Derived derived;
+  ///
+  /// See https://developer.twitter.com/en/docs/tweets/enrichments/overview/profile-geo.
+  Derived derived;
 
-  /// Nullable . A URL provided by the user in association with their profile.
+  /// Nullable. A URL provided by the user in association with their profile.
   String url;
 
-  /// Nullable . The user-defined UTF-8 string describing their account.
+  /// Nullable. The user-defined UTF-8 string describing their account.
   String description;
 
   /// When `true`, indicates that this user has chosen to protect their Tweets.
@@ -47,7 +49,7 @@ class User {
 
   /// When `true`, indicates that the user has a verified account.
   ///
-  /// See https://help.twitter.com/en/managing-your-account/about-twitter-verified-accounts
+  /// See https://help.twitter.com/en/managing-your-account/about-twitter-verified-accounts.
   bool verified;
 
   /// The number of followers this account currently has. Under certain

@@ -12,6 +12,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
     ..name = json['name'] as String
     ..screenName = json['screen_name'] as String
     ..location = json['location'] as String
+    ..derived = json['derived'] == null
+        ? null
+        : Derived.fromJson(json['derived'] as Map<String, dynamic>)
     ..url = json['url'] as String
     ..description = json['description'] as String
     ..protected = json['protected'] as bool
@@ -36,6 +39,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'name': instance.name,
       'screen_name': instance.screenName,
       'location': instance.location,
+      'derived': instance.derived?.toJson(),
       'url': instance.url,
       'description': instance.description,
       'protected': instance.protected,
