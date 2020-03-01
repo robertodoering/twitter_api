@@ -33,7 +33,7 @@ class TwitterClient {
     );
   }
 
-  oauth1.Client get _client {
+  oauth1.Client get client {
     return oauth1.Client(
       _platform.signatureMethod,
       _clientCredentials,
@@ -46,7 +46,7 @@ class TwitterClient {
     Map<String, String> headers,
     Duration timeout = _kDefaultTimeout,
   }) {
-    return _client.get(uri, headers: headers).timeout(timeout).then((response) {
+    return client.get(uri, headers: headers).timeout(timeout).then((response) {
       return response.statusCode >= 200 && response.statusCode < 300
           ? response
           : Future.error(response);
@@ -60,7 +60,7 @@ class TwitterClient {
     Encoding encoding,
     Duration timeout = _kDefaultTimeout,
   }) {
-    return _client
+    return client
         .post(uri, headers: headers, body: body, encoding: encoding)
         .timeout(timeout)
         .then((response) {
@@ -89,7 +89,7 @@ class TwitterClient {
       request.headers.addAll(headers);
     }
 
-    return Response.fromStream(await _client.send(request))
+    return Response.fromStream(await client.send(request))
         .timeout(timeout)
         .then((response) {
       return response.statusCode >= 200 && response.statusCode < 300
