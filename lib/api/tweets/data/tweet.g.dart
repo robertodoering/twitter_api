@@ -8,6 +8,7 @@ part of 'tweet.dart';
 
 Tweet _$TweetFromJson(Map<String, dynamic> json) {
   return Tweet()
+    ..createdAt = convertTwitterDateTime(json['created_at'] as String)
     ..idStr = json['id_str'] as String
     ..text = json['text'] as String
     ..source = json['source'] as String
@@ -45,6 +46,8 @@ Tweet _$TweetFromJson(Map<String, dynamic> json) {
     ..favorited = json['favorited'] as bool
     ..retweeted = json['retweeted'] as bool
     ..possiblySensitive = json['possibly_sensitive'] as bool
+    ..possiblySensitiveAppealable =
+        json['possibly_sensitive_appealable'] as bool
     ..lang = json['lang'] as String
     ..quotedStatusPermalink = json['quoted_status_permalink'] == null
         ? null
@@ -56,6 +59,7 @@ Tweet _$TweetFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$TweetToJson(Tweet instance) => <String, dynamic>{
+      'created_at': instance.createdAt?.toIso8601String(),
       'id_str': instance.idStr,
       'text': instance.text,
       'source': instance.source,
@@ -79,6 +83,7 @@ Map<String, dynamic> _$TweetToJson(Tweet instance) => <String, dynamic>{
       'favorited': instance.favorited,
       'retweeted': instance.retweeted,
       'possibly_sensitive': instance.possiblySensitive,
+      'possibly_sensitive_appealable': instance.possiblySensitiveAppealable,
       'lang': instance.lang,
       'quoted_status_permalink': instance.quotedStatusPermalink?.toJson(),
       'full_text': instance.fullText,

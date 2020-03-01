@@ -9,6 +9,7 @@ environment:
 dependencies:
  oauth1: ^1.0.4
  json_annotation: ^3.0.1
+ intl: ^0.16.1
 
 dev_dependencies:
   pedantic: ^1.8.0

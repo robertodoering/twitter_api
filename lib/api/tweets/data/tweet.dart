@@ -4,6 +4,7 @@ import 'package:twitter_api/api/geo/data/coordinates.dart';
 import 'package:twitter_api/api/geo/data/place.dart';
 import 'package:twitter_api/api/tweets/data/quoted_status_permalink.dart';
 import 'package:twitter_api/api/users/data/user.dart';
+import 'package:twitter_api/src/utils/date_utils.dart';
 
 part 'tweet.g.dart';
 
@@ -17,9 +18,8 @@ class Tweet {
   factory Tweet.fromJson(Map<String, dynamic> json) => _$TweetFromJson(json);
 
   /// UTC time when this Tweet was created.
-  // todo
-  // @JsonKey(fromJson: convertFromTwitterDateString)
-  // DateTime createdAt;
+  @JsonKey(fromJson: convertTwitterDateTime)
+  DateTime createdAt;
 
   /// The string representation of the unique identifier for this Tweet.
   String idStr;
@@ -133,6 +133,8 @@ class Tweet {
   /// instead it is an indicator that the URL contained in the Tweet may contain
   /// content or media identified as sensitive content.
   bool possiblySensitive;
+
+  bool possiblySensitiveAppealable;
 
   /// Nullable. When present, indicates a BCP 47 language identifier
   /// corresponding to the machine-detected language of the Tweet text, or und
