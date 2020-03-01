@@ -24,6 +24,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
     ..listedCount = json['listed_count'] as int
     ..favoritesCount = json['favourites_count'] as int
     ..statusesCount = json['statuses_count'] as int
+    ..createdAt = convertTwitterDateTime(json['created_at'] as String)
     ..profileBannerUrl = json['profile_banner_url'] as String
     ..profileImageUrlHttps = json['profile_image_url_https'] as String
     ..defaultProfile = json['default_profile'] as bool
@@ -49,6 +50,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'listed_count': instance.listedCount,
       'favourites_count': instance.favoritesCount,
       'statuses_count': instance.statusesCount,
+      'created_at': instance.createdAt?.toIso8601String(),
       'profile_banner_url': instance.profileBannerUrl,
       'profile_image_url_https': instance.profileImageUrlHttps,
       'default_profile': instance.defaultProfile,

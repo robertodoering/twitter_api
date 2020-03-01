@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:twitter_api/api/users/data/derived.dart';
+import 'package:twitter_api/src/utils/date_utils.dart';
 
 part 'user.g.dart';
 
@@ -72,8 +73,8 @@ class User {
   int statusesCount;
 
   /// The UTC datetime that the user account was created on Twitter.
-  // todo
-  //DateTime createdAt;
+  @JsonKey(fromJson: convertTwitterDateTime)
+  DateTime createdAt;
 
   /// The HTTPS-based URL pointing to the standard web representation of the
   /// user’s uploaded profile banner. By adding a final path element of the URL,
