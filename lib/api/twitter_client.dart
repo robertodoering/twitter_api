@@ -1,8 +1,16 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:oauth1/oauth1.dart' as oauth1;
+
+/// A function used to transform the response.
+///
+/// To prevent large computations from blocking the thread, consider decoding
+/// the response body in an isolate. When using `Flutter`, consider using the
+/// `compute` method.
+typedef TransformResponse<T> = FutureOr<T> Function(Response response);
 
 class TwitterClient {
   const TwitterClient({
