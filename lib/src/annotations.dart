@@ -6,5 +6,5 @@ class _NotImplemented {
 /// implemented or supported.
 ///
 /// The parameter may be used in the request, but any consequent changes of the
-/// response are likely not parsed.
+/// response are likely not handled.
 const Object notImplemented = _NotImplemented();
