@@ -1,22 +1,13 @@
 import 'dart:convert';
 
+import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:twitter_api/api/geo/data/place.dart';
 import 'package:twitter_api/api/twitter_client.dart';
 import 'package:twitter_api/src/annotations.dart';
+import 'package:twitter_api/src/utils/map_utils.dart';
 
 import 'data/tweet.dart';
-
-// todo
-extension on Map<String, String> {
-  void addParameter(String param, dynamic value) {
-    if (value is List) {
-      this[param] = value.join(',');
-    } else if (value != null) {
-      this[param] = '$value';
-    }
-  }
-}
 
 class TweetService {
   const TweetService({
@@ -100,6 +91,12 @@ class TweetService {
   /// [cardUri]: Associate an ads card with the Tweet using the [cardUri] value
   /// from any ads card response.
   ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.
   Future<Tweet> update({
     @required String status,
@@ -117,41 +114,66 @@ class TweetService {
     bool enableDmcommands,
     bool failDmcommands,
     String cardUri,
+    String tweetMode = 'extended',
+    TransformResponse<Tweet> transform = _defaultTweetTransformation,
   }) {
-    final body = <String, String>{
-      'status': status,
-      'tweet_mode': 'extended',
-      if (inReplyToStatusId != null) 'in_reply_to_status_id': inReplyToStatusId,
-      if (autoPopulateReplyMetadata != null)
-        'auto_populate_reply_metadata': '$autoPopulateReplyMetadata',
-      if (excludeReplyUserId != null)
-        'exclude_reply_user_ids': excludeReplyUserId.join(','),
-      if (attachmentUrl != null) 'attachment_url': attachmentUrl,
-      if (mediaIds != null) 'media_ids': mediaIds.join(','),
-      if (possiblySensitive != null) 'possibly_sensitive': '$possiblySensitive',
-      if (lat != null) 'lat': '$lat',
-      if (long != null) 'long': '$long',
-      if (placeId != null) 'place_id': placeId,
-      if (displayCoordinates != null)
-        'display_coordinates': '$displayCoordinates',
-      if (trimUser != null) 'trim_user': '$trimUser',
-      if (enableDmcommands != null) 'enable_dmcommands': '$enableDmcommands',
-      if (failDmcommands != null) 'fail_dmcommands': '$failDmcommands',
-      if (cardUri != null) 'card_uri': '$failDmcommands',
-    };
+    final body = <String, String>{}
+      ..addParameter('tweet_mode', tweetMode)
+      ..addParameter('status', status)
+      ..addParameter('in_reply_to_status_id', inReplyToStatusId)
+      ..addParameter('auto_populate_reply_metadata', autoPopulateReplyMetadata)
+      ..addParameter('exclude_reply_user_ids', excludeReplyUserId)
+      ..addParameter('attachment_url', attachmentUrl)
+      ..addParameter('media_ids', mediaIds)
+      ..addParameter('possibly_sensitive', possiblySensitive)
+      ..addParameter('lat', lat)
+      ..addParameter('long', long)
+      ..addParameter('place_id', placeId)
+      ..addParameter('display_coordinates', displayCoordinates)
+      ..addParameter('trim_user', trimUser)
+      ..addParameter('enable_dmcommands', enableDmcommands)
+      ..addParameter('fail_dmcommands', failDmcommands)
+      ..addParameter('card_uri', cardUri);
 
     return client
         .post(
-          Uri.https(
-            'api.twitter.com',
-            '1.1/statuses/update.json',
-            // params,
-          ),
+          Uri.https('api.twitter.com', '1.1/statuses/update.json'),
           body: body,
         )
-        .then((response) => Tweet.fromJson((json.decode(response.body))));
-    // todo: the twitter client should contain a method it calls to allow for
-    //   deserialization in an isolate
+        .then(transform);
+  }
+
+  /// Destroys the status specified by the required ID parameter. The
+  /// authenticating user must be the author of the specified status. Returns
+  /// the destroyed status if successful.
+  ///
+  /// [id]: The numerical ID of the desired status.
+  ///
+  /// [trimUser]: When `true`, each tweet returned in a timeline will include a
+  /// user object including only the status authors numerical ID. Omit this
+  /// parameter to receive the complete user object.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  Future<Tweet> destroy({
+    @required String id,
+    bool trimUser,
+    String tweetMode = 'extended',
+    TransformResponse<Tweet> transform = _defaultTweetTransformation,
+  }) async {
+    final body = <String, String>{}
+      ..addParameter('tweet_mode', tweetMode)
+      ..addParameter('trim_user', trimUser);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/statuses/destroy/$id.json'),
+          body: body,
+        )
+        .then(transform);
   }
 
   /// Returns a single Tweet, specified by the [id] parameter. The Tweet's author
@@ -183,6 +205,12 @@ class TweetService {
   /// card was attached using the card_uri value.
   /// // todo: implement
   ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-show-id.
   Future<Tweet> show({
     @required String id,
@@ -191,26 +219,24 @@ class TweetService {
     bool includeEntities,
     @notImplemented bool includeExtAltText,
     @notImplemented bool includeCardUri,
+    String tweetMode = 'extended',
+    TransformResponse<Tweet> transform = _defaultTweetTransformation,
   }) {
-    final params = <String, String>{
-      'id': id,
-      'tweet_mode': 'extended',
-      if (trimUser != null) 'trim_user': '$trimUser',
-      if (includeMyRetweet != null) 'include_my_retweet': '$includeMyRetweet',
-      if (includeEntities != null) 'include_entities': '$includeEntities',
-      if (includeExtAltText != null)
-        'include_ext_alt_text': '$includeExtAltText',
-      if (includeCardUri != null) 'include_card_uri': '$includeCardUri',
-    };
+    final params = <String, String>{}
+      ..addParameter('tweet_mode', 'extended')
+      ..addParameter('id', id)
+      ..addParameter('trim_user', trimUser)
+      ..addParameter('include_my_retweet', includeMyRetweet)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_alt_text', includeExtAltText)
+      ..addParameter('include_card_uri', includeCardUri);
 
     return client
-        .get(
-          Uri.https(
-            'api.twitter.com',
-            '1.1/statuses/show.json',
-            params,
-          ),
-        )
-        .then((response) => Tweet.fromJson((json.decode(response.body))));
+        .get(Uri.https('api.twitter.com', '1.1/statuses/show.json', params))
+        .then(transform);
   }
+}
+
+Tweet _defaultTweetTransformation(Response response) {
+  return Tweet.fromJson((json.decode(response.body)));
 }
