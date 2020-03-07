@@ -235,6 +235,38 @@ class TweetService {
         .get(Uri.https('api.twitter.com', '1.1/statuses/show.json', params))
         .then(transform);
   }
+
+  /// Retweets a tweet. Returns the original Tweet with Retweet details
+  /// embedded.
+  ///
+  /// [id]: The numerical ID of the desired status.
+  ///
+  /// [trimUser]: When `true`, each tweet returned in a timeline will include a
+  /// user object including only the status authors numerical ID. Omit this
+  /// parameter to receive the complete user object.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  Future<Tweet> retweet({
+    @required String id,
+    bool trimUser,
+    String tweetMode = 'extended',
+    TransformResponse<Tweet> transform = _defaultTweetTransformation,
+  }) async {
+    final body = <String, String>{}
+      ..addParameter('tweet_mode', tweetMode)
+      ..addParameter('trim_user', trimUser);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/statuses/retweet/$id.json'),
+          body: body,
+        )
+        .then(transform);
+  }
 }
 
 Tweet _defaultTweetTransformation(Response response) {
