@@ -115,7 +115,7 @@ class TweetService {
     bool failDmcommands,
     String cardUri,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransformation,
+    TransformResponse<Tweet> transform = _defaultTweetTransform,
   }) {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
@@ -164,7 +164,7 @@ class TweetService {
     @required String id,
     bool trimUser,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransformation,
+    TransformResponse<Tweet> transform = _defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
@@ -222,7 +222,7 @@ class TweetService {
     @notImplemented bool includeExtAltText,
     @notImplemented bool includeCardUri,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransformation,
+    TransformResponse<Tweet> transform = _defaultTweetTransform,
   }) {
     final params = <String, String>{}
       ..addParameter('tweet_mode', 'extended')
@@ -258,7 +258,7 @@ class TweetService {
     @required String id,
     bool trimUser,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransformation,
+    TransformResponse<Tweet> transform = _defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
@@ -292,7 +292,7 @@ class TweetService {
     @required String id,
     bool trimUser,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransformation,
+    TransformResponse<Tweet> transform = _defaultTweetTransform,
   }) {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
@@ -305,8 +305,59 @@ class TweetService {
         )
         .then(transform);
   }
+
+  /// Returns a collection of the 100 most recent retweets of the Tweet
+  /// specified by the [id] parameter.
+  ///
+  /// [id]: The numerical ID of the desired status.
+  ///
+  /// [count]: Specifies the number of records to retrieve. Must be less than or
+  /// equal to 100.
+  ///
+  /// [trimUser]: When `true`, each tweet returned in a timeline will include a
+  /// user object including only the status authors numerical ID. Omit this
+  /// parameter to receive the complete user object.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  ///
+  /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets-id.
+  Future<List<Tweet>> retweets({
+    @required String id,
+    int count,
+    bool trimUser,
+    String tweetMode = 'extended',
+    TransformResponse<List<Tweet>> transform = _defaultTweetListTransform,
+  }) {
+    final params = <String, String>{}
+      ..addParameter('tweet_mode', tweetMode)
+      ..addParameter('trim_user', trimUser);
+
+    return client
+        .get(
+          Uri.https(
+            'api.twitter.com',
+            '1.1/statuses/retweets/$id.json',
+            params,
+          ),
+        )
+        .then(transform);
+  }
 }
 
-Tweet _defaultTweetTransformation(Response response) {
+Tweet _defaultTweetTransform(Response response) {
   return Tweet.fromJson((json.decode(response.body)));
+}
+
+List<Tweet> _defaultTweetListTransform(Response response) {
+  final tweets = <Tweet>[];
+
+  for (Map<String, dynamic> tweetJson in json.decode(response.body)) {
+    tweets.add(Tweet.fromJson(tweetJson));
+  }
+
+  return tweets;
 }
