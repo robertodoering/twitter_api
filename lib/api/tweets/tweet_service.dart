@@ -238,6 +238,14 @@ class TweetService {
         .then(transform);
   }
 
+  /// Returns fully-hydrated Tweet objects for up to 100 Tweets per request, as
+  /// specified by comma-separated values passed to the id parameter.
+  ///
+  /// todo
+  ///
+  /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup.
+  Future<void> lookup() async {}
+
   /// Retweets a tweet. Returns the original Tweet with Retweet details
   /// embedded.
   ///
@@ -333,14 +341,220 @@ class TweetService {
     TransformResponse<List<Tweet>> transform = _defaultTweetListTransform,
   }) {
     final params = <String, String>{}
-      ..addParameter('tweet_mode', tweetMode)
-      ..addParameter('trim_user', trimUser);
+      ..addParameter('trim_user', trimUser)
+      ..addParameter('tweet_mode', tweetMode);
 
     return client
         .get(
           Uri.https(
             'api.twitter.com',
             '1.1/statuses/retweets/$id.json',
+            params,
+          ),
+        )
+        .then(transform);
+  }
+
+  /// Returns the most recent Tweets authored by the authenticating user that
+  /// have been retweeted by others. This timeline is a subset of the user's GET
+  /// statuses / user_timeline.
+  ///
+  /// [count]: Specifies the number of records to retrieve. Must be less than or
+  /// equal to 100.
+  ///
+  /// [sinceId]: Returns results with an ID greater than (that is, more recent
+  /// than) the specified ID. There are limits to the number of Tweets which can
+  /// be accessed through the API. If the limit of Tweets has occured since the
+  /// [sinceId], the [sinceId] will be forced to the oldest ID available.
+  ///
+  /// [maxId]: Returns results with an ID less than (that is, older than) or
+  /// equal to the specified ID.
+  ///
+  /// [trimUser]: When `true`, each tweet returned in a timeline will include a
+  /// user object including only the status authors numerical ID. Omit this
+  /// parameter to receive the complete user object.
+  ///
+  /// [includeEntities]: The entities node will not be included when set to `false`.
+  ///
+  /// [includeUserEntities]: The user entities node will not be included when
+  /// set to `false`.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  ///
+  /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets_of_me.
+  Future<List<Tweet>> retweetsOfMe({
+    int count,
+    String sinceId,
+    String maxId,
+    bool trimUser,
+    bool includeEntities,
+    bool includeUserEntities,
+    String tweetMode = 'extended',
+    TransformResponse<List<Tweet>> transform = _defaultTweetListTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('count', count)
+      ..addParameter('since_id', sinceId)
+      ..addParameter('max_id', maxId)
+      ..addParameter('trim_user', trimUser)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_user_entities', includeUserEntities)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .get(
+          Uri.https(
+            'api.twitter.com',
+            '1.1/statuses/retweets_of_me.json',
+            params,
+          ),
+        )
+        .then(transform);
+  }
+
+  /// Returns a collection of up to 100 user IDs belonging to users who have
+  /// retweeted the Tweet specified by the [id] parameter.
+  ///
+  /// This method offers similar data to [retweets].
+  ///
+  /// todo
+  ///
+  /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweeters-ids.
+  Future<void> retweeters() async {}
+
+  /// Favorites (likes) the Tweet specified in the ID parameter as the
+  /// authenticating user. Returns the favorite Tweet when successful.
+  ///
+  /// The process invoked by this method is asynchronous. The immediately
+  /// returned Tweet object may not indicate the resultant favorited status of
+  /// the Tweet. A `200` OK response from this method will indicate whether the
+  /// intended action was successful or not.
+  ///
+  /// [id]: The numerical ID of the Tweet to like.
+  ///
+  /// [includeEntities]: The entities node will not be included when set to `false`.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  ///
+  /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-create.
+  Future<Tweet> createFavorite({
+    @required String id,
+    bool includeEntities,
+    String tweetMode = 'extended',
+    TransformResponse<Tweet> transform = _defaultTweetTransform,
+  }) async {
+    final body = <String, String>{}
+      ..addParameter('id', id)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/favorites/create.json'),
+          body: body,
+        )
+        .then(transform);
+  }
+
+  /// Unfavorites (un-likes) the Tweet specified in the ID parameter as the
+  /// authenticating user. Returns the un-liked Tweet when successful.
+  ///
+  /// The process invoked by this method is asynchronous. The immediately
+  /// returned Tweet object may not indicate the resultant favorited status of
+  /// the Tweet. A 200 OK response from this method will indicate whether the
+  /// intended action was successful or not.
+  ///
+  /// [id]: The numerical ID of the Tweet to un-like.
+  ///
+  /// [includeEntities]: The entities node will not be included when set to `false`.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  ///
+  /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-destroy.
+  Future<Tweet> destroyFavorite({
+    @required String id,
+    bool includeEntities,
+    String tweetMode = 'extended',
+    TransformResponse<Tweet> transform = _defaultTweetTransform,
+  }) async {
+    final body = <String, String>{}
+      ..addParameter('id', id)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/favorites/create.json'),
+          body: body,
+        )
+        .then(transform);
+  }
+
+  /// Returns the 20 most recent Tweets liked by the authenticating or specified
+  /// user.
+  ///
+  /// [userId]: The ID of the user for whom to return results.
+  ///
+  /// [screenName]: The screen name of the user for whom to return results.
+  ///
+  /// [count]: Specifies the number of records to retrieve. Must be less than or
+  /// equal to 200; defaults to 20. The value of count is best thought of as a
+  /// limit to the number of Tweets to return because suspended or deleted
+  /// content is removed after the count has been applied.
+  ///
+  /// [sinceId]: Returns results with an ID greater than (that is, more recent
+  /// than) the specified ID. There are limits to the number of Tweets which can
+  /// be accessed through the API. If the limit of Tweets has occured since the
+  /// [sinceId], the [sinceId] will be forced to the oldest ID available.
+  ///
+  /// [maxId]: Returns results with an ID less than (that is, older than) or
+  /// equal to the specified ID.
+  ///
+  /// [includeEntities]: The entities node will not be included when set to `false`.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to transform the response. It is recommended to
+  /// handle the response in an isolate.
+  ///
+  /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list.
+  Future<List<Tweet>> listFavorites({
+    String userId,
+    String screenName,
+    int count,
+    String sinceId,
+    String maxId,
+    bool includeEntities,
+    String tweetMode = 'extended',
+    TransformResponse<List<Tweet>> transform = _defaultTweetListTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('count', count)
+      ..addParameter('since_id', sinceId)
+      ..addParameter('max_id', maxId)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .get(
+          Uri.https(
+            'api.twitter.com',
+            '1.1/favorites/list.json',
             params,
           ),
         )
