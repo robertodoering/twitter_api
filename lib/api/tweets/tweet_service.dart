@@ -1,13 +1,10 @@
-import 'dart:convert';
-
-import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:twitter_api/api/geo/data/place.dart';
+import 'package:twitter_api/api/tweets/data/tweet.dart';
 import 'package:twitter_api/api/twitter_client.dart';
 import 'package:twitter_api/src/annotations.dart';
 import 'package:twitter_api/src/utils/map_utils.dart';
-
-import 'data/tweet.dart';
+import 'package:twitter_api/src/utils/transforms.dart';
 
 class TweetService {
   const TweetService({
@@ -115,7 +112,7 @@ class TweetService {
     bool failDmcommands,
     String cardUri,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransform,
+    TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
@@ -164,7 +161,7 @@ class TweetService {
     @required String id,
     bool trimUser,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransform,
+    TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
@@ -222,7 +219,7 @@ class TweetService {
     @notImplemented bool includeExtAltText,
     @notImplemented bool includeCardUri,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransform,
+    TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
     final params = <String, String>{}
       ..addParameter('tweet_mode', 'extended')
@@ -266,7 +263,7 @@ class TweetService {
     @required String id,
     bool trimUser,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransform,
+    TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
@@ -300,7 +297,7 @@ class TweetService {
     @required String id,
     bool trimUser,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransform,
+    TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
@@ -338,7 +335,7 @@ class TweetService {
     int count,
     bool trimUser,
     String tweetMode = 'extended',
-    TransformResponse<List<Tweet>> transform = _defaultTweetListTransform,
+    TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) {
     final params = <String, String>{}
       ..addParameter('trim_user', trimUser)
@@ -394,7 +391,7 @@ class TweetService {
     bool includeEntities,
     bool includeUserEntities,
     String tweetMode = 'extended',
-    TransformResponse<List<Tweet>> transform = _defaultTweetListTransform,
+    TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
     final params = <String, String>{}
       ..addParameter('count', count)
@@ -449,7 +446,7 @@ class TweetService {
     @required String id,
     bool includeEntities,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransform,
+    TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('id', id)
@@ -487,7 +484,7 @@ class TweetService {
     @required String id,
     bool includeEntities,
     String tweetMode = 'extended',
-    TransformResponse<Tweet> transform = _defaultTweetTransform,
+    TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('id', id)
@@ -539,7 +536,7 @@ class TweetService {
     String maxId,
     bool includeEntities,
     String tweetMode = 'extended',
-    TransformResponse<List<Tweet>> transform = _defaultTweetListTransform,
+    TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
     final params = <String, String>{}
       ..addParameter('user_id', userId)
@@ -560,18 +557,4 @@ class TweetService {
         )
         .then(transform);
   }
-}
-
-Tweet _defaultTweetTransform(Response response) {
-  return Tweet.fromJson((json.decode(response.body)));
-}
-
-List<Tweet> _defaultTweetListTransform(Response response) {
-  final tweets = <Tweet>[];
-
-  for (Map<String, dynamic> tweetJson in json.decode(response.body)) {
-    tweets.add(Tweet.fromJson(tweetJson));
-  }
-
-  return tweets;
 }
