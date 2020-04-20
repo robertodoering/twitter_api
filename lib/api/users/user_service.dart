@@ -192,11 +192,32 @@ class UserService {
   /// Tweet. If you don't follow a protected user, the user's Tweet will be
   /// removed. A Tweet will not always be returned in the [currentStatus] field.
   ///
-  /// TODO: implement
+  /// [userId]: The ID of the user for whom to return results.
+  /// Either an id or [screenName] is required for this method.
+  ///
+  /// [screenName]: The screen name of the user for whom to return results.
+  /// Either an id or [screenName] is required for this method.
+  ///
+  /// [includeEntities]:  The entities node will not be included when set to
+  /// `false`.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show.
   @notImplemented
-  Future<void> usersShow() async {}
+  Future<void> usersShow({
+    String userId,
+    String screenName,
+    bool includeEntities,
+    TransformResponse<User> transform = defaultUserTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('include_entities', includeEntities);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/users/show.json', params))
+        .then(transform);
+  }
 
   /// Allows the authenticating user to follow (friend) the user specified in
   /// the ID parameter.
