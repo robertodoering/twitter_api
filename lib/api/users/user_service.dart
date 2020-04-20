@@ -162,7 +162,6 @@ class UserService {
     TransformResponse<List<User>> transform = defaultUserListTransform,
   }) async {
     final params = <String, String>{}
-      ..addParameter('tweet_mode', 'extended')
       ..addParameter('q', q)
       ..addParameter('page', page)
       ..addParameter('count', count)
