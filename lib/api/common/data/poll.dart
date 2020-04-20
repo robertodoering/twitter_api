@@ -17,7 +17,7 @@ class Poll {
   List<Option> options;
 
   /// Time stamp (UTC) of when poll ends.
-  // todo
+  // TODO
   // @JsonKey(fromJson: convertFromTwitterDateString)
   // DateTime endDatetime;
 

@@ -189,7 +189,7 @@ class TweetService {
   /// [includeMyRetweet]: When `true`, any Tweets returned that have been
   /// retweeted by the authenticating user will include an additional node,
   /// containing the ID of the source status for the retweet.
-  /// // todo: implement
+  /// TODO: implement
   ///
   /// [includeEntities]: The entities node will not be included when set to `false`.
   ///
@@ -197,12 +197,12 @@ class TweetService {
   /// entities, this parameter will return an ext_alt_text value in the
   /// top-level key for the media entity. If no value has been set, this will be
   /// returned as `null`.
-  /// // todo: implement
+  /// TODO: implement
   ///
   /// [includeCardUri]: When `true`, the retrieved Tweet will include a card_uri
   /// attribute when there is an ads card attached to the Tweet and when that
   /// card was attached using the card_uri value.
-  /// // todo: implement
+  /// TODO: implement
   ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
@@ -238,9 +238,10 @@ class TweetService {
   /// Returns fully-hydrated Tweet objects for up to 100 Tweets per request, as
   /// specified by comma-separated values passed to the id parameter.
   ///
-  /// todo
+  /// TODO: implement
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup.
+  @notImplemented
   Future<void> lookup() async {}
 
   /// Retweets a tweet. Returns the original Tweet with Retweet details
@@ -418,9 +419,10 @@ class TweetService {
   ///
   /// This method offers similar data to [retweets].
   ///
-  /// todo
+  /// TODO: implement
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweeters-ids.
+  @notImplemented
   Future<void> retweeters() async {}
 
   /// Favorites (likes) the Tweet specified in the ID parameter as the
