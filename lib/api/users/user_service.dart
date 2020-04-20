@@ -162,6 +162,9 @@ class UserService {
   /// [includeEntities]: The entities node will not be included in embedded
   /// Tweet objects when set to `false`.
   ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-search.
   @notImplemented
   Future<void> usersSearch({
@@ -169,13 +172,15 @@ class UserService {
     int page,
     int count,
     bool includeEntities,
+    String tweetMode = 'extended',
     TransformResponse<List<User>> transform = defaultUserListTransform,
   }) async {
     final params = <String, String>{}
       ..addParameter('q', q)
       ..addParameter('page', page)
       ..addParameter('count', count)
-      ..addParameter('include_entities', includeEntities);
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('tweet_mode', tweetMode);
 
     return client
         .get(Uri.https('api.twitter.com', '1.1/users/search.json', params))
@@ -201,18 +206,23 @@ class UserService {
   /// [includeEntities]:  The entities node will not be included when set to
   /// `false`.
   ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show.
   @notImplemented
   Future<void> usersShow({
     String userId,
     String screenName,
     bool includeEntities,
+    String tweetMode = 'extended',
     TransformResponse<User> transform = defaultUserTransform,
   }) async {
     final params = <String, String>{}
       ..addParameter('user_id', userId)
       ..addParameter('screen_name', screenName)
-      ..addParameter('include_entities', includeEntities);
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('tweet_mode', tweetMode);
 
     return client
         .get(Uri.https('api.twitter.com', '1.1/users/show.json', params))
@@ -231,11 +241,37 @@ class UserService {
   /// Actions taken in this method are asynchronous. Changes will be eventually
   /// consistent.
   ///
-  /// TODO: implement
+  /// [userId]: The screen name of the user to follow.
+  ///
+  /// [screenName]: The ID of the user to follow.
+  ///
+  /// [follow]: Enable notifications for the target user.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create.
   @notImplemented
-  Future<void> friendshipsCreate() async {}
+  Future<void> friendshipsCreate({
+    String userId,
+    String screenName,
+    bool follow,
+    String tweetMode = 'extended',
+    TransformResponse<User> transform = defaultUserTransform,
+  }) async {
+    final body = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('follow', follow)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/friendships/create.json'),
+          body: body,
+        )
+        .then(transform);
+  }
 
   /// Allows the authenticating user to unfollow the user specified in the ID
   /// parameter.
