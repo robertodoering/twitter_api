@@ -1,6 +1,9 @@
 import 'package:meta/meta.dart';
 import 'package:twitter_api/api/twitter_client.dart';
+import 'package:twitter_api/api/users/data/user.dart';
 import 'package:twitter_api/src/annotations.dart';
+import 'package:twitter_api/src/utils/map_utils.dart';
+import 'package:twitter_api/src/utils/transforms.dart';
 
 class UserService {
   const UserService({
@@ -149,11 +152,26 @@ class UserService {
   ///
   /// Only the first 1,000 matching results are available.
   ///
-  /// TODO: implement
-  ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-search.
   @notImplemented
-  Future<void> usersSearch() async {}
+  Future<void> usersSearch({
+    @required String q,
+    int page,
+    int count,
+    bool includeEntities,
+    TransformResponse<List<User>> transform = defaultUserListTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('tweet_mode', 'extended')
+      ..addParameter('q', q)
+      ..addParameter('page', page)
+      ..addParameter('count', count)
+      ..addParameter('include_entities', includeEntities);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/users/search.json', params))
+        .then(transform);
+  }
 
   /// Returns a variety of information about the user specified by the required
   /// [userId] or [screenName] parameter. The author's most recent Tweet will be
