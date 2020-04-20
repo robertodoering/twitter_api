@@ -241,9 +241,9 @@ class UserService {
   /// Actions taken in this method are asynchronous. Changes will be eventually
   /// consistent.
   ///
-  /// [userId]: The screen name of the user to follow.
+  /// [userId]: The ID of the user to follow.
   ///
-  /// [screenName]: The ID of the user to follow.
+  /// [screenName]: The screen name of the user to follow.
   ///
   /// [follow]: Enable notifications for the target user.
   ///
@@ -282,11 +282,33 @@ class UserService {
   /// Actions taken in this method are asynchronous. Changes will be eventually
   /// consistent.
   ///
-  /// TODO: implement
+  /// [userId]: The ID of the user to unfollow.
+  ///
+  /// [screenName]: The screen name of the user to unfollow.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy.
   @notImplemented
-  Future<void> friendshipsDestroy() async {}
+  Future<void> friendshipsDestroy({
+    String userId,
+    String screenName,
+    String tweetMode = 'extended',
+    TransformResponse<User> transform = defaultUserTransform,
+  }) async {
+    final body = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/friendships/destroy.json'),
+          body: body,
+        )
+        .then(transform);
+  }
 
   /// Enable or disable Retweets and device notifications from the specified
   /// user.
