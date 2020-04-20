@@ -20,3 +20,7 @@ main() {
 Please file feature requests and bugs at the [issue tracker][tracker].
 
 [tracker]: http://example.com/issues/replaceme
+
+### To generate json_serializable models
+
+pub run build_runner build --delete-conflicting-outputs
