@@ -222,7 +222,7 @@ class TweetService {
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
     final params = <String, String>{}
-      ..addParameter('tweet_mode', 'extended')
+      ..addParameter('tweet_mode', tweetMode)
       ..addParameter('id', id)
       ..addParameter('trim_user', trimUser)
       ..addParameter('include_my_retweet', includeMyRetweet)
