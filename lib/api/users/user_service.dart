@@ -1,5 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:twitter_api/api/twitter_client.dart';
+import 'package:twitter_api/api/users/data/paginated_users.dart';
 import 'package:twitter_api/api/users/data/user.dart';
 import 'package:twitter_api/src/annotations.dart';
 import 'package:twitter_api/src/utils/map_utils.dart';
@@ -44,11 +45,55 @@ class UserService {
   /// https://developer.twitter.com/en/docs/basics/cursoring to navigate
   /// collections for more information.
   ///
-  /// TODO: implement
+  /// [userId]: The ID of the user for whom to return results.
+  ///
+  /// [screenName]: 	The screen name of the user for whom to return results.
+  ///
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [count]: The number of users to return per page, up to a maximum of 200.
+  /// Defaults to 20.
+  ///
+  /// [skipStatus]: When set to `true`, statuses will not be included in the
+  /// returned user objects. If set to any other value, statuses will be
+  /// included.
+  ///
+  /// [includeUserEntities]: The user object entities node will not be included
+  /// when set to `false`.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-list.
   @notImplemented
-  Future<void> followersList() async {}
+  Future<void> followersList({
+    String userId,
+    String screenName,
+    int cursor,
+    int count,
+    bool skipStatus,
+    bool includeUserEntities,
+    String tweetMode = 'extended',
+    TransformResponse<PaginatedUsers> transform =
+        defaultPaginatedUsersTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('cursor', cursor)
+      ..addParameter('count', count)
+      ..addParameter('include_user_entities', includeUserEntities)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/followers/list.json', params))
+        .then(transform);
+  }
 
   /// Returns a cursored collection of user IDs for every user the specified
   /// user is following (otherwise known as their "friends").

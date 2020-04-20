@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:twitter_api/api/tweets/data/tweet.dart';
+import 'package:twitter_api/api/users/data/paginated_users.dart';
 import 'package:twitter_api/api/users/data/user.dart';
 
 Tweet defaultTweetTransform(Response response) {
@@ -30,4 +31,8 @@ List<User> defaultUserListTransform(Response response) {
   }
 
   return users;
+}
+
+PaginatedUsers defaultPaginatedUsersTransform(Response response) {
+  return PaginatedUsers.fromJson(json.decode(response.body));
 }
