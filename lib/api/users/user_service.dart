@@ -152,6 +152,16 @@ class UserService {
   ///
   /// Only the first 1,000 matching results are available.
   ///
+  /// [q]: The search query to run against people search.
+  ///
+  /// [page]: Specifies the page of results to retrieve.
+  ///
+  /// [count]: The number of potential user results to retrieve per page. This
+  /// value has a maximum of 20.
+  ///
+  /// [includeEntities]: The entities node will not be included in embedded
+  /// Tweet objects when set to `false`.
+  ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-search.
   @notImplemented
   Future<void> usersSearch({
