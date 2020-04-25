@@ -123,12 +123,15 @@ class MediaService {
     TransformResponse<UploadFinalize> transform =
         defaultUploadFinalizeTransform,
   }) async {
-    final params = <String, String>{}
+    final body = <String, String>{}
       ..addParameter('command', 'FINALIZE')
       ..addParameter('media_id', mediaId);
 
     return client
-        .get(Uri.https('api.twitter.com', '1.1/media/upload.json', params))
+        .post(
+          Uri.https('api.twitter.com', '1.1/media/upload.json'),
+          body: body,
+        )
         .then(transform);
   }
 
