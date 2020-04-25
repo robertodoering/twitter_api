@@ -96,7 +96,6 @@ class MediaService {
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status.
-  @notImplemented
   Future<UploadStatus> mediaUploadStatus({
     @required String mediaId,
     TransformResponse<UploadStatus> transform = defaultUploadStatusTransform,
