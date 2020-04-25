@@ -80,7 +80,7 @@ class TwitterClient {
 
   Future<Response> multipartRequest(
     dynamic uri, {
-    List<int> fileBytes,
+    List<MultipartFile> files,
     Map<String, String> headers,
     Duration timeout = _kDefaultTimeout,
   }) async {
@@ -89,8 +89,8 @@ class TwitterClient {
       uri is String ? Uri.parse(uri) : uri as Uri,
     );
 
-    if (fileBytes != null) {
-      request.files.add(MultipartFile.fromBytes('media', fileBytes));
+    if (files != null) {
+      request.files.addAll(files);
     }
 
     if (headers != null) {
