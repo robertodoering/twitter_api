@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:twitter_api/api/media/data/media_upload.dart';
 import 'package:twitter_api/api/tweets/data/tweet.dart';
 import 'package:twitter_api/api/users/data/paginated_users.dart';
 import 'package:twitter_api/api/users/data/user.dart';
@@ -35,4 +36,16 @@ List<User> defaultUserListTransform(Response response) {
 
 PaginatedUsers defaultPaginatedUsersTransform(Response response) {
   return PaginatedUsers.fromJson(json.decode(response.body));
+}
+
+UploadInit defaultUploadInitTransform(Response response) {
+  return UploadInit.fromJson(json.decode(response.body));
+}
+
+UploadStatus defaultUploadStatusTransform(Response response) {
+  return UploadStatus.fromJson(json.decode(response.body));
+}
+
+UploadFinalize defaultUploadFinalizeTransform(Response response) {
+  return UploadFinalize.fromJson(json.decode(response.body));
 }
