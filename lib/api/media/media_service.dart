@@ -109,6 +109,29 @@ class MediaService {
         .then(transform);
   }
 
+  /// The `FINALIZE` command should be called after the entire media file is
+  /// uploaded using `APPEND` commands. If and (only if) the response of the
+  /// `FINALIZE` command contains a [UploadFinalize.processinginfo] field, it
+  /// may also be  necessary to use a `STATUS` command and wait for it to return
+  /// success before proceeding to Tweet creation.
+  ///
+  /// [mediaId]: The [mediaId] returned from the `INIT` command.
+  ///
+  /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-finalize.
+  Future<UploadFinalize> mediaUploadFinalize({
+    @required String mediaId,
+    TransformResponse<UploadFinalize> transform =
+        defaultUploadFinalizeTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('command', 'FINALIZE')
+      ..addParameter('media_id', mediaId);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/media/upload.json', params))
+        .then(transform);
+  }
+
   ///
   ///
   /// TODO: implement
