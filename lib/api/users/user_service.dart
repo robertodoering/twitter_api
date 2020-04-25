@@ -71,7 +71,7 @@ class UserService {
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-list.
   @notImplemented
-  Future<void> followersList({
+  Future<PaginatedUsers> followersList({
     String userId,
     String screenName,
     int cursor,
@@ -141,7 +141,7 @@ class UserService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-list.
-  Future<void> friendsList({
+  Future<PaginatedUsers> friendsList({
     String userId,
     String screenName,
     int cursor,
@@ -264,8 +264,7 @@ class UserService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-search.
-  @notImplemented
-  Future<void> usersSearch({
+  Future<List<User>> usersSearch({
     @required String q,
     int page,
     int count,
@@ -308,8 +307,7 @@ class UserService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show.
-  @notImplemented
-  Future<void> usersShow({
+  Future<User> usersShow({
     String userId,
     String screenName,
     bool includeEntities,
@@ -349,8 +347,7 @@ class UserService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create.
-  @notImplemented
-  Future<void> friendshipsCreate({
+  Future<User> friendshipsCreate({
     String userId,
     String screenName,
     bool follow,
@@ -388,8 +385,7 @@ class UserService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy.
-  @notImplemented
-  Future<void> friendshipsDestroy({
+  Future<User> friendshipsDestroy({
     String userId,
     String screenName,
     String tweetMode = 'extended',
