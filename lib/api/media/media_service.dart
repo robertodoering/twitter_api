@@ -88,6 +88,28 @@ class MediaService {
     );
   }
 
+  /// The `STATUS` command is used to periodically poll for updates of media
+  /// processing operation. After the `STATUS` command response returns
+  /// succeeded, you can move on to the next step which is usually create Tweet
+  /// with [mediaId].
+  ///
+  /// [mediaId]: The [mediaId] returned from the `INIT` command.
+  ///
+  /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status.
+  @notImplemented
+  Future<UploadStatus> mediaUploadStatus({
+    @required String mediaId,
+    TransformResponse<UploadStatus> transform = defaultUploadStatusTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('command', 'STATUS')
+      ..addParameter('media_id', mediaId);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/media/upload.json', params))
+        .then(transform);
+  }
+
   ///
   ///
   /// TODO: implement
