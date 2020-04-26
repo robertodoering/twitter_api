@@ -35,7 +35,7 @@ class MediaService {
   /// owners may be specified.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-init.
-  Future<UploadInit> mediaUploadInit({
+  Future<UploadInit> uploadInit({
     @required int totalBytes,
     @required String mediaType,
     String mediaCategory,
@@ -72,7 +72,7 @@ class MediaService {
   /// so on.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-append.
-  Future<void> mediaUploadAppend({
+  Future<void> uploadAppend({
     @required String mediaId,
     @required List<int> media,
     @required int segmentIndex,
@@ -96,7 +96,7 @@ class MediaService {
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status.
-  Future<UploadStatus> mediaUploadStatus({
+  Future<UploadStatus> uploadStatus({
     @required String mediaId,
     TransformResponse<UploadStatus> transform = defaultUploadStatusTransform,
   }) async {
@@ -118,7 +118,7 @@ class MediaService {
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-finalize.
-  Future<UploadFinalize> mediaUploadFinalize({
+  Future<UploadFinalize> uploadFinalize({
     @required String mediaId,
     TransformResponse<UploadFinalize> transform =
         defaultUploadFinalizeTransform,
