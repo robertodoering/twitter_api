@@ -135,11 +135,38 @@ class MediaService {
         .then(transform);
   }
 
+  /// This endpoint can be used to provide additional information about the
+  /// uploaded [mediaId]. This feature is currently only supported for images
+  /// and GIFs.
   ///
+  /// The request flow should be:
+  ///
+  /// * Upload media using the chunked upload endpoint.
+  /// * Call this endpoint to attach additional metadata such as image alt text.
+  /// * Create Tweet with [mediaId](s) attached.
   ///
   /// TODO: implement
   ///
-  /// See .
+  /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-metadata-create.
   @notImplemented
-  Future<void> a() async {}
+  Future<void> metadataCreate() async {}
+
+  /// Use this endpoint to associate uploaded subtitles to an uploaded video.
+  /// You can associate subtitles to video before or after Tweeting.
+  ///
+  /// TODO: implement
+  ///
+  /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-subtitles-create.
+  @notImplemented
+  Future<void> subtitlesCreate() async {}
+
+  /// Use this endpoint to dissociate subtitles from a video and delete the
+  /// subtitles. You can dissociate subtitles from a video before or after
+  /// Tweeting.
+  ///
+  /// TODO: implement
+  ///
+  /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-subtitles-delete.
+  @notImplemented
+  Future<void> subtitlesDelete() async {}
 }
