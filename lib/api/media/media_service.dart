@@ -51,7 +51,7 @@ class MediaService {
 
     return client
         .post(
-          Uri.https('api.twitter.com', '1.1/media/upload.json'),
+          Uri.https('upload.twitter.com', '1.1/media/upload.json'),
           body: body,
         )
         .then(transform);
@@ -83,7 +83,7 @@ class MediaService {
       ..addParameter('segment_index', segmentIndex);
 
     await client.multipartRequest(
-      Uri.https('api.twitter.com', '1.1/media/upload.json', params),
+      Uri.https('upload.twitter.com', '1.1/media/upload.json', params),
       files: [MultipartFile.fromBytes('media', media)],
     );
   }
@@ -105,7 +105,7 @@ class MediaService {
       ..addParameter('media_id', mediaId);
 
     return client
-        .get(Uri.https('api.twitter.com', '1.1/media/upload.json', params))
+        .get(Uri.https('upload.twitter.com', '1.1/media/upload.json', params))
         .then(transform);
   }
 
@@ -129,7 +129,7 @@ class MediaService {
 
     return client
         .post(
-          Uri.https('api.twitter.com', '1.1/media/upload.json'),
+          Uri.https('upload.twitter.com', '1.1/media/upload.json'),
           body: body,
         )
         .then(transform);
