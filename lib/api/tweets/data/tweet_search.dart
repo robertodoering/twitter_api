@@ -17,7 +17,7 @@ class TweetSearch {
 
   SearchMetadata searchMetadata;
 
-  Map<String, dynamic> toJson() => _$TweetToJson(this);
+  Map<String, dynamic> toJson() => _$TweetSearchToJson(this);
 }
 
 @JsonSerializable()
