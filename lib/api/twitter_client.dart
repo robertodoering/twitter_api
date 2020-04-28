@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:oauth1/oauth1.dart' as oauth1;
+import 'package:twitter_api/api/abstract_twitter_client.dart';
 
 /// A function used to transform the response.
 ///
@@ -12,7 +13,10 @@ import 'package:oauth1/oauth1.dart' as oauth1;
 /// `compute` method.
 typedef TransformResponse<T> = FutureOr<T> Function(Response response);
 
-class TwitterClient {
+const Duration _kDefaultTimeout = Duration(seconds: 10);
+
+/// The default implementation for [AbstractTwitterClient].
+class TwitterClient extends AbstractTwitterClient {
   const TwitterClient({
     @required this.consumerKey,
     @required this.consumerSecret,
@@ -49,6 +53,7 @@ class TwitterClient {
     );
   }
 
+  @override
   Future<Response> get(
     dynamic uri, {
     Map<String, String> headers,
@@ -61,6 +66,7 @@ class TwitterClient {
     });
   }
 
+  @override
   Future<Response> post(
     dynamic uri, {
     Map<String, String> headers,
@@ -78,6 +84,7 @@ class TwitterClient {
     });
   }
 
+  @override
   Future<Response> multipartRequest(
     dynamic uri, {
     List<MultipartFile> files,
@@ -106,5 +113,3 @@ class TwitterClient {
     });
   }
 }
-
-const Duration _kDefaultTimeout = Duration(seconds: 10);

@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:twitter_api/api/abstract_twitter_client.dart';
 import 'package:twitter_api/api/geo/data/place.dart';
 import 'package:twitter_api/api/tweets/data/tweet.dart';
 import 'package:twitter_api/api/twitter_client.dart';
@@ -11,7 +12,7 @@ class TweetService {
     @required this.client,
   });
 
-  final TwitterClient client;
+  final AbstractTwitterClient client;
 
   /// Updates the authenticating user's current status, also known as Tweeting.
   ///

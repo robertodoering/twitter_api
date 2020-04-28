@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:twitter_api/api/abstract_twitter_client.dart';
 import 'package:twitter_api/api/twitter_client.dart';
 import 'package:twitter_api/api/users/data/paginated_users.dart';
 import 'package:twitter_api/api/users/data/user.dart';
@@ -11,7 +12,7 @@ class UserService {
     @required this.client,
   });
 
-  final TwitterClient client;
+  final AbstractTwitterClient client;
 
   /// Returns a cursored collection of user IDs for every user following the
   /// specified user.

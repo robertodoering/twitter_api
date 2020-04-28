@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:twitter_api/api/abstract_twitter_client.dart';
 import 'package:twitter_api/api/tweets/data/tweet_search.dart';
 import 'package:twitter_api/api/twitter_client.dart';
 import 'package:twitter_api/src/utils/map_utils.dart';
@@ -9,7 +10,7 @@ class TweetSearchService {
     @required this.client,
   });
 
-  final TwitterClient client;
+  final AbstractTwitterClient client;
 
   /// Returns a collection of relevant Tweets matching a specified query.
   ///
