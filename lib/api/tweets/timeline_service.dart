@@ -42,7 +42,7 @@ class TimelineService {
   /// `count` parameter retrieves that many Tweets before filtering out retweets
   /// and replies.
   ///
-  /// [includeEntities]:  The `entities` node will not be included when set to
+  /// [includeEntities]: The `entities` node will not be included when set to
   /// `false`.
   ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
@@ -53,7 +53,7 @@ class TimelineService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline.
   Future<List<Tweet>> homeTimeline({
-    String count,
+    int count,
     String sinceId,
     String maxId,
     bool trimUser,
@@ -137,7 +137,7 @@ class TimelineService {
   Future<List<Tweet>> userTimeline({
     String userId,
     String screenName,
-    String count,
+    int count,
     String sinceId,
     String maxId,
     bool trimUser,
@@ -201,7 +201,7 @@ class TimelineService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-mentions_timeline.
   Future<List<Tweet>> mentionsTimeline({
-    String count,
+    int count,
     String sinceId,
     String maxId,
     bool trimUser,
