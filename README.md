@@ -1,13 +1,7 @@
-# Dart wrapper for the Twitter REST API
+# A Dart wrapper for the Twitter API
 
-A Dart package for using the Twitter API.
-
-Provides a well documented interface with named parameters for each request
-and parses the response into a data model.
-
-## Twitter API key
-
-Get your Twitter API key [here](https://developer.twitter.com/en/apply-for-access).
+This dart package provides a well documented interface for the [Twitter
+API](https://developer.twitter.com/).
 
 ## Example usage
 
@@ -21,15 +15,29 @@ final TwitterApi twitterApi = TwitterApi(
   ),
 );
 
+// Get the last 200 tweets from your home timeline
 final List<Tweet> homeTimeline = await twitterApi.timelineService
     .homeTimeline(
       count: 200,
       includeEntities: false,
     )
     .catchError(handleError);
+
+// Print the text of each Tweet
+tweets.forEach((tweet) => print(tweet.fullText))
 ```
 
+## Twitter API key
+
+Get your Twitter API key [here](https://developer.twitter.com/en/apply-for-access).
+
 ## Features
+
+- This package provides an interface for various endpoints of the Twitter API to
+  make the usage as comfortable as possible.
+  - See // todo: link to docs // for an example.
+- The various data structures returned by Twitter are parsed into models.
+  - See // todo: link to docs // for an example.
 
 ### Implemented endpoints
 
@@ -119,7 +127,7 @@ twitterApi.client.post(
 
 ## Response transformation
 
-Every request has a transform parameter that is used to parse the response.
+Every request has a transform parameter that can be used to parse the response.
 When using Flutter, the request should be parsed in an isolate.
 
 Example:
@@ -130,6 +138,11 @@ Example:
 
 ## Development
 
-### To generate json_serializable models
+### Contribution
 
-`pub run build_runner build --delete-conflicting-outputs`
+// todo
+
+### Miscellaneous
+
+- To generate json_serializable models
+  - `pub run build_runner build --delete-conflicting-outputs`
