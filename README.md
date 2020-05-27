@@ -1,7 +1,16 @@
 # A Dart wrapper for the Twitter API
 
-This dart package provides a well documented interface for the [Twitter
+This dart package provides serves as a well documented wrapper for the [Twitter
 API](https://developer.twitter.com/).
+
+## Why use this package?
+
+To make the usage as comfortable as possible, this package provides interfaces
+for the various endpoints of the Twitter API. Documentation for each request is
+available as dart docs and each request's parameters can be controlled as named
+parameters.
+
+The various data structures returned by Twitter are parsed into data models.
 
 ## Example usage
 
@@ -29,15 +38,10 @@ tweets.forEach((tweet) => print(tweet.fullText))
 
 ## Twitter API key
 
-Get your Twitter API key [here](https://developer.twitter.com/en/apply-for-access).
+Get your Twitter API key
+[here](https://developer.twitter.com/en/apply-for-access).
 
 ## Features
-
-- This package provides an interface for various endpoints of the Twitter API to
-  make the usage as comfortable as possible.
-  - See // todo: link to docs // for an example.
-- The various data structures returned by Twitter are parsed into models.
-  - See // todo: link to docs // for an example.
 
 ### Implemented endpoints
 
@@ -84,7 +88,7 @@ Get your Twitter API key [here](https://developer.twitter.com/en/apply-for-acces
     - [ ] Enterprise search APIs
 
 - Direct Messages
-  - todo
+  - not yet implemented
 
 - Media
   - [ ] Upload media
@@ -97,10 +101,10 @@ Get your Twitter API key [here](https://developer.twitter.com/en/apply-for-acces
     - [ ] media/subtitles/create
 
 - Trends
-  - todo
+  - not yet implemented
 
 - Geo
-  - todo
+  - not yet implemented
 
 If an API endpoint is not yet implemented, a request can be made to that
 endpoint by manually using the `TwitterClient` from the `TwitterApi` object.
@@ -108,7 +112,7 @@ endpoint by manually using the `TwitterClient` from the `TwitterApi` object.
 Example:
 
 ```dart
-// Make an authenticated get request to users/show
+// Make an authenticated GET request to 'users/show'
 twitterApi.client.get(
   Uri.https('api.twitter.com', '1.1/users/show.json',
   <String, String>{
@@ -116,7 +120,7 @@ twitterApi.client.get(
   },
 );
 
-// Make an authenticated post request to friendships/create
+// Make an authenticated POST request to 'friendships/create'
 twitterApi.client.post(
   Uri.https('api.twitter.com', '1.1/friendships/create.json'),
   body: <String, String>{
@@ -128,13 +132,20 @@ twitterApi.client.post(
 ## Response transformation
 
 Every request has a transform parameter that can be used to parse the response.
-When using Flutter, the request should be parsed in an isolate.
+By default, each response is parsed synchronously in the same isolate. When
+handling a large response, this can result in a poor app performance when using
+Flutter.
+
+Therfore when using this package with Flutter, the responses should be parsed in
+an isolate.
 
 Example:
 
 ```dart
 // todo
 ```
+
+For more information, see [Parse JSON in the background](https://flutter.dev/docs/cookbook/networking/background-parsing).
 
 ## Development
 
