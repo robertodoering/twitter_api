@@ -1,9 +1,9 @@
+import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
+import 'package:dart_twitter_api/api/tweets/data/tweet_search.dart';
+import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/src/utils/map_utils.dart';
+import 'package:dart_twitter_api/src/utils/transforms.dart';
 import 'package:meta/meta.dart';
-import 'package:twitter_api/api/abstract_twitter_client.dart';
-import 'package:twitter_api/api/tweets/data/tweet_search.dart';
-import 'package:twitter_api/api/twitter_client.dart';
-import 'package:twitter_api/src/utils/map_utils.dart';
-import 'package:twitter_api/src/utils/transforms.dart';
 
 class TweetSearchService {
   const TweetSearchService({

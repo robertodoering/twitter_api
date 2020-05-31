@@ -1,5 +1,5 @@
+import 'package:dart_twitter_api/api/geo/data/coordinates.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/geo/data/coordinates.dart';
 
 part 'location.g.dart';
 

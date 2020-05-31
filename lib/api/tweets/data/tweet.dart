@@ -1,10 +1,10 @@
+import 'package:dart_twitter_api/api/common/data/entities.dart';
+import 'package:dart_twitter_api/api/geo/data/coordinates.dart';
+import 'package:dart_twitter_api/api/geo/data/place.dart';
+import 'package:dart_twitter_api/api/tweets/data/quoted_status_permalink.dart';
+import 'package:dart_twitter_api/api/users/data/user.dart';
+import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/common/data/entities.dart';
-import 'package:twitter_api/api/geo/data/coordinates.dart';
-import 'package:twitter_api/api/geo/data/place.dart';
-import 'package:twitter_api/api/tweets/data/quoted_status_permalink.dart';
-import 'package:twitter_api/api/users/data/user.dart';
-import 'package:twitter_api/src/utils/date_utils.dart';
 
 part 'tweet.g.dart';
 

@@ -1,5 +1,5 @@
+import 'package:dart_twitter_api/api/twitter_client.dart';
 import 'package:meta/meta.dart';
-import 'package:twitter_api/api/twitter_client.dart';
 
 class DirectMessagesService {
   const DirectMessagesService({

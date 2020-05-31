@@ -1,12 +1,12 @@
 import 'dart:convert';
 
+import 'package:dart_twitter_api/api/media/data/media_upload.dart';
+import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
+import 'package:dart_twitter_api/api/tweets/data/tweet_search.dart';
+import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
+import 'package:dart_twitter_api/api/users/data/user.dart';
+import 'package:dart_twitter_api/src/utils/isolates_io.dart';
 import 'package:http/http.dart';
-import 'package:twitter_api/api/media/data/media_upload.dart';
-import 'package:twitter_api/api/tweets/data/tweet.dart';
-import 'package:twitter_api/api/tweets/data/tweet_search.dart';
-import 'package:twitter_api/api/users/data/paginated_users.dart';
-import 'package:twitter_api/api/users/data/user.dart';
-import 'package:twitter_api/src/utils/isolates_io.dart';
 
 /// Parses the [response] into a [Tweet] object in an isolate.
 Future<Tweet> defaultTweetTransform(Response response) async {

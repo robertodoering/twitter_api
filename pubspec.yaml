@@ -1,7 +1,6 @@
-name: twitter_api
-description: A starting point for Dart libraries or applications.
-# version: 1.0.0
-# homepage: https://www.example.com
+name: dart_twitter_api
+description: A wrapper for the Twitter API.
+version: 0.0.1
 
 environment:
   sdk: '>=2.7.0 <3.0.0'

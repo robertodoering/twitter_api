@@ -1,5 +1,5 @@
+import 'package:dart_twitter_api/api/common/data/option.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/common/data/option.dart';
 
 part 'poll.g.dart';
 

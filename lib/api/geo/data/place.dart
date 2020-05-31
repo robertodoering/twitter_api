@@ -1,5 +1,5 @@
+import 'package:dart_twitter_api/api/geo/data/bounding_box.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/geo/data/bounding_box.dart';
 
 part 'place.g.dart';
 

@@ -1,10 +1,10 @@
+import 'package:dart_twitter_api/api/media/data/media_upload.dart';
+import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/src/annotations.dart';
+import 'package:dart_twitter_api/src/utils/map_utils.dart';
+import 'package:dart_twitter_api/src/utils/transforms.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
-import 'package:twitter_api/api/media/data/media_upload.dart';
-import 'package:twitter_api/api/twitter_client.dart';
-import 'package:twitter_api/src/annotations.dart';
-import 'package:twitter_api/src/utils/map_utils.dart';
-import 'package:twitter_api/src/utils/transforms.dart';
 
 class MediaService {
   const MediaService({

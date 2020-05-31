@@ -1,11 +1,11 @@
+import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
+import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
+import 'package:dart_twitter_api/api/users/data/user.dart';
+import 'package:dart_twitter_api/src/annotations.dart';
+import 'package:dart_twitter_api/src/utils/map_utils.dart';
+import 'package:dart_twitter_api/src/utils/transforms.dart';
 import 'package:meta/meta.dart';
-import 'package:twitter_api/api/abstract_twitter_client.dart';
-import 'package:twitter_api/api/twitter_client.dart';
-import 'package:twitter_api/api/users/data/paginated_users.dart';
-import 'package:twitter_api/api/users/data/user.dart';
-import 'package:twitter_api/src/annotations.dart';
-import 'package:twitter_api/src/utils/map_utils.dart';
-import 'package:twitter_api/src/utils/transforms.dart';
 
 class UserService {
   const UserService({

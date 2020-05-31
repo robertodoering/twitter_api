@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:oauth1/oauth1.dart' as oauth1;
-import 'package:twitter_api/api/abstract_twitter_client.dart';
 
 /// A function used to transform the response.
 ///

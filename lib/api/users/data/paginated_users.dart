@@ -1,5 +1,5 @@
+import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/users/data/user.dart';
 
 part 'paginated_users.g.dart';
 

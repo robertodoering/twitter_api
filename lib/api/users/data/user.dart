@@ -1,6 +1,6 @@
+import 'package:dart_twitter_api/api/users/data/derived.dart';
+import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/users/data/derived.dart';
-import 'package:twitter_api/src/utils/date_utils.dart';
 
 part 'user.g.dart';
 
