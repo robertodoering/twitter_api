@@ -73,8 +73,8 @@ class TweetSearchService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.
   Future<TweetSearch> searchTweets({

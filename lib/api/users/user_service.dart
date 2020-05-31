@@ -70,8 +70,8 @@ class UserService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-list.
   @notImplemented
@@ -144,8 +144,8 @@ class UserService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-list.
   Future<PaginatedUsers> friendsList({
@@ -270,8 +270,8 @@ class UserService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-search.
   Future<List<User>> usersSearch({
@@ -316,8 +316,8 @@ class UserService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show.
   Future<User> usersShow({
@@ -359,8 +359,8 @@ class UserService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create.
   Future<User> friendshipsCreate({
@@ -400,8 +400,8 @@ class UserService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy.
   Future<User> friendshipsDestroy({

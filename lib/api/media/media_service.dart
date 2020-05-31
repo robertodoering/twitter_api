@@ -34,8 +34,8 @@ class MediaService {
   /// to use the returned [mediaId] in Tweets or Cards. Up to 100 additional
   /// owners may be specified.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-init.
   Future<UploadInit> uploadInit({
@@ -98,8 +98,8 @@ class MediaService {
   ///
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status.
   Future<UploadStatus> uploadStatus({
@@ -123,8 +123,8 @@ class MediaService {
   ///
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-finalize.
   Future<UploadFinalize> uploadFinalize({
