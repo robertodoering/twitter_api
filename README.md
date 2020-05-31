@@ -7,10 +7,11 @@ API](https://developer.twitter.com/).
 
 To make the usage as comfortable as possible, this package provides interfaces
 for the various endpoints of the Twitter API. Documentation for each request is
-available as dart docs and each request's parameters can be controlled as named
+available as dart docs and each request's parameters can be changed as named
 parameters.
 
-The various data structures returned by Twitter are parsed into data models.
+The various data structures returned by Twitter are parsed into data models in
+an isolate.
 
 ## Example usage
 
@@ -110,6 +111,7 @@ If an API endpoint is not yet implemented, a request can be made to that
 endpoint by manually using the `TwitterClient` from the `TwitterApi` object.
 
 Example:
+// todo: move the example into a wiki page
 
 ```dart
 // Make an authenticated GET request to 'users/show'
@@ -128,24 +130,6 @@ twitterApi.client.post(
   },
 );
 ```
-
-## Response transformation
-
-Every request has a transform parameter that can be used to parse the response.
-By default, each response is parsed synchronously in the same isolate. When
-handling a large response, this can result in a poor app performance when using
-Flutter.
-
-Therfore when using this package with Flutter, the responses should be parsed in
-an isolate.
-
-Example:
-
-```dart
-// todo
-```
-
-For more information, see [Parse JSON in the background](https://flutter.dev/docs/cookbook/networking/background-parsing).
 
 ## Development
 
