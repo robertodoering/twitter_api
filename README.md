@@ -1,6 +1,6 @@
 # A Dart wrapper for the Twitter API
 
-This dart package provides serves as a well documented wrapper for the [Twitter
+This dart package provides a well documented wrapper for the [Twitter
 API](https://developer.twitter.com/).
 
 ## Why use this package?
