@@ -17,7 +17,7 @@ Tweet _isolateTweetTransform(String body) {
   return Tweet.fromJson(json.decode(body));
 }
 
-/// Parses the [response] into a list of [Tweet]s object in an isolate.
+/// Parses the [response] into a list of [Tweet] objects in an isolate.
 Future<List<Tweet>> defaultTweetListTransform(Response response) async {
   return await compute<String, List<Tweet>>(
     _isolateTweetListTransform,
@@ -44,7 +44,7 @@ User _isolateUserTransform(String body) {
   return User.fromJson(json.decode(body));
 }
 
-/// Parses the [response] into a list of [User]s object in an isolate.
+/// Parses the [response] into a list of [User] objects in an isolate.
 Future<List<User>> defaultUserListTransform(Response response) async {
   return await compute<String, List<User>>(
     _isolateUserListTransform,

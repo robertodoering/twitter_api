@@ -28,7 +28,7 @@ class Media {
   /// text).
   List<int> indicies;
 
-  /// An http:// URL pointing directly to the uploaded media file.
+  /// An `http://` URL pointing directly to the uploaded media file.
   ///
   /// For media in direct messages, [mediaUrl] is the same https URL as
   /// [mediaUrlHttps] and must be accessed by signing a request with the user’s
@@ -55,6 +55,7 @@ class Media {
   String mediaUrlHttps;
 
   /// An object showing available sizes for the media file.
+  // TODO
   // Size sizes;
 
   /// Nullable. For Tweets containing media that was originally associated with

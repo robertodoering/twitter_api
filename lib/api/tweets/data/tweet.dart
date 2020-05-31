@@ -27,7 +27,7 @@ class Tweet {
   /// The actual UTF-8 text of the status update.
   ///
   /// [text] is not included when receiving extended Tweet objects (when adding
-  /// `tweet_mode=extended` as a parameter to any endoint).
+  /// `tweet_mode=extended` as a parameter to any endpoint).
   /// Instead [fullText] is received.
   String text;
 
