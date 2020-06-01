@@ -1,3 +1,4 @@
+import 'package:dart_twitter_api/api/media/data/size.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'media.g.dart';
@@ -55,8 +56,7 @@ class Media {
   String mediaUrlHttps;
 
   /// An object showing available sizes for the media file.
-  // TODO
-  // Size sizes;
+  Size sizes;
 
   /// Nullable. For Tweets containing media that was originally associated with
   /// a different tweet, this string-based ID points to the original Tweet.

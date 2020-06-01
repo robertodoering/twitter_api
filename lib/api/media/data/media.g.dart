@@ -14,6 +14,9 @@ Media _$MediaFromJson(Map<String, dynamic> json) {
     ..indicies = (json['indicies'] as List)?.map((e) => e as int)?.toList()
     ..mediaUrl = json['media_url'] as String
     ..mediaUrlHttps = json['media_url_https'] as String
+    ..sizes = json['sizes'] == null
+        ? null
+        : Size.fromJson(json['sizes'] as Map<String, dynamic>)
     ..sourceStatusIdStr = json['source_status_id_str'] as String
     ..type = json['type'] as String
     ..url = json['url'] as String;
@@ -26,6 +29,7 @@ Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
       'indicies': instance.indicies,
       'media_url': instance.mediaUrl,
       'media_url_https': instance.mediaUrlHttps,
+      'sizes': instance.sizes?.toJson(),
       'source_status_id_str': instance.sourceStatusIdStr,
       'type': instance.type,
       'url': instance.url,
