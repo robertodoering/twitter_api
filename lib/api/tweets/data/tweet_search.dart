@@ -1,5 +1,5 @@
+import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/tweets/data/tweet.dart';
 
 part 'tweet_search.g.dart';
 

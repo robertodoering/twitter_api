@@ -1,21 +1,27 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:oauth1/oauth1.dart' as oauth1;
-import 'package:twitter_api/api/abstract_twitter_client.dart';
 
 /// A function used to transform the response.
 ///
-/// To prevent large computations from blocking the thread, consider decoding
-/// the response body in an isolate. When using `Flutter`, consider using the
-/// `compute` method.
+/// To prevent large computations from blocking the thread, response bodies are
+/// decoded in an isolate by default.
 typedef TransformResponse<T> = FutureOr<T> Function(Response response);
 
 const Duration _kDefaultTimeout = Duration(seconds: 10);
 
 /// The default implementation for [AbstractTwitterClient].
+///
+/// Requests throw a [TimeoutException] after a response hasn't been received
+/// for [_kDefaultTimeout].
+///
+/// If the received [Response.statusCode] is not a success (2xx), it is returned
+/// as a [Future.error]. To handle these responses, catch the error and check
+/// for the type to be a [Response].
 class TwitterClient extends AbstractTwitterClient {
   const TwitterClient({
     @required this.consumerKey,
@@ -45,7 +51,7 @@ class TwitterClient extends AbstractTwitterClient {
     );
   }
 
-  oauth1.Client get client {
+  oauth1.Client get oauthClient {
     return oauth1.Client(
       _platform.signatureMethod,
       _clientCredentials,
@@ -59,7 +65,10 @@ class TwitterClient extends AbstractTwitterClient {
     Map<String, String> headers,
     Duration timeout = _kDefaultTimeout,
   }) {
-    return client.get(uri, headers: headers).timeout(timeout).then((response) {
+    return oauthClient
+        .get(uri, headers: headers)
+        .timeout(timeout)
+        .then((response) {
       return response.statusCode >= 200 && response.statusCode < 300
           ? response
           : Future.error(response);
@@ -74,7 +83,7 @@ class TwitterClient extends AbstractTwitterClient {
     Encoding encoding,
     Duration timeout = _kDefaultTimeout,
   }) {
-    return client
+    return oauthClient
         .post(uri, headers: headers, body: body, encoding: encoding)
         .timeout(timeout)
         .then((response) {
@@ -89,10 +98,11 @@ class TwitterClient extends AbstractTwitterClient {
     dynamic uri, {
     List<MultipartFile> files,
     Map<String, String> headers,
+    String method = 'POST',
     Duration timeout = _kDefaultTimeout,
   }) async {
     final request = MultipartRequest(
-      'POST',
+      method,
       uri is String ? Uri.parse(uri) : uri as Uri,
     );
 
@@ -104,7 +114,7 @@ class TwitterClient extends AbstractTwitterClient {
       request.headers.addAll(headers);
     }
 
-    return Response.fromStream(await client.send(request))
+    return Response.fromStream(await oauthClient.send(request))
         .timeout(timeout)
         .then((response) {
       return response.statusCode >= 200 && response.statusCode < 300

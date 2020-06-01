@@ -1,9 +1,9 @@
 import 'dart:convert';
 
+import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
-import 'package:twitter_api/twitter_api.dart';
 
-/// An abstract to make authenticated http calls to the Twitter API used by the
+/// An abstraction to make http calls to the Twitter API used by the
 /// services.
 ///
 /// Implemented by [TwitterClient].

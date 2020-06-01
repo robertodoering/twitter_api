@@ -1,11 +1,11 @@
+import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
+import 'package:dart_twitter_api/api/geo/data/place.dart';
+import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
+import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/src/annotations.dart';
+import 'package:dart_twitter_api/src/utils/map_utils.dart';
+import 'package:dart_twitter_api/src/utils/transforms.dart';
 import 'package:meta/meta.dart';
-import 'package:twitter_api/api/abstract_twitter_client.dart';
-import 'package:twitter_api/api/geo/data/place.dart';
-import 'package:twitter_api/api/tweets/data/tweet.dart';
-import 'package:twitter_api/api/twitter_client.dart';
-import 'package:twitter_api/src/annotations.dart';
-import 'package:twitter_api/src/utils/map_utils.dart';
-import 'package:twitter_api/src/utils/transforms.dart';
 
 class TweetService {
   const TweetService({
@@ -92,8 +92,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.
   Future<Tweet> update({
@@ -154,8 +154,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-destroy-id.
   Future<Tweet> destroy({
@@ -208,8 +208,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-show-id.
   Future<Tweet> show({
@@ -257,8 +257,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-unretweet-id.
   Future<Tweet> retweet({
@@ -291,8 +291,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-unretweet-id.
   Future<Tweet> unretweet({
@@ -328,8 +328,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets-id.
   Future<List<Tweet>> retweets({
@@ -381,8 +381,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets_of_me.
   Future<List<Tweet>> retweetsOfMe({
@@ -441,8 +441,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-create.
   Future<Tweet> createFavorite({
@@ -479,8 +479,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-destroy.
   Future<Tweet> destroyFavorite({
@@ -496,7 +496,7 @@ class TweetService {
 
     return client
         .post(
-          Uri.https('api.twitter.com', '1.1/favorites/create.json'),
+          Uri.https('api.twitter.com', '1.1/favorites/destroy.json'),
           body: body,
         )
         .then(transform);
@@ -527,8 +527,8 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list.
   Future<List<Tweet>> listFavorites({

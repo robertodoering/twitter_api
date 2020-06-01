@@ -1,10 +1,10 @@
+import 'package:dart_twitter_api/api/common/data/hashtag.dart';
+import 'package:dart_twitter_api/api/common/data/poll.dart';
+import 'package:dart_twitter_api/api/common/data/symbol.dart';
+import 'package:dart_twitter_api/api/common/data/url.dart';
+import 'package:dart_twitter_api/api/common/data/user_mention.dart';
+import 'package:dart_twitter_api/api/media/data/media.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/common/data/hashtag.dart';
-import 'package:twitter_api/api/common/data/poll.dart';
-import 'package:twitter_api/api/common/data/symbol.dart';
-import 'package:twitter_api/api/common/data/url.dart';
-import 'package:twitter_api/api/common/data/user_mention.dart';
-import 'package:twitter_api/api/media/data/media.dart';
 
 part 'entities.g.dart';
 

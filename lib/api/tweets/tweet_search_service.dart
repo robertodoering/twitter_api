@@ -1,9 +1,9 @@
+import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
+import 'package:dart_twitter_api/api/tweets/data/tweet_search.dart';
+import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/src/utils/map_utils.dart';
+import 'package:dart_twitter_api/src/utils/transforms.dart';
 import 'package:meta/meta.dart';
-import 'package:twitter_api/api/abstract_twitter_client.dart';
-import 'package:twitter_api/api/tweets/data/tweet_search.dart';
-import 'package:twitter_api/api/twitter_client.dart';
-import 'package:twitter_api/src/utils/map_utils.dart';
-import 'package:twitter_api/src/utils/transforms.dart';
 
 class TweetSearchService {
   const TweetSearchService({
@@ -73,8 +73,8 @@ class TweetSearchService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.
   Future<TweetSearch> searchTweets({

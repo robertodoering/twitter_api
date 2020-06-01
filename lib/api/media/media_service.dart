@@ -1,10 +1,10 @@
+import 'package:dart_twitter_api/api/media/data/media_upload.dart';
+import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/src/annotations.dart';
+import 'package:dart_twitter_api/src/utils/map_utils.dart';
+import 'package:dart_twitter_api/src/utils/transforms.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
-import 'package:twitter_api/api/media/data/media_upload.dart';
-import 'package:twitter_api/api/twitter_client.dart';
-import 'package:twitter_api/src/annotations.dart';
-import 'package:twitter_api/src/utils/map_utils.dart';
-import 'package:twitter_api/src/utils/transforms.dart';
 
 class MediaService {
   const MediaService({
@@ -34,8 +34,8 @@ class MediaService {
   /// to use the returned [mediaId] in Tweets or Cards. Up to 100 additional
   /// owners may be specified.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-init.
   Future<UploadInit> uploadInit({
@@ -98,8 +98,8 @@ class MediaService {
   ///
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status.
   Future<UploadStatus> uploadStatus({
@@ -123,8 +123,8 @@ class MediaService {
   ///
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
-  /// [transform]: Can be used to transform the response. It is recommended to
-  /// handle the response in an isolate.
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-finalize.
   Future<UploadFinalize> uploadFinalize({

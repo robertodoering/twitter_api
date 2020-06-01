@@ -1,5 +1,5 @@
+import 'package:dart_twitter_api/api/users/data/location.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:twitter_api/api/users/data/location.dart';
 
 part 'derived.g.dart';
 
