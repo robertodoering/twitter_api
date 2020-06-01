@@ -110,26 +110,9 @@ Get your Twitter API key
 If an API endpoint is not yet implemented, a request can be made to that
 endpoint by manually using the `TwitterClient` from the `TwitterApi` object.
 
-Example:
-// todo: move the example into a wiki page
-
-```dart
-// Make an authenticated GET request to 'users/show'
-twitterApi.client.get(
-  Uri.https('api.twitter.com', '1.1/users/show.json',
-  <String, String>{
-    'user_id': '1068105113284300800',
-  },
-);
-
-// Make an authenticated POST request to 'friendships/create'
-twitterApi.client.post(
-  Uri.https('api.twitter.com', '1.1/friendships/create.json'),
-  body: <String, String>{
-    'user_id': '1068105113284300800',
-  },
-);
-```
+See [Making a custom request to the Twitter
+API](https://github.com/robertodoering/twitter_api/wiki/Making-a-custom-request-to-the-Twitter-API)
+for an example.
 
 ## Development
 
