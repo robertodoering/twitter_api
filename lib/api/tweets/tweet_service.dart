@@ -496,7 +496,7 @@ class TweetService {
 
     return client
         .post(
-          Uri.https('api.twitter.com', '1.1/favorites/create.json'),
+          Uri.https('api.twitter.com', '1.1/favorites/destroy.json'),
           body: body,
         )
         .then(transform);
