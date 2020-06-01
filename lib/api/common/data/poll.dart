@@ -1,4 +1,5 @@
 import 'package:dart_twitter_api/api/common/data/option.dart';
+import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'poll.g.dart';
@@ -17,9 +18,8 @@ class Poll {
   List<Option> options;
 
   /// Time stamp (UTC) of when poll ends.
-  // TODO
-  // @JsonKey(fromJson: convertFromTwitterDateString)
-  // DateTime endDatetime;
+  @JsonKey(fromJson: convertTwitterDateTime)
+  DateTime endDatetime;
 
   /// Duration of poll in minutes.
   String durationMinutes;
