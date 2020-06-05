@@ -107,6 +107,8 @@ Get your Twitter API key
 - Geo
   - not yet implemented
 
+---
+
 If an API endpoint is not yet implemented, a request can be made to that
 endpoint by manually using the `TwitterClient` from the `TwitterApi` object.
 
@@ -114,11 +116,18 @@ See [Making a custom request to the Twitter
 API](https://github.com/robertodoering/twitter_api/wiki/Making-a-custom-request-to-the-Twitter-API)
 for an example.
 
+---
+
+For an example of uploading media files to Twitter, see [Attaching media to a
+Tweet](https://github.com/robertodoering/twitter_api/wiki/Attaching-media-to-a-Tweet).
+
 ## Development
 
 ### Contribution
 
-// todo
+I appreciate any contributions to this package. Any not yet implemented endpoints can
+be added similarly to the other implementations.
+Please make sure `dartanalyzer` doesn't report any problems before opening a pull request.
 
 ### Miscellaneous
 
