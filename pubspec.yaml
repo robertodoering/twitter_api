@@ -12,6 +12,8 @@ dependencies:
  oauth1: ^1.0.4
  json_annotation: ^3.0.1
  intl: ^0.16.1
+ http: ^0.12.1
+ meta: ^1.1.8
 
 dev_dependencies:
   pedantic: ^1.8.0
