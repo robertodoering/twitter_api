@@ -46,66 +46,7 @@ Get your Twitter API key
 
 ### Implemented endpoints
 
-- Accounts and users
-  - [ ] Manage account settings and profile
-  - [ ] Mute, block, and report users
-  - [ ] Follow, search, and get users
-    - [ ] followers/ids
-    - [x] followers/list
-    - [ ] friends/ids
-    - [x] friends/list
-    - [ ] friendships/incoming
-    - [ ] friendships/lookup
-    - [ ] friendships/no_retweets/ids
-    - [ ] friendships/outgoing
-    - [ ] friendships/show
-    - [ ] users/lookup
-    - [x] users/search
-    - [x] users/show
-    - [x] friendships/create
-    - [x] friendships/destroy
-    - [ ] friendships/update
-  - [ ] Create and manage lists
-
-- Tweets
-  - [ ] Post, retrieve, and engage with Tweets
-    - [x] statuses/update
-    - [x] statuses/destroy/:id
-    - [x] statuses/show/:id
-    - [ ] statuses/lookup
-    - [x] statuses/retweet/:id
-    - [x] statuses/unretweet/:id
-    - [x] statuses/retweets/:id
-    - [x] statuses/retweets_of_me
-    - [ ] statuses/retweeters/ids
-    - [x] favorites/create/:id
-    - [x] favorites/destroy/:id
-    - [x] favorites/list
-  - [x] Get Tweet timelines
-  - [ ] Curate a collection of Tweets
-  - [ ] Search Tweets
-    - [x] Standard search API
-    - [ ] Premium search APIs
-    - [ ] Enterprise search APIs
-
-- Direct Messages
-  - not yet implemented
-
-- Media
-  - [ ] Upload media
-    - [x] media/upload (INIT)
-    - [x] media/upload (APPEND)
-    - [x] media/upload (STATUS)
-    - [x] media/upload (FINALIZE)
-    - [ ] media/metadata/create
-    - [ ] media/subtitles/delete
-    - [ ] media/subtitles/create
-
-- Trends
-  - not yet implemented
-
-- Geo
-  - not yet implemented
+Find a list of implemented endpoints [here](https://github.com/robertodoering/twitter_api/wiki/Implemented-API-endpoints).
 
 ---
 
