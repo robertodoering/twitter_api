@@ -1,6 +1,6 @@
 name: dart_twitter_api
-description: A dart wrapper for using the Twitter API.
-version: 0.0.1
+description: A dart wrapper for using the Twitter API with well documented interfaces for every endpoint.
+version: 0.1.0
 homepage: https://github.com/robertodoering/twitter_api
 repository: https://github.com/robertodoering/twitter_api
 issue_tracker: https://github.com/robertodoering/twitter_api/issues
