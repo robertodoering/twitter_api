@@ -34,7 +34,7 @@ final List<Tweet> homeTimeline = await twitterApi.timelineService
     .catchError(handleError);
 
 // Print the text of each Tweet
-tweets.forEach((tweet) => print(tweet.fullText))
+homeTimeline.forEach((tweet) => print(tweet.fullText))
 ```
 
 ## Twitter API key
