@@ -46,7 +46,7 @@ Get your Twitter API key
 
 ### Implemented endpoints
 
-An API endpoint is considered implemented when a method for it exists in the package. Once implemented, the request parameters can be set through named parameters and the response will be parsed into a data object for maximum convenience.
+An API endpoint is considered 'implemented' when a method for it exists in the package. Once implemented, the request parameters can be set through named parameters and the response will be parsed into a data object for maximum convenience.
 
 Find a list of implemented endpoints [here](https://github.com/robertodoering/twitter_api/wiki/Implemented-API-endpoints).
 
