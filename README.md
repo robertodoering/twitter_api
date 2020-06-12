@@ -5,10 +5,10 @@ API](https://developer.twitter.com/).
 
 ## Why use this package?
 
-To make the usage as comfortable as possible, this package provides interfaces
-for the various endpoints of the Twitter API. Documentation for each request is
-available as dart docs and each request's parameters can be changed as named
-parameters.
+To make the usage as convenient and comfortable as possible, this package provides
+interfaces for the various endpoints of the Twitter API. Documentation for each
+request is available as dart docs and each request's parameters can be changed as 
+named parameters.
 
 The various data structures returned by Twitter are parsed into data models in
 an isolate.
@@ -45,6 +45,8 @@ Get your Twitter API key
 ## Features
 
 ### Implemented endpoints
+
+An API endpoint is considered implemented when a method for it exists in the package. Once implemented, the request parameters can be set through named parameters and the response will be parsed into a data object for maximum convenience.
 
 Find a list of implemented endpoints [here](https://github.com/robertodoering/twitter_api/wiki/Implemented-API-endpoints).
 
