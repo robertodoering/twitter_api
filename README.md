@@ -1,5 +1,7 @@
 # A Dart wrapper for the Twitter API
 
+![pub](https://img.shields.io/pub/v/dart_twitter_api)
+
 This dart package provides a well documented wrapper for the [Twitter
 API](https://developer.twitter.com/).
 
