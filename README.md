@@ -1,6 +1,7 @@
 # A Dart wrapper for the Twitter API
 
-![pub](https://img.shields.io/pub/v/dart_twitter_api)
+[![pub](https://img.shields.io/pub/v/dart_twitter_api)](https://pub.dev/packages/dart_twitter_api)
+![test](https://github.com/robertodoering/twitter_api/workflows/test/badge.svg?branch=master)
 
 This dart package provides a well documented wrapper for the [Twitter
 API](https://developer.twitter.com/).
