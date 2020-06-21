@@ -26,7 +26,7 @@ class TwitterApi {
   /// The client to handle http requests.
   ///
   /// By default, the [TwitterClient] can be used.
-  final AbstractTwitterClient client;
+  AbstractTwitterClient client;
 
   /// Handles engagement with Tweets.
   ///
