@@ -23,7 +23,7 @@ const Duration _kDefaultTimeout = Duration(seconds: 10);
 /// as a [Future.error]. To handle these responses, catch the error and check
 /// for the type to be a [Response].
 class TwitterClient extends AbstractTwitterClient {
-  const TwitterClient({
+  TwitterClient({
     @required this.consumerKey,
     @required this.consumerSecret,
     @required this.token,
@@ -31,10 +31,10 @@ class TwitterClient extends AbstractTwitterClient {
     this.defaultTimeout = _kDefaultTimeout,
   });
 
-  final String consumerKey;
-  final String consumerSecret;
-  final String token;
-  final String secret;
+  String consumerKey;
+  String consumerSecret;
+  String token;
+  String secret;
 
   /// The time it takes for a request to time out and throw a [TimeoutException].
   ///
