@@ -48,7 +48,7 @@ class TwitterApi {
   /// See https://developer.twitter.com/en/docs/media/upload-media/overview.
   final MediaService mediaService;
 
-  /// Handles sending an receiving direct message events.
+  /// Handles sending and receiving direct message events.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/overview.
   final DirectMessagesService directMessagesService;
