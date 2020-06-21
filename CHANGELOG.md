@@ -1,3 +1,8 @@
+# 0.1.1
+
+- Add support to change the twitter client default timeout
+- Allow to change the twitter client api keys & token after instantiation
+
 # 0.1.0+1
 
 - Update readme
