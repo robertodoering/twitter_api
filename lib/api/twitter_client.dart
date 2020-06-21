@@ -16,8 +16,8 @@ const Duration _kDefaultTimeout = Duration(seconds: 10);
 
 /// The default implementation for [AbstractTwitterClient].
 ///
-/// Requests throw a [TimeoutException] after a response hasn't been received
-/// for [_kDefaultTimeout].
+/// Requests throw a [TimeoutException] when a request hasn't returned a
+/// response for some time determined by [defaultTimeout].
 ///
 /// If the received [Response.statusCode] is not a success (2xx), it is returned
 /// as a [Future.error]. To handle these responses, catch the error and check
@@ -28,12 +28,18 @@ class TwitterClient extends AbstractTwitterClient {
     @required this.consumerSecret,
     @required this.token,
     @required this.secret,
+    this.defaultTimeout = _kDefaultTimeout,
   });
 
   final String consumerKey;
   final String consumerSecret;
   final String token;
   final String secret;
+
+  /// The time it takes for a request to time out and throw a [TimeoutException].
+  ///
+  /// A request can override the default timeout independently.
+  final Duration defaultTimeout;
 
   oauth1.Platform get _platform {
     return oauth1.Platform(
@@ -63,11 +69,11 @@ class TwitterClient extends AbstractTwitterClient {
   Future<Response> get(
     dynamic uri, {
     Map<String, String> headers,
-    Duration timeout = _kDefaultTimeout,
+    Duration timeout,
   }) {
     return oauthClient
         .get(uri, headers: headers)
-        .timeout(timeout)
+        .timeout(timeout ?? defaultTimeout)
         .then((response) {
       return response.statusCode >= 200 && response.statusCode < 300
           ? response
@@ -81,11 +87,11 @@ class TwitterClient extends AbstractTwitterClient {
     Map<String, String> headers,
     dynamic body,
     Encoding encoding,
-    Duration timeout = _kDefaultTimeout,
+    Duration timeout,
   }) {
     return oauthClient
         .post(uri, headers: headers, body: body, encoding: encoding)
-        .timeout(timeout)
+        .timeout(timeout ?? defaultTimeout)
         .then((response) {
       return response.statusCode >= 200 && response.statusCode < 300
           ? response
@@ -99,7 +105,7 @@ class TwitterClient extends AbstractTwitterClient {
     List<MultipartFile> files,
     Map<String, String> headers,
     String method = 'POST',
-    Duration timeout = _kDefaultTimeout,
+    Duration timeout,
   }) async {
     final request = MultipartRequest(
       method,
@@ -115,7 +121,7 @@ class TwitterClient extends AbstractTwitterClient {
     }
 
     return Response.fromStream(await oauthClient.send(request))
-        .timeout(timeout)
+        .timeout(timeout ?? defaultTimeout)
         .then((response) {
       return response.statusCode >= 200 && response.statusCode < 300
           ? response
