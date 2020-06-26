@@ -1,3 +1,7 @@
+# 0.2.0
+
+- Add user service
+
 # 0.1.1
 
 - Add support to change the twitter client default timeout
