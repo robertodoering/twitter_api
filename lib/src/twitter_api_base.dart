@@ -4,6 +4,7 @@ import 'package:dart_twitter_api/api/media/media_service.dart';
 import 'package:dart_twitter_api/api/tweets/timeline_service.dart';
 import 'package:dart_twitter_api/api/tweets/tweet_search_service.dart';
 import 'package:dart_twitter_api/api/tweets/tweet_service.dart';
+import 'package:dart_twitter_api/api/users/user_service.dart';
 import 'package:meta/meta.dart';
 
 /// The [TwitterApi] provides the services used to make requests to the
@@ -17,7 +18,8 @@ import 'package:meta/meta.dart';
 class TwitterApi {
   TwitterApi({
     @required this.client,
-  })  : tweetService = TweetService(client: client),
+  })  : userService = UserService(client: client),
+        tweetService = TweetService(client: client),
         tweetSearchService = TweetSearchService(client: client),
         timelineService = TimelineService(client: client),
         mediaService = MediaService(client: client),
@@ -27,6 +29,11 @@ class TwitterApi {
   ///
   /// By default, the [TwitterClient] can be used.
   final AbstractTwitterClient client;
+
+  /// Handles following, searching and retrieving Users.
+  ///
+  /// https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/overview.
+  final UserService userService;
 
   /// Handles engagement with Tweets.
   ///
