@@ -1,3 +1,7 @@
+# 0.2.1
+
+- Fix parsing a `PaginatedUsers` response
+
 # 0.2.0
 
 - Add user service
