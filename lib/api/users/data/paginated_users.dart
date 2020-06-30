@@ -3,7 +3,10 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'paginated_users.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(
+  explicitToJson: true,
+  fieldRename: FieldRename.snake,
+)
 class PaginatedUsers {
   PaginatedUsers();
 

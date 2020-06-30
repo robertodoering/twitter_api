@@ -12,13 +12,13 @@ PaginatedUsers _$PaginatedUsersFromJson(Map<String, dynamic> json) {
         ?.map(
             (e) => e == null ? null : User.fromJson(e as Map<String, dynamic>))
         ?.toList()
-    ..nextCursorStr = json['nextCursorStr'] as String
-    ..previousCursorStr = json['previousCursorStr'] as String;
+    ..nextCursorStr = json['next_cursor_str'] as String
+    ..previousCursorStr = json['previous_cursor_str'] as String;
 }
 
 Map<String, dynamic> _$PaginatedUsersToJson(PaginatedUsers instance) =>
     <String, dynamic>{
-      'users': instance.users,
-      'nextCursorStr': instance.nextCursorStr,
-      'previousCursorStr': instance.previousCursorStr,
+      'users': instance.users?.map((e) => e?.toJson())?.toList(),
+      'next_cursor_str': instance.nextCursorStr,
+      'previous_cursor_str': instance.previousCursorStr,
     };
