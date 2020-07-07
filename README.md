@@ -18,27 +18,7 @@ an isolate.
 
 ## Example usage
 
-```dart
-final TwitterApi twitterApi = TwitterApi(
-  client: TwitterClient(
-    consumerKey: 'your_consumer_key',
-    consumerSecret: 'your_consumer_secret',
-    token: 'your_token',
-    secret: 'your_secret',
-  ),
-);
-
-// Get the last 200 tweets from your home timeline
-final List<Tweet> homeTimeline = await twitterApi.timelineService
-    .homeTimeline(
-      count: 200,
-      includeEntities: false,
-    )
-    .catchError(handleError);
-
-// Print the text of each Tweet
-homeTimeline.forEach((tweet) => print(tweet.fullText))
-```
+![example](.media/example.png)
 
 ## Twitter API key
 
