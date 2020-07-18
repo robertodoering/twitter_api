@@ -1,4 +1,6 @@
+import 'package:dart_twitter_api/api/media/data/additional_media_info.dart';
 import 'package:dart_twitter_api/api/media/data/sizes.dart';
+import 'package:dart_twitter_api/api/media/data/video_info.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'media.g.dart';
@@ -70,6 +72,17 @@ class Media {
   /// directly into the raw Tweet text, and the values for the [indices]
   /// parameter.
   String url;
+
+  /// Contains additional information for the media when the type is `video` or
+  /// `animated_gif`.
+  VideoInfo videoInfo;
+
+  /// The [additionalMediaInfo] will contain additional media info provided by
+  /// the publisher. Video content is made available only to Twitter official
+  /// clients when embeddable=false. In this case, all video URLs provided in
+  /// the payload will be Twitter-based, so the user can open the video in a
+  /// Twitter owned property by clicking the link.
+  AdditionalMediaInfo additionalMediaInfo;
 
   Map<String, dynamic> toJson() => _$MediaToJson(this);
 }

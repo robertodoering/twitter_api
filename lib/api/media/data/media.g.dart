@@ -16,10 +16,17 @@ Media _$MediaFromJson(Map<String, dynamic> json) {
     ..mediaUrlHttps = json['media_url_https'] as String
     ..sizes = json['sizes'] == null
         ? null
-        : Size.fromJson(json['sizes'] as Map<String, dynamic>)
+        : Sizes.fromJson(json['sizes'] as Map<String, dynamic>)
     ..sourceStatusIdStr = json['source_status_id_str'] as String
     ..type = json['type'] as String
-    ..url = json['url'] as String;
+    ..url = json['url'] as String
+    ..videoInfo = json['video_info'] == null
+        ? null
+        : VideoInfo.fromJson(json['video_info'] as Map<String, dynamic>)
+    ..additionalMediaInfo = json['additional_media_info'] == null
+        ? null
+        : AdditionalMediaInfo.fromJson(
+            json['additional_media_info'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
@@ -33,4 +40,6 @@ Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
       'source_status_id_str': instance.sourceStatusIdStr,
       'type': instance.type,
       'url': instance.url,
+      'video_info': instance.videoInfo?.toJson(),
+      'additional_media_info': instance.additionalMediaInfo?.toJson(),
     };

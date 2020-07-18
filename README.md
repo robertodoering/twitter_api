@@ -10,7 +10,7 @@ API](https://developer.twitter.com/).
 
 To make the usage as convenient and comfortable as possible, this package provides
 interfaces for the various endpoints of the Twitter API. Documentation for each
-request is available as dart docs and each request's parameters can be changed as 
+request is available as dart docs and each request's parameters can be changed as
 named parameters.
 
 The various data structures returned by Twitter are parsed into data models in
