@@ -1,19 +1,24 @@
+# 0.3.0
+
+- Fixed using the `Size` object instead of `Sizes` in the tweet media object
+- Added `VideoInfo` and `AdditionalMediaInfo` to the tweet media object
+
 # 0.2.1
 
-- Fix parsing a `PaginatedUsers` response
+- Fixed parsing a `PaginatedUsers` response
 
 # 0.2.0
 
-- Add user service
+- Added the user service
 
 # 0.1.1
 
-- Add support to change the twitter client default timeout
-- Allow to change the twitter client api keys & token after instantiation
+- Added support to change the twitter client default timeout
+- Added support to change the twitter client api keys & token after instantiation
 
 # 0.1.0+1
 
-- Update readme
+- Updated readme
 
 # 0.1.0
 
