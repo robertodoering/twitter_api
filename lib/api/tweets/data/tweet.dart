@@ -137,7 +137,7 @@ class Tweet {
   bool possiblySensitiveAppealable;
 
   /// Nullable. When present, indicates a BCP 47 language identifier
-  /// corresponding to the machine-detected language of the Tweet text, or und
+  /// corresponding to the machine-detected language of the Tweet text, or `und`
   /// if no language could be detected.
   String lang;
 
