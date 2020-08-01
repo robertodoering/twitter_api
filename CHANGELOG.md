@@ -1,3 +1,7 @@
+# 0.3.1
+
+- Fixed `DateTime` in response models not set to UTC
+
 # 0.3.0
 
 - Fixed using the `Size` object instead of `Sizes` in the tweet media object
