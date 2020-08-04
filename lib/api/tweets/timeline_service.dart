@@ -147,8 +147,8 @@ class TimelineService {
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
     final params = <String, String>{}
-      ..addParameter('userId', userId)
-      ..addParameter('screenName', screenName)
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
       ..addParameter('count', count)
       ..addParameter('since_id', sinceId)
       ..addParameter('max_id', maxId)
