@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dart_twitter_api/api/media/data/media_upload.dart';
 import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
 import 'package:dart_twitter_api/api/tweets/data/tweet_search.dart';
+import 'package:dart_twitter_api/api/users/data/friendship.dart';
 import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
 import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:dart_twitter_api/src/utils/isolates_io.dart';
@@ -118,4 +119,22 @@ Future<TweetSearch> defaultTweetSearchTransform(Response response) async {
 
 TweetSearch _isolateTweetSearchTransform(String body) {
   return TweetSearch.fromJson(json.decode(body));
+}
+
+/// Parses the [response] into a list of [Friendship] objects in an isolate.
+Future<List<Friendship>> defaultFriendshipsTransform(Response response) async {
+  return await compute<String, List<Friendship>>(
+    _isolateFriendshipsTransform,
+    response.body,
+  );
+}
+
+List<Friendship> _isolateFriendshipsTransform(String body) {
+  final friendships = <Friendship>[];
+
+  for (Map<String, dynamic> friendshipJson in json.decode(body)) {
+    friendships.add(Friendship.fromJson(friendshipJson));
+  }
+
+  return friendships;
 }

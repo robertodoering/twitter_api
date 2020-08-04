@@ -1,5 +1,6 @@
 import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/api/users/data/friendship.dart';
 import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
 import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:dart_twitter_api/src/annotations.dart';
@@ -183,15 +184,32 @@ class UserService {
   Future<void> friendshipsIncoming() async {}
 
   /// Returns the relationships of the authenticating user to the
-  /// comma-separated list of up to 100 [screenNames] or [userIds] provided.
-  /// Values for connections can be: `following`, `following_requested`,
-  /// `followed_by`, `none`, `blocking`, `muting`.
+  /// list of up to 100 [screenNames] or [userIds] provided.
   ///
-  /// TODO: implement
+  /// Values for [Friendship.connections] can be: `following`,
+  /// `following_requested`, `followed_by`, `none`, `blocking`, `muting`.
+  ///
+  /// [screenNames]: A list of screen names, up to 100 are allowed in a single
+  /// request.
+  ///
+  /// [userIds]: A list of user IDs, up to 100 are allowed in a single request.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-lookup.
-  @notImplemented
-  Future<void> friendshipsLookup() async {}
+  Future<List<Friendship>> friendshipsLookup({
+    List<String> screenNames,
+    List<String> userIds,
+    TransformResponse<List<Friendship>> transform = defaultFriendshipsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userIds)
+      ..addParameter('screen_name', screenNames);
+
+    return client
+        .get(
+          Uri.https('api.twitter.com', '1.1/friendships/lookup.json', params),
+        )
+        .then(transform);
+  }
 
   /// Returns a collection of [userIds] that the currently authenticated user
   /// does not want to receive retweets from.
