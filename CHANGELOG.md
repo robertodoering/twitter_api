@@ -1,3 +1,7 @@
+# 0.3.4
+
+- Fixed user timeline `userId` & `screenName` request parameter
+
 # 0.3.3
 
 - Added user entities to the `User` object
