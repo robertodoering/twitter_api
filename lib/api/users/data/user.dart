@@ -1,3 +1,4 @@
+import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
 import 'package:dart_twitter_api/api/users/data/derived.dart';
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -21,7 +22,7 @@ class User {
   String name;
 
   /// The screen name, handle, or alias that this user identifies themselves
-  /// with. [screen_names] are unique but subject to change. Use id_str as a
+  /// with. [screen_names] are unique but subject to change. Use [idStr] as a
   /// user identifier whenever possible. Typically a maximum of 15 characters
   /// long, but some historical accounts may exist with longer names.
   String screenName;
@@ -53,6 +54,12 @@ class User {
   /// See https://help.twitter.com/en/managing-your-account/about-twitter-verified-accounts.
   bool verified;
 
+  /// Nullable. The user's most recent Tweet.
+  ///
+  /// You must be following a protected user to be able to see their most recent
+  /// Tweet.
+  Tweet status;
+
   /// The number of followers this account currently has. Under certain
   /// conditions of duress, this field will temporarily indicate `0`.
   int followersCount;
@@ -66,7 +73,6 @@ class User {
   int listedCount;
 
   /// The number of Tweets this user has liked in the account’s lifetime.
-  @JsonKey(name: 'favourites_count')
   int favoritesCount;
 
   /// The number of Tweets (including retweets) issued by the user.
