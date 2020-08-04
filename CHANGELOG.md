@@ -1,3 +1,7 @@
+# 0.3.3
+
+- Added user entities to the `User` object
+
 # 0.3.2
 
 - Implemented the `friendships/lookup` request
