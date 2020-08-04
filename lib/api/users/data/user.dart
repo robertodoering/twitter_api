@@ -1,5 +1,6 @@
 import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
 import 'package:dart_twitter_api/api/users/data/derived.dart';
+import 'package:dart_twitter_api/api/users/data/user_entities.dart';
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -40,6 +41,10 @@ class User {
 
   /// Nullable. A URL provided by the user in association with their profile.
   String url;
+
+  /// Entities for User Objects describe URLs that appear in the user defined
+  /// profile URL and description fields.
+  UserEntities entities;
 
   /// Nullable. The user-defined UTF-8 string describing their account.
   String description;

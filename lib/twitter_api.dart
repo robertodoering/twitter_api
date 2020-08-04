@@ -33,6 +33,7 @@ export 'api/users/data/friendship.dart';
 export 'api/users/data/location.dart';
 export 'api/users/data/paginated_users.dart';
 export 'api/users/data/user.dart';
+export 'api/users/data/user_entities.dart';
 export 'api/users/user_service.dart';
 export 'src/twitter_api_base.dart';
 export 'src/utils/transforms.dart';

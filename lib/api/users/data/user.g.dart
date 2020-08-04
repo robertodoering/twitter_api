@@ -16,6 +16,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
         ? null
         : Derived.fromJson(json['derived'] as Map<String, dynamic>)
     ..url = json['url'] as String
+    ..entities = json['entities'] == null
+        ? null
+        : UserEntities.fromJson(json['entities'] as Map<String, dynamic>)
     ..description = json['description'] as String
     ..protected = json['protected'] as bool
     ..verified = json['verified'] as bool
@@ -45,6 +48,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'location': instance.location,
       'derived': instance.derived?.toJson(),
       'url': instance.url,
+      'entities': instance.entities?.toJson(),
       'description': instance.description,
       'protected': instance.protected,
       'verified': instance.verified,
