@@ -1,3 +1,9 @@
+# 0.3.2
+
+- Implemented the `friendships/lookup` request
+- Added the `status` object for a `User`
+- Added more exports to the `twitter_api.dart` library
+
 # 0.3.1
 
 - Fixed `DateTime` in response models not set to UTC
