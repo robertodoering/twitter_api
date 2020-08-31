@@ -6,14 +6,14 @@ repository: https://github.com/robertodoering/twitter_api
 issue_tracker: https://github.com/robertodoering/twitter_api/issues
 
 environment:
-  sdk: '>=2.7.0 <3.0.0'
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
- oauth1: ^1.0.4
- json_annotation: ^3.0.1
- intl: ^0.16.1
- http: ^0.12.1
- meta: ^1.1.8
+  oauth1: ^1.0.4
+  json_annotation: ^3.0.1
+  intl: ^0.16.1
+  http: ^0.12.1
+  meta: ^1.1.8
 
 dev_dependencies:
   pedantic: ^1.8.0

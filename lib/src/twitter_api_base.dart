@@ -1,6 +1,7 @@
 import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:dart_twitter_api/api/direct_messages/direct_messages_service.dart';
 import 'package:dart_twitter_api/api/media/media_service.dart';
+import 'package:dart_twitter_api/api/tweets/collection_service.dart';
 import 'package:dart_twitter_api/api/tweets/timeline_service.dart';
 import 'package:dart_twitter_api/api/tweets/tweet_search_service.dart';
 import 'package:dart_twitter_api/api/tweets/tweet_service.dart';
@@ -22,6 +23,7 @@ class TwitterApi {
         tweetService = TweetService(client: client),
         tweetSearchService = TweetSearchService(client: client),
         timelineService = TimelineService(client: client),
+        collectionService = CollectionService(client: client),
         mediaService = MediaService(client: client),
         directMessagesService = DirectMessagesService(client: client);
 
@@ -39,6 +41,11 @@ class TwitterApi {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/overview.
   final TweetService tweetService;
+
+  /// Handles curate a collection of Tweets.
+  ///
+  /// See https://developer.twitter.com/en/docs/twitter-api/v1/tweets/curate-a-collection/overview.
+  final CollectionService collectionService;
 
   /// Handles searching Tweets.
   ///

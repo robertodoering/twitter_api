@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:dart_twitter_api/api/media/data/media_upload.dart';
+import 'package:dart_twitter_api/api/tweets/data/collection/entrie_object_collections.dart';
+import 'package:dart_twitter_api/api/tweets/data/collection/collection_object_collections.dart';
 import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
 import 'package:dart_twitter_api/api/tweets/data/tweet_search.dart';
 import 'package:dart_twitter_api/api/users/data/friendship.dart';
@@ -16,6 +18,33 @@ Future<Tweet> defaultTweetTransform(Response response) async {
 
 Tweet _isolateTweetTransform(String body) {
   return Tweet.fromJson(json.decode(body));
+}
+
+/// Parses the [response] into a [CollectionObjectCollections] objects in an isolate.
+Future<CollectionObjectCollections> defaultCollectionObjectCollectionsTransform(
+    Response response) async {
+  return await compute<String, CollectionObjectCollections>(
+    _isolateCollectionObjectCollectionsTransform,
+    response.body,
+  );
+}
+
+CollectionObjectCollections _isolateCollectionObjectCollectionsTransform(
+    String body) {
+  return CollectionObjectCollections.fromJson(json.decode(body));
+}
+
+/// Parses the [response] into a [EntrieObjectCollections] objects in an isolate.
+Future<EntrieObjectCollections> defaultEntrieObjectCollectionsTransform(
+    Response response) async {
+  return await compute<String, EntrieObjectCollections>(
+    _isolateEntrieObjectCollectionsTransform,
+    response.body,
+  );
+}
+
+EntrieObjectCollections _isolateEntrieObjectCollectionsTransform(String body) {
+  return EntrieObjectCollections.fromJson(json.decode(body));
 }
 
 /// Parses the [response] into a list of [Tweet] objects in an isolate.
