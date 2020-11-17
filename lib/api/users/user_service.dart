@@ -49,7 +49,7 @@ class UserService {
   ///
   /// [userId]: The ID of the user for whom to return results.
   ///
-  /// [screenName]: 	The screen name of the user for whom to return results.
+  /// [screenName]: The screen name of the user for whom to return results.
   ///
   /// [cursor]: Causes the results to be broken into pages. If no cursor is
   /// provided, a value of `-1` will be assumed, which is the first "page."
@@ -123,7 +123,7 @@ class UserService {
   ///
   /// [userId]: The ID of the user for whom to return results.
   ///
-  /// [screenName]: 	The screen name of the user for whom to return results.
+  /// [screenName]: The screen name of the user for whom to return results.
   ///
   /// [cursor]: Causes the results to be broken into pages. If no cursor is
   /// provided, a value of `-1` will be assumed, which is the first "page."
