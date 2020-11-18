@@ -9,7 +9,8 @@ environment:
   sdk: '>=2.7.0 <3.0.0'
 
 dependencies:
- oauth1: ^1.0.4
+ oauth1: 
+  git: https://github.com/robertodoering/dart-oauth1
  json_annotation: ^3.0.1
  intl: ^0.16.1
  http: ^0.12.1
