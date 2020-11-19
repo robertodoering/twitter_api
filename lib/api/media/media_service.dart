@@ -18,8 +18,7 @@ class MediaService {
   /// requests. The next step after a successful return from `INIT` command is
   /// the `APPEND` command.
   ///
-  /// See
-  /// https://developer.twitter.com/en/docs/media/upload-media/uploading-media/media-best-practices
+  /// See https://developer.twitter.com/en/docs/media/upload-media/uploading-media/media-best-practices
   /// for constraints and requirements on media files.
   ///
   /// [totalBytes]: The size of the media being uploaded in bytes.
@@ -35,7 +34,7 @@ class MediaService {
   /// owners may be specified.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-init.
   Future<UploadInit> uploadInit({
@@ -99,7 +98,7 @@ class MediaService {
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status.
   Future<UploadStatus> uploadStatus({
@@ -124,7 +123,7 @@ class MediaService {
   /// [mediaId]: The [mediaId] returned from the `INIT` command.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-finalize.
   Future<UploadFinalize> uploadFinalize({
