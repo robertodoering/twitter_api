@@ -113,9 +113,11 @@ void main() {
   group('closest', () {
     test('parses trend locations from response', () async {
       final mockClient = MockClient();
-
       when(mockClient.get(
-        Uri.https('api.twitter.com', '1.1/trends/available.json'),
+        Uri.https('api.twitter.com', '1.1/trends/closest.json', {
+          'lat': '37.7749',
+          'long': '122.4194',
+        }),
       )).thenAnswer(
         (_) async => Response(
           // '{}',
@@ -130,7 +132,10 @@ void main() {
 
       final trendsService = TrendsService(client: mockClient);
 
-      final trendLocations = await trendsService.available();
+      final trendLocations = await trendsService.closest(
+        lat: '37.7749',
+        long: '122.4194',
+      );
 
       expect(trendLocations, isA<List<TrendLocation>>());
       expect(trendLocations.single.country, equals('Australia'));
