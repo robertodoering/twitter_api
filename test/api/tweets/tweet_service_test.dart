@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import 'mock_client.dart';
+import '../mock_client.dart';
 
 void main() async {
   test('`update` parses tweet object from response', () async {

@@ -7,7 +7,7 @@ import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import 'mock_client.dart';
+import '../mock_client.dart';
 
 void main() {
   group('place', () {
@@ -19,7 +19,8 @@ void main() {
       )).thenAnswer(
         (_) async => Response(
           // '{}',
-          File('test/api/data/trends_response.json').readAsStringSync(),
+          File('test/api/trends/data/trends_place_response.json')
+              .readAsStringSync(),
           200,
           headers: {
             'content-type': 'application/json; charset=utf-8',
@@ -47,7 +48,8 @@ void main() {
       )).thenAnswer(
         (_) async => Response(
           // '{}',
-          File('test/api/data/trends_response.json').readAsStringSync(),
+          File('test/api/trends/data/trends_place_response.json')
+              .readAsStringSync(),
           200,
           headers: {
             'content-type': 'application/json; charset=utf-8',
@@ -79,7 +81,7 @@ void main() {
       )).thenAnswer(
         (_) async => Response(
           // '{}',
-          File('test/api/data/trends_available_response.json')
+          File('test/api/trends/data/trends_available_response.json')
               .readAsStringSync(),
           200,
           headers: {
