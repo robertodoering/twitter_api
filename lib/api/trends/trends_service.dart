@@ -1,4 +1,3 @@
-import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:meta/meta.dart';
@@ -33,6 +32,20 @@ class TrendsService {
     return client
         .get(
           Uri.https('api.twitter.com', '1.1/trends/place.json', params),
+        )
+        .then(transform);
+  }
+
+  /// Returns the locations that Twitter has trending topic information for.
+  ///
+  /// See https://developer.twitter.com/en/docs/twitter-api/v1/trends/locations-with-trending-topics/api-reference/get-trends-available.
+  Future<List<TrendLocation>> available({
+    TransformResponse<List<TrendLocation>> transform =
+        defaultTrendLocationsTransform,
+  }) {
+    return client
+        .get(
+          Uri.https('api.twitter.com', '1.1/trends/available.json'),
         )
         .then(transform);
   }

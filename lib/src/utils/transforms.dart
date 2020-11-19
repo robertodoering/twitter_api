@@ -151,3 +151,22 @@ List<Trends> _isolateTrendsListTransform(String body) {
 
   return trendsList;
 }
+
+Future<List<TrendLocation>> defaultTrendLocationsTransform(
+  Response response,
+) async {
+  return await compute<String, List<TrendLocation>>(
+    _isolateTrendLocationsTransform,
+    response.body,
+  );
+}
+
+List<TrendLocation> _isolateTrendLocationsTransform(String body) {
+  final trendLocations = <TrendLocation>[];
+
+  for (Map<String, dynamic> trendsJson in json.decode(body)) {
+    trendLocations.add(TrendLocation.fromJson(trendsJson));
+  }
+
+  return trendLocations;
+}
