@@ -109,4 +109,42 @@ void main() {
       expect(trendLocations.first.placeType.name, equals('Country'));
     });
   });
+
+  group('closest', () {
+    test('parses trend locations from response', () async {
+      final mockClient = MockClient();
+
+      when(mockClient.get(
+        Uri.https('api.twitter.com', '1.1/trends/available.json'),
+      )).thenAnswer(
+        (_) async => Response(
+          // '{}',
+          File('test/api/trends/data/trends_closest_response.json')
+              .readAsStringSync(),
+          200,
+          headers: {
+            'content-type': 'application/json; charset=utf-8',
+          },
+        ),
+      );
+
+      final trendsService = TrendsService(client: mockClient);
+
+      final trendLocations = await trendsService.available();
+
+      expect(trendLocations, isA<List<TrendLocation>>());
+      expect(trendLocations.single.country, equals('Australia'));
+      expect(trendLocations.single.countryCode, equals('AU'));
+      expect(trendLocations.single.name, equals('Australia'));
+      expect(trendLocations.single.parentid, equals(1));
+      expect(
+        trendLocations.single.url,
+        equals('http://where.yahooapis.com/v1/place/23424748'),
+      );
+      expect(trendLocations.single.woeid, equals(23424748));
+      expect(trendLocations.single.placeType, isA<PlaceType>());
+      expect(trendLocations.single.placeType.code, equals(12));
+      expect(trendLocations.single.placeType.name, equals('Country'));
+    });
+  });
 }
