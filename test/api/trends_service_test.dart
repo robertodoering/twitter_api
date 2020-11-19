@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dart_twitter_api/api/trends/data/trend_location.dart';
 import 'package:dart_twitter_api/api/trends/data/trends.dart';
 import 'package:dart_twitter_api/api/trends/trends_service.dart';
 import 'package:http/http.dart';
@@ -66,6 +67,44 @@ void main() {
       expect(trends.single.trends.first.promotedContent, isNull);
       expect(trends.single.trends.first.query, equals('%23ChainedToTheRhythm'));
       expect(trends.single.trends.first.tweetVolume, equals(48857));
+    });
+  });
+
+  group('available', () {
+    test('parses trend locations from response', () async {
+      final mockClient = MockClient();
+
+      when(mockClient.get(
+        Uri.https('api.twitter.com', '1.1/trends/available.json'),
+      )).thenAnswer(
+        (_) async => Response(
+          // '{}',
+          File('test/api/data/trends_available_response.json')
+              .readAsStringSync(),
+          200,
+          headers: {
+            'content-type': 'application/json; charset=utf-8',
+          },
+        ),
+      );
+
+      final trendsService = TrendsService(client: mockClient);
+
+      final trendLocations = await trendsService.available();
+
+      expect(trendLocations, isA<List<TrendLocation>>());
+      expect(trendLocations.first.country, equals('Sweden'));
+      expect(trendLocations.first.countryCode, equals('SE'));
+      expect(trendLocations.first.name, equals('Sweden'));
+      expect(trendLocations.first.parentid, equals(1));
+      expect(
+        trendLocations.first.url,
+        equals('http://where.yahooapis.com/v1/place/23424954'),
+      );
+      expect(trendLocations.first.woeid, equals(23424954));
+      expect(trendLocations.first.placeType, isA<PlaceType>());
+      expect(trendLocations.first.placeType.code, equals(12));
+      expect(trendLocations.first.placeType.name, equals('Country'));
     });
   });
 }
