@@ -74,8 +74,8 @@ class TrendsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/trends/locations-with-trending-topics/api-reference/get-trends-closest.
   Future<List<TrendLocation>> closest({
-    @required double lat,
-    @required double long,
+    @required String lat,
+    @required String long,
     TransformResponse<List<TrendLocation>> transform =
         defaultTrendLocationsTransform,
   }) {
@@ -85,7 +85,7 @@ class TrendsService {
 
     return client
         .get(
-          Uri.https('api.twitter.com', '/1.1/trends/closest.json?', params),
+          Uri.https('api.twitter.com', '/1.1/trends/closest.json', params),
         )
         .then(transform);
   }
