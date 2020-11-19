@@ -19,6 +19,9 @@ class TrendsService {
   /// [exclude]: Setting this equal to `hashtags` will remove all hashtags from
   /// the trends list.
   ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/trends/trends-for-location/api-reference/get-trends-place.
   Future<List<Trends>> place({
     @required int id,
@@ -38,6 +41,9 @@ class TrendsService {
 
   /// Returns the locations that Twitter has trending topic information for.
   ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/trends/locations-with-trending-topics/api-reference/get-trends-available.
   Future<List<TrendLocation>> available({
     TransformResponse<List<TrendLocation>> transform =
@@ -46,6 +52,40 @@ class TrendsService {
     return client
         .get(
           Uri.https('api.twitter.com', '1.1/trends/available.json'),
+        )
+        .then(transform);
+  }
+
+  /// Returns the locations that Twitter has trending topic information for,
+  /// closest to a specified location.
+  ///
+  /// [lat]: If provided with a long parameter the available trend locations
+  /// will be sorted by distance, nearest to furthest, to the co-ordinate pair.
+  /// The valid ranges for longitude is -180.0 to +180.0 (West is negative, East
+  /// is positive) inclusive.
+  ///
+  /// [long]: If provided with a lat parameter the available trend locations
+  /// will be sorted by distance, nearest to furthest, to the co-ordinate pair.
+  /// The valid ranges for longitude is -180.0 to +180.0 (West is negative, East
+  /// is positive) inclusive.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
+  /// See https://developer.twitter.com/en/docs/twitter-api/v1/trends/locations-with-trending-topics/api-reference/get-trends-closest.
+  Future<List<TrendLocation>> closest({
+    @required double lat,
+    @required double long,
+    TransformResponse<List<TrendLocation>> transform =
+        defaultTrendLocationsTransform,
+  }) {
+    final params = <String, String>{}
+      ..addParameter('lat', lat)
+      ..addParameter('long', long);
+
+    return client
+        .get(
+          Uri.https('api.twitter.com', '/1.1/trends/closest.json?', params),
         )
         .then(transform);
   }
