@@ -18,7 +18,6 @@ void main() {
         Uri.https('api.twitter.com', '1.1/trends/place.json', {'id': '1'}),
       )).thenAnswer(
         (_) async => Response(
-          // '{}',
           File('test/api/trends/data/trends_place_response.json')
               .readAsStringSync(),
           200,
@@ -47,7 +46,6 @@ void main() {
         Uri.https('api.twitter.com', '1.1/trends/place.json', {'id': '1'}),
       )).thenAnswer(
         (_) async => Response(
-          // '{}',
           File('test/api/trends/data/trends_place_response.json')
               .readAsStringSync(),
           200,
@@ -80,7 +78,6 @@ void main() {
         Uri.https('api.twitter.com', '1.1/trends/available.json'),
       )).thenAnswer(
         (_) async => Response(
-          // '{}',
           File('test/api/trends/data/trends_available_response.json')
               .readAsStringSync(),
           200,
@@ -120,7 +117,6 @@ void main() {
         }),
       )).thenAnswer(
         (_) async => Response(
-          // '{}',
           File('test/api/trends/data/trends_closest_response.json')
               .readAsStringSync(),
           200,
