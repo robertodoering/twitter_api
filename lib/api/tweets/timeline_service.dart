@@ -26,7 +26,7 @@ class TimelineService {
   ///
   /// [sinceId]: Returns results with an ID greater than (that is, more recent
   /// than) the specified ID. There are limits to the number of Tweets which can
-  /// be accessed through the API. If the limit of Tweets has occured since the
+  /// be accessed through the API. If the limit of Tweets has occurred since the
   /// [sinceId], the [sinceId] will be forced to the oldest ID available.
   ///
   /// [maxId]: Returns results with an ID less than (that is, older than) or
@@ -49,7 +49,7 @@ class TimelineService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline.
   Future<List<Tweet>> homeTimeline({
@@ -105,7 +105,7 @@ class TimelineService {
   ///
   /// [sinceId]: Returns results with an ID greater than (that is, more recent
   /// than) the specified ID. There are limits to the number of Tweets which can
-  /// be accessed through the API. If the limit of Tweets has occured since the
+  /// be accessed through the API. If the limit of Tweets has occurred since the
   /// [sinceId], the [sinceId] will be forced to the oldest ID available.
   ///
   /// [maxId]: Returns results with an ID less than (that is, older than) or
@@ -131,7 +131,7 @@ class TimelineService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.
   Future<List<Tweet>> userTimeline({
@@ -166,7 +166,7 @@ class TimelineService {
         .then(transform);
   }
 
-  /// Returns the 20 most recent mentions (Tweets containing a users's
+  /// Returns the 20 most recent mentions (Tweets containing a users'
   /// @screen_name) for the authenticating user.
   ///
   /// This method can only return up to 800 tweets.
@@ -180,7 +180,7 @@ class TimelineService {
   ///
   /// [sinceId]: Returns results with an ID greater than (that is, more recent
   /// than) the specified ID. There are limits to the number of Tweets which can
-  /// be accessed through the API. If the limit of Tweets has occured since the
+  /// be accessed through the API. If the limit of Tweets has occurred since the
   /// [sinceId], the [sinceId] will be forced to the oldest ID available.
   ///
   /// [maxId]: Returns results with an ID less than (that is, older than) or
@@ -190,14 +190,14 @@ class TimelineService {
   /// user object including only the status authors numerical ID. Omit this
   /// parameter to receive the complete user object.
   ///
-  /// [includeEntities]:  The `entities` node will not be included when set to
+  /// [includeEntities]: The `entities` node will not be included when set to
   /// `false`.
   ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-mentions_timeline.
   Future<List<Tweet>> mentionsTimeline({

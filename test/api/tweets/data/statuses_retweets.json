@@ -1,0 +1,2960 @@
+[
+    {
+        "created_at": "Sat Apr 04 13:57:59 +0000 2020",
+        "id": 1246436859804344320,
+        "id_str": "1246436859804344320",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 852405431012077568,
+            "id_str": "852405431012077568"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Mon Dec 30 19:51:39 +0000 2019",
+        "id": 1211736625916432384,
+        "id_str": "1211736625916432384",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 117602970,
+            "id_str": "117602970"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Mon Dec 30 05:25:27 +0000 2019",
+        "id": 1211518639070801920,
+        "id_str": "1211518639070801920",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 1113914554080055296,
+            "id_str": "1113914554080055296"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Fri Dec 27 14:34:34 +0000 2019",
+        "id": 1210569668089352197,
+        "id_str": "1210569668089352197",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 2420028997,
+            "id_str": "2420028997"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Thu Dec 26 07:54:56 +0000 2019",
+        "id": 1210106708929982465,
+        "id_str": "1210106708929982465",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 151514122,
+            "id_str": "151514122"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Thu Dec 26 07:39:17 +0000 2019",
+        "id": 1210102767509000192,
+        "id_str": "1210102767509000192",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 169816327,
+            "id_str": "169816327"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Wed Dec 25 20:32:54 +0000 2019",
+        "id": 1209935070464815104,
+        "id_str": "1209935070464815104",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 2372379606,
+            "id_str": "2372379606"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Wed Dec 25 13:15:50 +0000 2019",
+        "id": 1209825077115727878,
+        "id_str": "1209825077115727878",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 22119568,
+            "id_str": "22119568"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Wed Dec 25 12:37:11 +0000 2019",
+        "id": 1209815349606207490,
+        "id_str": "1209815349606207490",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 1207269032430329859,
+            "id_str": "1207269032430329859"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Wed Dec 25 06:07:34 +0000 2019",
+        "id": 1209717300120576000,
+        "id_str": "1209717300120576000",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 1433852347,
+            "id_str": "1433852347"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Tue Dec 24 19:14:39 +0000 2019",
+        "id": 1209552988047597573,
+        "id_str": "1209552988047597573",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 1202310730420281345,
+            "id_str": "1202310730420281345"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Tue Dec 24 12:13:48 +0000 2019",
+        "id": 1209447078717464576,
+        "id_str": "1209447078717464576",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 3544405702,
+            "id_str": "3544405702"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Tue Dec 24 10:33:42 +0000 2019",
+        "id": 1209421885387100161,
+        "id_str": "1209421885387100161",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 2203994160,
+            "id_str": "2203994160"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Tue Dec 24 10:19:17 +0000 2019",
+        "id": 1209418258362896387,
+        "id_str": "1209418258362896387",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 7630592,
+            "id_str": "7630592"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Tue Dec 24 09:27:25 +0000 2019",
+        "id": 1209405206351343617,
+        "id_str": "1209405206351343617",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 2165157812,
+            "id_str": "2165157812"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Tue Dec 24 09:27:03 +0000 2019",
+        "id": 1209405112290095105,
+        "id_str": "1209405112290095105",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 130194713,
+            "id_str": "130194713"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    {
+        "created_at": "Tue Dec 24 09:11:54 +0000 2019",
+        "id": 1209401299869032449,
+        "id_str": "1209401299869032449",
+        "full_text": "RT @dart_lang: \ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch he\u2026",
+        "truncated": false,
+        "display_text_range": [
+            0,
+            140
+        ],
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "dart_lang",
+                    "name": "Dart Language",
+                    "id": 376585411,
+                    "id_str": "376585411",
+                    "indices": [
+                        3,
+                        13
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 1184812725760909312,
+            "id_str": "1184812725760909312"
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "created_at": "Mon Dec 23 21:30:01 +0000 2019",
+            "id": 1209224666646274048,
+            "id_str": "1209224666646274048",
+            "full_text": "\ud83c\udf89Dart has added a new feature called Extension Methods. \u26a1\n\nNow you can add functionality to existing libraries. \ud83d\udcc1\n \nWatch here \u2192  https:\/\/t.co\/bYcGRLBwbO https:\/\/t.co\/7LvVNVBN4X",
+            "truncated": false,
+            "display_text_range": [
+                0,
+                153
+            ],
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/bYcGRLBwbO",
+                        "expanded_url": "https:\/\/goo.gle\/399jCKI",
+                        "display_url": "goo.gle\/399jCKI",
+                        "indices": [
+                            130,
+                            153
+                        ]
+                    }
+                ],
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "extended_entities": {
+                "media": [
+                    {
+                        "id": 1209224663794159616,
+                        "id_str": "1209224663794159616",
+                        "indices": [
+                            154,
+                            177
+                        ],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/EMgHbMsXkAAxWtU.jpg",
+                        "url": "https:\/\/t.co\/7LvVNVBN4X",
+                        "display_url": "pic.twitter.com\/7LvVNVBN4X",
+                        "expanded_url": "https:\/\/twitter.com\/dart_lang\/status\/1209224666646274048\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "small": {
+                                "w": 680,
+                                "h": 383,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "medium": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            },
+                            "large": {
+                                "w": 1024,
+                                "h": 576,
+                                "resize": "fit"
+                            }
+                        }
+                    }
+                ]
+            },
+            "source": "\u003ca href=\"https:\/\/www.sprinklr.com\" rel=\"nofollow\"\u003eSprinklr\u003c\/a\u003e",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 376585411,
+                "id_str": "376585411"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 45,
+            "favorite_count": 211,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        },
+        "is_quote_status": false,
+        "retweet_count": 45,
+        "favorite_count": 0,
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    }
+]

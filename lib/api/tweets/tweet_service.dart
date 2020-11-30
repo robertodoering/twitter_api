@@ -93,7 +93,7 @@ class TweetService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.
   Future<Tweet> update({
@@ -155,7 +155,7 @@ class TweetService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-destroy-id.
   Future<Tweet> destroy({
@@ -176,8 +176,8 @@ class TweetService {
         .then(transform);
   }
 
-  /// Returns a single Tweet, specified by the [id] parameter. The Tweet's author
-  /// will also be embedded within the Tweet.
+  /// Returns a single Tweet, specified by the [id] parameter. The Tweet's
+  /// author will also be embedded within the Tweet.
   ///
   /// See [lookup] for getting Tweets in bulk (up to 100 per call).
   ///
@@ -192,7 +192,8 @@ class TweetService {
   /// containing the ID of the source status for the retweet.
   /// TODO: implement
   ///
-  /// [includeEntities]: The entities node will not be included when set to `false`.
+  /// [includeEntities]: The entities node will not be included when set to
+  /// `false`.
   ///
   /// [includeExtAltText]: If alt text has been added to any attached media
   /// entities, this parameter will return an ext_alt_text value in the
@@ -209,7 +210,7 @@ class TweetService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-show-id.
   Future<Tweet> show({
@@ -258,7 +259,7 @@ class TweetService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-unretweet-id.
   Future<Tweet> retweet({
@@ -292,7 +293,7 @@ class TweetService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-unretweet-id.
   Future<Tweet> unretweet({
@@ -329,7 +330,7 @@ class TweetService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets-id.
   Future<List<Tweet>> retweets({
@@ -363,7 +364,7 @@ class TweetService {
   ///
   /// [sinceId]: Returns results with an ID greater than (that is, more recent
   /// than) the specified ID. There are limits to the number of Tweets which can
-  /// be accessed through the API. If the limit of Tweets has occured since the
+  /// be accessed through the API. If the limit of Tweets has occurred since the
   /// [sinceId], the [sinceId] will be forced to the oldest ID available.
   ///
   /// [maxId]: Returns results with an ID less than (that is, older than) or
@@ -373,7 +374,8 @@ class TweetService {
   /// user object including only the status authors numerical ID. Omit this
   /// parameter to receive the complete user object.
   ///
-  /// [includeEntities]: The entities node will not be included when set to `false`.
+  /// [includeEntities]: The entities node will not be included when set to
+  /// `false`.
   ///
   /// [includeUserEntities]: The user entities node will not be included when
   /// set to `false`.
@@ -382,7 +384,7 @@ class TweetService {
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets_of_me.
   Future<List<Tweet>> retweetsOfMe({
@@ -436,13 +438,14 @@ class TweetService {
   ///
   /// [id]: The numerical ID of the Tweet to like.
   ///
-  /// [includeEntities]: The entities node will not be included when set to `false`.
+  /// [includeEntities]: The entities node will not be included when set to
+  /// `false`.
   ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-create.
   Future<Tweet> createFavorite({
@@ -474,13 +477,14 @@ class TweetService {
   ///
   /// [id]: The numerical ID of the Tweet to un-like.
   ///
-  /// [includeEntities]: The entities node will not be included when set to `false`.
+  /// [includeEntities]: The entities node will not be included when set to
+  /// `false`.
   ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-destroy.
   Future<Tweet> destroyFavorite({
@@ -516,19 +520,20 @@ class TweetService {
   ///
   /// [sinceId]: Returns results with an ID greater than (that is, more recent
   /// than) the specified ID. There are limits to the number of Tweets which can
-  /// be accessed through the API. If the limit of Tweets has occured since the
+  /// be accessed through the API. If the limit of Tweets has occurred since the
   /// [sinceId], the [sinceId] will be forced to the oldest ID available.
   ///
   /// [maxId]: Returns results with an ID less than (that is, older than) or
   /// equal to the specified ID.
   ///
-  /// [includeEntities]: The entities node will not be included when set to `false`.
+  /// [includeEntities]: The entities node will not be included when set to
+  /// `false`.
   ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
-  /// parsed in an isolate
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list.
   Future<List<Tweet>> listFavorites({

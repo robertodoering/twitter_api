@@ -1,0 +1,14 @@
+[
+    {
+        "country": "Australia",
+        "countryCode": "AU",
+        "name": "Australia",
+        "parentid": 1,
+        "placeType": {
+            "code": 12,
+            "name": "Country"
+        },
+        "url": "http://where.yahooapis.com/v1/place/23424748",
+        "woeid": 23424748
+    }
+]
