@@ -49,7 +49,7 @@ for an example.
 Requests made by the client can throw the following errors:
 
 * `TimeoutException` when a request hasn't returned a response for some time
-  (defaults to 10s, can be changed in the TwitterClient).
+  (defaults to 10s, can be changed in the `TwitterClient`).
 
 * `Response` when the received response does not have a 2xx status code. Most
   responses include additional error information that can be parsed manually from the response's body.
@@ -67,8 +67,8 @@ Tweet](https://github.com/robertodoering/twitter_api/wiki/Attaching-media-to-a-T
 ### Contribution
 
 I appreciate any contributions to this package. Any not yet implemented endpoints can
-be added similarly to the other implementations.
-Feel free to reach out to me to ask any questions.
+be added similarly to the other implementations. Feel free to reach out to me to ask any questions.
+
 Please make sure `dartanalyzer` doesn't report any problems before opening a pull request.
 
 ### Miscellaneous
