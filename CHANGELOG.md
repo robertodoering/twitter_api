@@ -1,3 +1,10 @@
+# 0.3.5
+
+- Added `TrendsService` with implementations for all `trends/*` endpoints
+- Raised `oauth` dependency to include a bugfix where authentication failed when
+  some special characters where included in the request
+  Thanks @nikolajjsj!
+
 # 0.3.4
 
 - Fixed user timeline `userId` & `screenName` request parameter
