@@ -29,7 +29,9 @@ Get your Twitter API key
 
 ### Implemented endpoints
 
-An API endpoint is considered 'implemented' when a method for it exists in the package. Once implemented, the request parameters can be set through named parameters and the response will be parsed into a data object for maximum convenience.
+The implemented API endpoints are available as methods in the corresponding
+service. The request parameters can be set through named parameters and the
+response will be parsed into a data object for maximum convenience.
 
 Find a list of implemented endpoints [here](https://github.com/robertodoering/twitter_api/wiki/Implemented-API-endpoints).
 
@@ -42,6 +44,19 @@ See [Making a custom request to the Twitter
 API](https://github.com/robertodoering/twitter_api/wiki/Making-a-custom-request-to-the-Twitter-API)
 for an example.
 
+### Error handling
+
+Requests made by the client can throw the following errors:
+
+* `TimeoutException` when a request hasn't returned a response for some time
+  (defaults to 10s, can be changed in the TwitterClient).
+
+* `Response` when the received response does not have a 2xx status code. Most
+  responses include additional error information that can be parsed manually from the response's body.
+
+* Other unexpected errors in unlikely events (for example when parsing the
+  response).
+
 ---
 
 For an example of uploading media files to Twitter, see [Attaching media to a
@@ -53,6 +68,7 @@ Tweet](https://github.com/robertodoering/twitter_api/wiki/Attaching-media-to-a-T
 
 I appreciate any contributions to this package. Any not yet implemented endpoints can
 be added similarly to the other implementations.
+Feel free to reach out to me to ask any questions.
 Please make sure `dartanalyzer` doesn't report any problems before opening a pull request.
 
 ### Miscellaneous
