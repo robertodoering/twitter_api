@@ -18,9 +18,23 @@ Future<void> main() async {
 
     // Print the text of each Tweet
     homeTimeline.forEach((tweet) => print(tweet.fullText));
+
+    // Update your status (tweet)
+    await twitterApi.tweetService.update(
+      status: 'Hello world!',
+    );
   } catch (error) {
-    // If no response is received or if the response status code does not start
-    // with 2, an exception is thrown
+    // Requests made by the client can throw the following errors:
+    //
+    // * `TimeoutException` when a request hasn't returned a response for some
+    //   time (defaults to 10s, can be changed in the TwitterClient).
+    //
+    // * `Response` when the received response does not have a 2xx status code.
+    //   Most responses include additional error information that can be parsed
+    //   manually from the response's body.
+    //
+    // * Other unexpected errors in unlikely events (for example when parsing
+    //   the response).
     print('error while requesting home timeline: $error');
   }
 }
