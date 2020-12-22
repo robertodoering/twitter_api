@@ -52,7 +52,10 @@ Requests made by the client can throw the following errors:
   (defaults to 10s, can be changed in the `TwitterClient`).
 
 * `Response` when the received response does not have a 2xx status code. Most
-  responses include additional error information that can be parsed manually from the response's body.
+  responses include additional error information that can be parsed manually
+  from the response's body. Check out the Twitter Developer documentation for
+  the endpoint for possible error responses (Hyperlinked in the dart doc for
+  each endpoint).
 
 * Other unexpected errors in unlikely events (for example when parsing the
   response).
