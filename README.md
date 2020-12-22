@@ -53,7 +53,7 @@ Requests made by the client can throw the following errors:
 
 * `Response` when the received response does not have a 2xx status code. Most
   responses include additional error information that can be parsed manually
-  from the response's body. Check out the Twitter Developer documentation for
+  from the response's body. Check out the Twitter Developer documentation of
   the endpoint for possible error responses (Hyperlinked in the dart doc for
   each endpoint).
 
