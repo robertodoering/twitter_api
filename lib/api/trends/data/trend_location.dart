@@ -16,14 +16,14 @@ class TrendLocation {
   factory TrendLocation.fromJson(Map<String, dynamic> json) =>
       _$TrendLocationFromJson(json);
 
-  String name;
-  int woeid;
+  String? name;
+  int? woeid;
 
-  String country;
-  String countryCode;
-  int parentid;
-  String url;
-  PlaceType placeType;
+  String? country;
+  String? countryCode;
+  int? parentid;
+  String? url;
+  PlaceType? placeType;
 
   Map<String, dynamic> toJson() => _$TrendLocationToJson(this);
 }
@@ -38,8 +38,8 @@ class PlaceType {
   factory PlaceType.fromJson(Map<String, dynamic> json) =>
       _$PlaceTypeFromJson(json);
 
-  int code;
-  String name;
+  int? code;
+  String? name;
 
   Map<String, dynamic> toJson() => _$PlaceTypeToJson(this);
 }

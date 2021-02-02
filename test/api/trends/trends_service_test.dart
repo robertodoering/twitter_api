@@ -36,7 +36,7 @@ void main() {
       expect(trends.single.trends, isNotEmpty);
       expect(trends.single.asOf, isA<DateTime>());
       expect(trends.single.createdAt, isA<DateTime>());
-      expect(trends.single.locations.length, equals(1));
+      expect(trends.single.locations!.length, equals(1));
     });
 
     test('parses trend object from response', () async {
@@ -59,14 +59,14 @@ void main() {
 
       final trends = await trendsService.place(id: 1);
 
-      expect(trends.single.trends.first.name, equals('#ChainedToTheRhythm'));
+      expect(trends.single.trends!.first.name, equals('#ChainedToTheRhythm'));
       expect(
-        trends.single.trends.first.url,
+        trends.single.trends!.first.url,
         equals('http://twitter.com/search?q=%23ChainedToTheRhythm'),
       );
-      expect(trends.single.trends.first.promotedContent, isNull);
-      expect(trends.single.trends.first.query, equals('%23ChainedToTheRhythm'));
-      expect(trends.single.trends.first.tweetVolume, equals(48857));
+      expect(trends.single.trends!.first.promotedContent, isNull);
+      expect(trends.single.trends!.first.query, equals('%23ChainedToTheRhythm'));
+      expect(trends.single.trends!.first.tweetVolume, equals(48857));
     });
   });
 
@@ -102,8 +102,8 @@ void main() {
       );
       expect(trendLocations.first.woeid, equals(23424954));
       expect(trendLocations.first.placeType, isA<PlaceType>());
-      expect(trendLocations.first.placeType.code, equals(12));
-      expect(trendLocations.first.placeType.name, equals('Country'));
+      expect(trendLocations.first.placeType!.code, equals(12));
+      expect(trendLocations.first.placeType!.name, equals('Country'));
     });
   });
 
@@ -144,8 +144,8 @@ void main() {
       );
       expect(trendLocations.single.woeid, equals(23424748));
       expect(trendLocations.single.placeType, isA<PlaceType>());
-      expect(trendLocations.single.placeType.code, equals(12));
-      expect(trendLocations.single.placeType.name, equals('Country'));
+      expect(trendLocations.single.placeType!.code, equals(12));
+      expect(trendLocations.single.placeType!.name, equals('Country'));
     });
   });
 }

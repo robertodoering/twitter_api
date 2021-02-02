@@ -19,22 +19,22 @@ class Entities {
       _$EntitiesFromJson(json);
 
   /// Represents hashtags which have been parsed out of the Tweet text.
-  List<Hashtag> hashtags;
+  List<Hashtag>? hashtags;
 
   /// Represents media elements uploaded with the Tweet.
-  List<Media> media;
+  List<Media>? media;
 
   /// Represents URLs included in the text of a Tweet.
-  List<Url> urls;
+  List<Url>? urls;
 
   /// Represents URLs included in the text of a Tweet.
-  List<UserMention> userMentions;
+  List<UserMention>? userMentions;
 
   /// Represents symbols, i.e. $cashtags, included in the text of the Tweet.
-  List<Symbol> symbols;
+  List<Symbol>? symbols;
 
   /// Represents Twitter Polls included in the Tweet.
-  List<Poll> polls;
+  List<Poll>? polls;
 
   Map<String, dynamic> toJson() => _$EntitiesToJson(this);
 }

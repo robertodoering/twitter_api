@@ -8,10 +8,9 @@ part of 'tweet_search.dart';
 
 TweetSearch _$TweetSearchFromJson(Map<String, dynamic> json) {
   return TweetSearch()
-    ..statuses = (json['statuses'] as List)
-        ?.map(
-            (e) => e == null ? null : Tweet.fromJson(e as Map<String, dynamic>))
-        ?.toList()
+    ..statuses = (json['statuses'] as List<dynamic>?)
+        ?.map((e) => Tweet.fromJson(e as Map<String, dynamic>))
+        .toList()
     ..searchMetadata = json['search_metadata'] == null
         ? null
         : SearchMetadata.fromJson(
@@ -20,19 +19,19 @@ TweetSearch _$TweetSearchFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$TweetSearchToJson(TweetSearch instance) =>
     <String, dynamic>{
-      'statuses': instance.statuses?.map((e) => e?.toJson())?.toList(),
+      'statuses': instance.statuses?.map((e) => e.toJson()).toList(),
       'search_metadata': instance.searchMetadata?.toJson(),
     };
 
 SearchMetadata _$SearchMetadataFromJson(Map<String, dynamic> json) {
   return SearchMetadata()
-    ..completedIn = (json['completedIn'] as num)?.toDouble()
-    ..maxIdStr = json['maxIdStr'] as String
-    ..nextResults = json['nextResults'] as String
-    ..query = json['query'] as String
-    ..refreshUrl = json['refreshUrl'] as String
-    ..count = json['count'] as int
-    ..sinceIdStr = json['sinceIdStr'] as String;
+    ..completedIn = (json['completedIn'] as num?)?.toDouble()
+    ..maxIdStr = json['maxIdStr'] as String?
+    ..nextResults = json['nextResults'] as String?
+    ..query = json['query'] as String?
+    ..refreshUrl = json['refreshUrl'] as String?
+    ..count = json['count'] as int?
+    ..sinceIdStr = json['sinceIdStr'] as String?;
 }
 
 Map<String, dynamic> _$SearchMetadataToJson(SearchMetadata instance) =>

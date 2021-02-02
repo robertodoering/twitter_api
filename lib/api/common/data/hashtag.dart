@@ -18,10 +18,10 @@ class Hashtag {
   /// the location of the first character after the hashtag. Therefore the
   /// difference between the two numbers will be the length of the hashtag name
   /// plus one (for the `#` character).
-  List<int> indices;
+  List<int>? indices;
 
   /// Name of the hashtag, minus the leading `#` character.
-  String text;
+  String? text;
 
   Map<String, dynamic> toJson() => _$HashtagToJson(this);
 }

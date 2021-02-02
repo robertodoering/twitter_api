@@ -12,22 +12,22 @@ abstract class AbstractTwitterClient {
 
   Future<Response> get(
     dynamic uri, {
-    Map<String, String> headers,
-    Duration timeout,
+    Map<String, String>? headers,
+    Duration? timeout,
   });
 
   Future<Response> post(
     dynamic uri, {
-    Map<String, String> headers,
+    Map<String, String>? headers,
     dynamic body,
-    Encoding encoding,
-    Duration timeout,
+    Encoding? encoding,
+    Duration? timeout,
   });
 
   Future<Response> multipartRequest(
     dynamic uri, {
-    List<MultipartFile> files,
-    Map<String, String> headers,
-    Duration timeout,
+    List<MultipartFile>? files,
+    Map<String, String>? headers,
+    Duration? timeout,
   });
 }

@@ -5,11 +5,10 @@ import 'package:dart_twitter_api/api/twitter_client.dart';
 import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
-import 'package:meta/meta.dart';
 
 class TweetService {
   const TweetService({
-    @required this.client,
+    required this.client,
   });
 
   final AbstractTwitterClient client;
@@ -97,21 +96,21 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.
   Future<Tweet> update({
-    @required String status,
-    String inReplyToStatusId,
-    bool autoPopulateReplyMetadata,
-    List<String> excludeReplyUserId,
-    String attachmentUrl,
-    List<String> mediaIds,
-    bool possiblySensitive,
-    double lat,
-    double long,
-    String placeId,
-    bool displayCoordinates,
-    bool trimUser,
-    bool enableDmcommands,
-    bool failDmcommands,
-    String cardUri,
+    required String status,
+    String? inReplyToStatusId,
+    bool? autoPopulateReplyMetadata,
+    List<String>? excludeReplyUserId,
+    String? attachmentUrl,
+    List<String>? mediaIds,
+    bool? possiblySensitive,
+    double? lat,
+    double? long,
+    String? placeId,
+    bool? displayCoordinates,
+    bool? trimUser,
+    bool? enableDmcommands,
+    bool? failDmcommands,
+    String? cardUri,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
@@ -159,8 +158,8 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-destroy-id.
   Future<Tweet> destroy({
-    @required String id,
-    bool trimUser,
+    required String id,
+    bool? trimUser,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
@@ -214,12 +213,12 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-show-id.
   Future<Tweet> show({
-    @required String id,
-    bool trimUser,
-    @notImplemented bool includeMyRetweet,
-    bool includeEntities,
-    @notImplemented bool includeExtAltText,
-    @notImplemented bool includeCardUri,
+    required String id,
+    bool? trimUser,
+    @notImplemented bool? includeMyRetweet,
+    bool? includeEntities,
+    @notImplemented bool? includeExtAltText,
+    @notImplemented bool? includeCardUri,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
@@ -263,8 +262,8 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-unretweet-id.
   Future<Tweet> retweet({
-    @required String id,
-    bool trimUser,
+    required String id,
+    bool? trimUser,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
@@ -297,8 +296,8 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-unretweet-id.
   Future<Tweet> unretweet({
-    @required String id,
-    bool trimUser,
+    required String id,
+    bool? trimUser,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
@@ -334,9 +333,9 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets-id.
   Future<List<Tweet>> retweets({
-    @required String id,
-    int count,
-    bool trimUser,
+    required String id,
+    int? count,
+    bool? trimUser,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) {
@@ -388,12 +387,12 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets_of_me.
   Future<List<Tweet>> retweetsOfMe({
-    int count,
-    String sinceId,
-    String maxId,
-    bool trimUser,
-    bool includeEntities,
-    bool includeUserEntities,
+    int? count,
+    String? sinceId,
+    String? maxId,
+    bool? trimUser,
+    bool? includeEntities,
+    bool? includeUserEntities,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -449,8 +448,8 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-create.
   Future<Tweet> createFavorite({
-    @required String id,
-    bool includeEntities,
+    required String id,
+    bool? includeEntities,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
@@ -488,8 +487,8 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-destroy.
   Future<Tweet> destroyFavorite({
-    @required String id,
-    bool includeEntities,
+    required String id,
+    bool? includeEntities,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
@@ -537,12 +536,12 @@ class TweetService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list.
   Future<List<Tweet>> listFavorites({
-    String userId,
-    String screenName,
-    int count,
-    String sinceId,
-    String maxId,
-    bool includeEntities,
+    String? userId,
+    String? screenName,
+    int? count,
+    String? sinceId,
+    String? maxId,
+    bool? includeEntities,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {

@@ -24,12 +24,12 @@ Map<String, dynamic> _$UserEntitiesToJson(UserEntities instance) =>
 
 UserEntityUrl _$UserEntityUrlFromJson(Map<String, dynamic> json) {
   return UserEntityUrl()
-    ..urls = (json['urls'] as List)
-        ?.map((e) => e == null ? null : Url.fromJson(e as Map<String, dynamic>))
-        ?.toList();
+    ..urls = (json['urls'] as List<dynamic>?)
+        ?.map((e) => Url.fromJson(e as Map<String, dynamic>))
+        .toList();
 }
 
 Map<String, dynamic> _$UserEntityUrlToJson(UserEntityUrl instance) =>
     <String, dynamic>{
-      'urls': instance.urls?.map((e) => e?.toJson())?.toList(),
+      'urls': instance.urls?.map((e) => e.toJson()).toList(),
     };

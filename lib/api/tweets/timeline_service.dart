@@ -3,11 +3,10 @@ import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
 import 'package:dart_twitter_api/api/twitter_client.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
-import 'package:meta/meta.dart';
 
 class TimelineService {
   const TimelineService({
-    @required this.client,
+    required this.client,
   });
 
   final AbstractTwitterClient client;
@@ -53,12 +52,12 @@ class TimelineService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline.
   Future<List<Tweet>> homeTimeline({
-    int count,
-    String sinceId,
-    String maxId,
-    bool trimUser,
-    bool excludeReplies,
-    bool includeEntities,
+    int? count,
+    String? sinceId,
+    String? maxId,
+    bool? trimUser,
+    bool? excludeReplies,
+    bool? includeEntities,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -135,14 +134,14 @@ class TimelineService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.
   Future<List<Tweet>> userTimeline({
-    String userId,
-    String screenName,
-    int count,
-    String sinceId,
-    String maxId,
-    bool trimUser,
-    bool excludeReplies,
-    bool includeRts,
+    String? userId,
+    String? screenName,
+    int? count,
+    String? sinceId,
+    String? maxId,
+    bool? trimUser,
+    bool? excludeReplies,
+    bool? includeRts,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -201,11 +200,11 @@ class TimelineService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-mentions_timeline.
   Future<List<Tweet>> mentionsTimeline({
-    int count,
-    String sinceId,
-    String maxId,
-    bool trimUser,
-    bool includeEntities,
+    int? count,
+    String? sinceId,
+    String? maxId,
+    bool? trimUser,
+    bool? includeEntities,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {

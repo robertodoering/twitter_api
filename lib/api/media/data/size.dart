@@ -12,16 +12,16 @@ class Size {
   factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
 
   /// Width in pixels of this size.
-  int w;
+  int? w;
 
   /// Height in pixels of this size.
-  int h;
+  int? h;
 
   /// Resizing method used to obtain this size. A value of `fit` means that the
   /// media was resized to fit one dimension, keeping its native aspect ratio. A
   /// value of `crop` means that the media was cropped in order to fit a
   /// specific resolution.
-  String resize;
+  String? resize;
 
   Map<String, dynamic> toJson() => _$SizeToJson(this);
 }

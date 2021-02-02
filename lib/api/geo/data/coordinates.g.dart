@@ -8,10 +8,10 @@ part of 'coordinates.dart';
 
 Coordinates _$CoordinatesFromJson(Map<String, dynamic> json) {
   return Coordinates()
-    ..coordinates = (json['coordinates'] as List)
-        ?.map((e) => (e as num)?.toDouble())
-        ?.toList()
-    ..type = json['type'] as String;
+    ..coordinates = (json['coordinates'] as List<dynamic>?)
+        ?.map((e) => (e as num).toDouble())
+        .toList()
+    ..type = json['type'] as String?;
 }
 
 Map<String, dynamic> _$CoordinatesToJson(Coordinates instance) =>

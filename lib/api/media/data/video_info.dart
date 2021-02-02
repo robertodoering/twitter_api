@@ -12,11 +12,11 @@ class VideoInfo {
   factory VideoInfo.fromJson(Map<String, dynamic> json) =>
       _$VideoInfoFromJson(json);
 
-  List<int> aspectRatio;
+  List<int>? aspectRatio;
 
-  int durationMillis;
+  int? durationMillis;
 
-  List<Variant> variants;
+  List<Variant>? variants;
 
   Map<String, dynamic> toJson() => _$VideoInfoToJson(this);
 }
@@ -31,11 +31,11 @@ class Variant {
   factory Variant.fromJson(Map<String, dynamic> json) =>
       _$VariantFromJson(json);
 
-  int bitrate;
+  int? bitrate;
 
-  String contentType;
+  String? contentType;
 
-  String url;
+  String? url;
 
   Map<String, dynamic> toJson() => _$VariantToJson(this);
 }

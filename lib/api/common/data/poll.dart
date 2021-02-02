@@ -15,14 +15,14 @@ class Poll {
 
   /// An array of options, each having a poll position, and the text for that
   /// position.
-  List<Option> options;
+  List<Option>? options;
 
   /// Time stamp (UTC) of when poll ends.
   @JsonKey(fromJson: convertTwitterDateTime)
-  DateTime endDatetime;
+  DateTime? endDatetime;
 
   /// Duration of poll in minutes.
-  String durationMinutes;
+  String? durationMinutes;
 
   Map<String, dynamic> toJson() => _$PollToJson(this);
 }

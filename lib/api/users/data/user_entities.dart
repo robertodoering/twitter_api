@@ -10,9 +10,9 @@ part 'user_entities.g.dart';
 class UserEntities {
   UserEntities();
 
-  UserEntityUrl url;
+  UserEntityUrl? url;
 
-  UserEntityUrl description;
+  UserEntityUrl? description;
 
   factory UserEntities.fromJson(Map<String, dynamic> json) =>
       _$UserEntitiesFromJson(json);
@@ -27,7 +27,7 @@ class UserEntities {
 class UserEntityUrl {
   UserEntityUrl();
 
-  List<Url> urls;
+  List<Url>? urls;
 
   factory UserEntityUrl.fromJson(Map<String, dynamic> json) =>
       _$UserEntityUrlFromJson(json);

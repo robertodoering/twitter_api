@@ -17,24 +17,24 @@ class Sizes {
   ///
   /// Thumbnail-sized photo media will be limited to fill a 150x150 boundary and
   /// cropped.
-  Size thumb;
+  Size? thumb;
 
   /// Information for a medium-sized version of the media.
   ///
   /// Medium-sized photo media will be limited to fit within a 1200x1200
   /// boundary.
-  Size medium;
+  Size? medium;
 
   /// Information for a small-sized version of the media.
   ///
   /// Small-sized photo media will be limited to fit within a 680x680 boundary.
-  Size small;
+  Size? small;
 
   /// Information for a large-sized version of the media.
   ///
   /// Large-sized photo media will be limited to fit within a 2048x2048
   /// boundary.
-  Size large;
+  Size? large;
 
   Map<String, dynamic> toJson() => _$SizesToJson(this);
 }

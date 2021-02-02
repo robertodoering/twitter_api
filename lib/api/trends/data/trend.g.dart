@@ -8,11 +8,11 @@ part of 'trend.dart';
 
 Trend _$TrendFromJson(Map<String, dynamic> json) {
   return Trend()
-    ..name = json['name'] as String
-    ..url = json['url'] as String
+    ..name = json['name'] as String?
+    ..url = json['url'] as String?
     ..promotedContent = json['promoted_content']
-    ..query = json['query'] as String
-    ..tweetVolume = json['tweet_volume'] as int;
+    ..query = json['query'] as String?
+    ..tweetVolume = json['tweet_volume'] as int?;
 }
 
 Map<String, dynamic> _$TrendToJson(Trend instance) => <String, dynamic>{

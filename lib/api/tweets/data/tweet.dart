@@ -19,21 +19,21 @@ class Tweet {
 
   /// UTC time when this Tweet was created.
   @JsonKey(fromJson: convertTwitterDateTime)
-  DateTime createdAt;
+  DateTime? createdAt;
 
   /// The string representation of the unique identifier for this Tweet.
-  String idStr;
+  String? idStr;
 
   /// The actual UTF-8 text of the status update.
   ///
   /// [text] is not included when receiving extended Tweet objects (when adding
   /// `tweet_mode=extended` as a parameter to any endpoint).
   /// Instead [fullText] is received.
-  String text;
+  String? text;
 
   /// Utility used to post the Tweet, as an HTML-formatted string. Tweets from
   /// the Twitter website have a source value of web.
-  String source;
+  String? source;
 
   /// Indicates whether the value of the text parameter was truncated, for
   /// example, as a result of a retweet exceeding the original Tweet text length
@@ -46,42 +46,42 @@ class Tweet {
   /// most cases, `false`).
   ///
   /// [truncated] will always be `false` when receiving extended Tweet objects.
-  bool truncated;
+  bool? truncated;
 
   /// Nullable. If the represented Tweet is a reply, this field will contain the
   /// string representation of the original Tweet’s ID.
-  String inReplyToStatusIdStr;
+  String? inReplyToStatusIdStr;
 
   /// Nullable. If the represented Tweet is a reply, this field will contain the
   /// integer representation of the original Tweet’s author ID. This will not
   /// necessarily always be the user directly mentioned in the Tweet.
-  String inReplyToUserIdStr;
+  String? inReplyToUserIdStr;
 
   /// Nullable. If the represented Tweet is a reply, this field will contain the
   /// screen name of the original Tweet’s author.
-  String inReplyToScreenName;
+  String? inReplyToScreenName;
 
   /// The user who posted this Tweet.
-  User user;
+  User? user;
 
   /// Nullable. Represents the geographic location of this Tweet as reported by
   /// the user or client application.
-  Coordinates coordinates;
+  Coordinates? coordinates;
 
   /// Nullable. When present, indicates that the tweet is associated (but not
   /// necessarily originating from) a Place.
-  Place place;
+  Place? place;
 
   /// This field only surfaces when the Tweet is a quote Tweet. This is the
   /// string representation Tweet ID of the quoted Tweet.
-  String quotedStatusIdStr;
+  String? quotedStatusIdStr;
 
   /// Indicates whether this is a Quoted Tweet.
-  bool isQuoteStatus;
+  bool? isQuoteStatus;
 
   /// This field only surfaces when the Tweet is a quote Tweet. This attribute
   /// contains the Tweet object of the original Tweet that was quoted.
-  Tweet quotedStatus;
+  Tweet? quotedStatus;
 
   /// Users can amplify the broadcast of Tweets authored by other users by
   /// `retweeting`. Retweets can be distinguished from typical Tweets by the
@@ -90,59 +90,59 @@ class Tweet {
   /// retweets of retweets do not show representations of the intermediary
   /// retweet, but only the original Tweet. (Users can also unretweet a retweet
   /// they created by deleting their retweet.)
-  Tweet retweetedStatus;
+  Tweet? retweetedStatus;
 
   /// Nullable. Indicates approximately how many times this Tweet has been
   /// quoted by Twitter users.
   ///
   /// Note: This object is only available with the Premium and Enterprise tier
   /// products.
-  int quoteCount;
+  int? quoteCount;
 
   /// Number of times this Tweet has been replied to.
   ///
   /// Note: This object is only available with the Premium and Enterprise tier
   /// products.
-  int replyCount;
+  int? replyCount;
 
   /// Number of times this Tweet has been retweeted.
-  int retweetCount;
+  int? retweetCount;
 
   /// Nullable. Indicates approximately how many times this Tweet has been liked
   /// by Twitter users.
-  int favoriteCount;
+  int? favoriteCount;
 
   /// Entities which have been parsed out of the text of the Tweet.
-  Entities entities;
+  Entities? entities;
 
   /// When between one and four native photos or one video or one animated GIF
   /// are in Tweet, contains an array 'media' metadata. This is also available
   /// in Quote Tweets.
-  Entities extendedEntities;
+  Entities? extendedEntities;
 
   /// Nullable. Indicates whether this Tweet has been liked by the
   /// authenticating user.
-  bool favorited;
+  bool? favorited;
 
   /// Indicates whether this Tweet has been Retweeted by the authenticating
   /// user.
-  bool retweeted;
+  bool? retweeted;
 
   /// Nullable. This field only surfaces when a Tweet contains a link. The
   /// meaning of the field doesn’t pertain to the Tweet content itself, but
   /// instead it is an indicator that the URL contained in the Tweet may contain
   /// content or media identified as sensitive content.
-  bool possiblySensitive;
+  bool? possiblySensitive;
 
-  bool possiblySensitiveAppealable;
+  bool? possiblySensitiveAppealable;
 
   /// Nullable. When present, indicates a BCP 47 language identifier
   /// corresponding to the machine-detected language of the Tweet text, or `und`
   /// if no language could be detected.
-  String lang;
+  String? lang;
 
   /// URL metadata for the quoted Tweet.
-  QuotedStatusPermalink quotedStatusPermalink;
+  QuotedStatusPermalink? quotedStatusPermalink;
 
   // Extended mode fields:
 
@@ -152,11 +152,11 @@ class Tweet {
   /// adding `tweet_mode=extended` as a parameter to any endoint).
   ///
   /// [fullText] is never truncated.
-  String fullText;
+  String? fullText;
 
   /// An array of two unicode code point indices, identifying the inclusive
   /// start and exclusive end of the displayable content of the tweet.
-  List<int> displayTextRange;
+  List<int>? displayTextRange;
 
   Map<String, dynamic> toJson() => _$TweetToJson(this);
 }

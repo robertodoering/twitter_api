@@ -12,13 +12,13 @@ class AdditionalMediaInfo {
   factory AdditionalMediaInfo.fromJson(Map<String, dynamic> json) =>
       _$AdditionalMediaInfoFromJson(json);
 
-  String title;
+  String? title;
 
-  String description;
+  String? description;
 
-  bool embeddable;
+  bool? embeddable;
 
-  bool monetizable;
+  bool? monetizable;
 
   Map<String, dynamic> toJson() => _$AdditionalMediaInfoToJson(this);
 }

@@ -42,7 +42,7 @@ Future<R> compute<Q, R>(ComputeCallback<Q, R> callback, Q message) async {
   });
   resultPort.listen((dynamic resultData) {
     assert(resultData == null || resultData is R);
-    if (!result.isCompleted) result.complete(resultData as R);
+    if (!result.isCompleted) result.complete(resultData as R?);
   });
   await result.future;
   Timeline.startSync('$compute: end', flow: Flow.end(flow.id));
@@ -73,11 +73,11 @@ class _IsolateConfiguration<Q, R> {
 Future<void> _spawn<Q, R>(
   _IsolateConfiguration<Q, FutureOr<R>> configuration,
 ) async {
-  R result;
+  R? result;
   await Timeline.timeSync(
     configuration.debugLabel,
     () async {
-      final applicationResult = await configuration.apply();
+      final FutureOr<R> applicationResult = await (configuration.apply() as FutureOr<R>);
       result = await applicationResult;
     },
     flow: Flow.step(configuration.flowId),

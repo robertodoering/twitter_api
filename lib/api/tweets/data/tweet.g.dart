@@ -8,14 +8,14 @@ part of 'tweet.dart';
 
 Tweet _$TweetFromJson(Map<String, dynamic> json) {
   return Tweet()
-    ..createdAt = convertTwitterDateTime(json['created_at'] as String)
-    ..idStr = json['id_str'] as String
-    ..text = json['text'] as String
-    ..source = json['source'] as String
-    ..truncated = json['truncated'] as bool
-    ..inReplyToStatusIdStr = json['in_reply_to_status_id_str'] as String
-    ..inReplyToUserIdStr = json['in_reply_to_user_id_str'] as String
-    ..inReplyToScreenName = json['in_reply_to_screen_name'] as String
+    ..createdAt = convertTwitterDateTime(json['created_at'] as String?)
+    ..idStr = json['id_str'] as String?
+    ..text = json['text'] as String?
+    ..source = json['source'] as String?
+    ..truncated = json['truncated'] as bool?
+    ..inReplyToStatusIdStr = json['in_reply_to_status_id_str'] as String?
+    ..inReplyToUserIdStr = json['in_reply_to_user_id_str'] as String?
+    ..inReplyToScreenName = json['in_reply_to_screen_name'] as String?
     ..user = json['user'] == null
         ? null
         : User.fromJson(json['user'] as Map<String, dynamic>)
@@ -25,37 +25,38 @@ Tweet _$TweetFromJson(Map<String, dynamic> json) {
     ..place = json['place'] == null
         ? null
         : Place.fromJson(json['place'] as Map<String, dynamic>)
-    ..quotedStatusIdStr = json['quoted_status_id_str'] as String
-    ..isQuoteStatus = json['is_quote_status'] as bool
+    ..quotedStatusIdStr = json['quoted_status_id_str'] as String?
+    ..isQuoteStatus = json['is_quote_status'] as bool?
     ..quotedStatus = json['quoted_status'] == null
         ? null
         : Tweet.fromJson(json['quoted_status'] as Map<String, dynamic>)
     ..retweetedStatus = json['retweeted_status'] == null
         ? null
         : Tweet.fromJson(json['retweeted_status'] as Map<String, dynamic>)
-    ..quoteCount = json['quote_count'] as int
-    ..replyCount = json['reply_count'] as int
-    ..retweetCount = json['retweet_count'] as int
-    ..favoriteCount = json['favorite_count'] as int
+    ..quoteCount = json['quote_count'] as int?
+    ..replyCount = json['reply_count'] as int?
+    ..retweetCount = json['retweet_count'] as int?
+    ..favoriteCount = json['favorite_count'] as int?
     ..entities = json['entities'] == null
         ? null
         : Entities.fromJson(json['entities'] as Map<String, dynamic>)
     ..extendedEntities = json['extended_entities'] == null
         ? null
         : Entities.fromJson(json['extended_entities'] as Map<String, dynamic>)
-    ..favorited = json['favorited'] as bool
-    ..retweeted = json['retweeted'] as bool
-    ..possiblySensitive = json['possibly_sensitive'] as bool
+    ..favorited = json['favorited'] as bool?
+    ..retweeted = json['retweeted'] as bool?
+    ..possiblySensitive = json['possibly_sensitive'] as bool?
     ..possiblySensitiveAppealable =
-        json['possibly_sensitive_appealable'] as bool
-    ..lang = json['lang'] as String
+        json['possibly_sensitive_appealable'] as bool?
+    ..lang = json['lang'] as String?
     ..quotedStatusPermalink = json['quoted_status_permalink'] == null
         ? null
         : QuotedStatusPermalink.fromJson(
             json['quoted_status_permalink'] as Map<String, dynamic>)
-    ..fullText = json['full_text'] as String
-    ..displayTextRange =
-        (json['display_text_range'] as List)?.map((e) => e as int)?.toList();
+    ..fullText = json['full_text'] as String?
+    ..displayTextRange = (json['display_text_range'] as List<dynamic>?)
+        ?.map((e) => e as int)
+        .toList();
 }
 
 Map<String, dynamic> _$TweetToJson(Tweet instance) => <String, dynamic>{

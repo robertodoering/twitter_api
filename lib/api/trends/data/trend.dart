@@ -11,11 +11,11 @@ class Trend {
 
   factory Trend.fromJson(Map<String, dynamic> json) => _$TrendFromJson(json);
 
-  String name;
-  String url;
+  String? name;
+  String? url;
   dynamic promotedContent;
-  String query;
-  int tweetVolume;
+  String? query;
+  int? tweetVolume;
 
   Map<String, dynamic> toJson() => _$TrendToJson(this);
 }

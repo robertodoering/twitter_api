@@ -12,10 +12,10 @@ class Option {
   factory Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
 
   /// The poll position for this option.
-  int position;
+  int? position;
 
   /// The text of this poll option.
-  String text;
+  String? text;
 
   Map<String, dynamic> toJson() => _$OptionToJson(this);
 }

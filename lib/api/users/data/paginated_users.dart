@@ -13,11 +13,11 @@ class PaginatedUsers {
   factory PaginatedUsers.fromJson(Map<String, dynamic> json) =>
       _$PaginatedUsersFromJson(json);
 
-  List<User> users;
+  List<User>? users;
 
-  String nextCursorStr;
+  String? nextCursorStr;
 
-  String previousCursorStr;
+  String? previousCursorStr;
 
   Map<String, dynamic> toJson() => _$PaginatedUsersToJson(this);
 }

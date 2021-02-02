@@ -15,16 +15,16 @@ class QuotedStatusPermalink {
   /// Shortened url of the quoted status.
   ///
   /// Example: 'https://t.co/LinkToTweet'
-  String url;
+  String? url;
 
   /// Expanded version of [display].
   ///
   /// Example: 'https://twitter.com/OriginalTweeter/status/994281226797137920'
-  String expanded;
+  String? expanded;
 
   /// Url of the quoted status.
   /// Example: 'twitter.com/OriginalTweeter/status/994281226797137920'
-  String display;
+  String? display;
 
   Map<String, dynamic> toJson() => _$QuotedStatusPermalinkToJson(this);
 }
