@@ -3,7 +3,7 @@
 [![pub](https://img.shields.io/pub/v/dart_twitter_api)](https://pub.dev/packages/dart_twitter_api)
 ![test](https://github.com/robertodoering/twitter_api/workflows/test/badge.svg?branch=master)
 
-This dart package provides a well documented wrapper for the [Twitter
+This dart package provides a well documented wrapper for the [Twitter v1.1
 API](https://developer.twitter.com/).
 
 ## Why use this package?
