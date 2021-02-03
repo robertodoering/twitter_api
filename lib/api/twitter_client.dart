@@ -66,7 +66,7 @@ class TwitterClient extends AbstractTwitterClient {
 
   @override
   Future<Response> get(
-    dynamic uri, {
+    Uri uri, {
     Map<String, String>? headers,
     Duration? timeout,
   }) {
@@ -82,7 +82,7 @@ class TwitterClient extends AbstractTwitterClient {
 
   @override
   Future<Response> post(
-    dynamic uri, {
+    Uri uri, {
     Map<String, String>? headers,
     dynamic body,
     Encoding? encoding,
@@ -100,16 +100,13 @@ class TwitterClient extends AbstractTwitterClient {
 
   @override
   Future<Response> multipartRequest(
-    dynamic uri, {
+    Uri uri, {
     List<MultipartFile>? files,
     Map<String, String>? headers,
     String method = 'POST',
     Duration? timeout,
   }) async {
-    final request = MultipartRequest(
-      method,
-      uri is String ? Uri.parse(uri) : uri as Uri,
-    );
+    final request = MultipartRequest(method, uri);
 
     if (files != null) {
       request.files.addAll(files);
