@@ -1,18 +1,16 @@
 import 'dart:io';
 
-import 'package:dart_twitter_api/api/trends/data/trend_location.dart';
-import 'package:dart_twitter_api/api/trends/data/trends.dart';
-import 'package:dart_twitter_api/api/trends/trends_service.dart';
+import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import '../mock_client.dart';
+import '../mocks/mock_twitter_client.mocks.dart';
 
 void main() {
   group('place', () {
     test('parses trends list from response', () async {
-      final mockClient = MockClient();
+      final mockClient = MockTwitterClient();
 
       when(mockClient.get(
         Uri.https('api.twitter.com', '1.1/trends/place.json', {'id': '1'}),
@@ -40,7 +38,7 @@ void main() {
     });
 
     test('parses trend object from response', () async {
-      final mockClient = MockClient();
+      final mockClient = MockTwitterClient();
 
       when(mockClient.get(
         Uri.https('api.twitter.com', '1.1/trends/place.json', {'id': '1'}),
@@ -65,14 +63,15 @@ void main() {
         equals('http://twitter.com/search?q=%23ChainedToTheRhythm'),
       );
       expect(trends.single.trends!.first.promotedContent, isNull);
-      expect(trends.single.trends!.first.query, equals('%23ChainedToTheRhythm'));
+      expect(
+          trends.single.trends!.first.query, equals('%23ChainedToTheRhythm'));
       expect(trends.single.trends!.first.tweetVolume, equals(48857));
     });
   });
 
   group('available', () {
     test('parses trend locations from response', () async {
-      final mockClient = MockClient();
+      final mockClient = MockTwitterClient();
 
       when(mockClient.get(
         Uri.https('api.twitter.com', '1.1/trends/available.json'),
@@ -109,7 +108,8 @@ void main() {
 
   group('closest', () {
     test('parses trend locations from response', () async {
-      final mockClient = MockClient();
+      final mockClient = MockTwitterClient();
+
       when(mockClient.get(
         Uri.https('api.twitter.com', '1.1/trends/closest.json', {
           'lat': '37.7749',

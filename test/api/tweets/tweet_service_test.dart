@@ -1,16 +1,15 @@
 import 'dart:io';
 
-import 'package:dart_twitter_api/api/tweets/tweet_service.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import '../mock_client.dart';
+import '../mocks/mock_twitter_client.mocks.dart';
 
 void main() async {
   test('`update` parses tweet object from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.post(
       Uri.https('api.twitter.com', '1.1/statuses/update.json'),
@@ -33,7 +32,7 @@ void main() async {
   });
 
   test('`destroy` parses tweet object from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.post(
       Uri.https('api.twitter.com', '1.1/statuses/destroy/1236345.json'),
@@ -56,7 +55,7 @@ void main() async {
   });
 
   test('`show` parses tweet object from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.get(
       Uri.https(
@@ -82,7 +81,7 @@ void main() async {
   });
 
   test('`retweet` parses tweet object from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.post(
       Uri.https('api.twitter.com', '1.1/statuses/retweet/6453645.json'),
@@ -105,7 +104,7 @@ void main() async {
   });
 
   test('`unretweet` parses tweet object from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.post(
       Uri.https('api.twitter.com', '1.1/statuses/unretweet/7657876.json'),
@@ -128,7 +127,7 @@ void main() async {
   });
 
   test('`retweets` parses list of tweet objects from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.get(
       Uri.https(
@@ -154,7 +153,7 @@ void main() async {
   });
 
   test('`retweetsOfMe` parses list of tweet objects from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.get(
       Uri.https(
@@ -181,7 +180,7 @@ void main() async {
   });
 
   test('`createFavorite` parses tweet object from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.post(
       Uri.https('api.twitter.com', '1.1/favorites/create.json'),
@@ -204,7 +203,7 @@ void main() async {
   });
 
   test('`destroyFavorite` parses tweet object from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.post(
       Uri.https('api.twitter.com', '1.1/favorites/destroy.json'),
@@ -227,7 +226,7 @@ void main() async {
   });
 
   test('`listFavorites` parses list of tweet objects from response', () async {
-    final mockClient = MockClient();
+    final mockClient = MockTwitterClient();
 
     when(mockClient.get(
       Uri.https(

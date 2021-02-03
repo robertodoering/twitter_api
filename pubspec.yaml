@@ -9,10 +9,10 @@ environment:
   sdk: '>=2.12.0-133.7.beta <3.0.0'
 
 dependencies:
- http: ^0.12.2
+ http: ^0.13.0-nullsafety.0
  intl: ^0.17.0-nullsafety.2
  json_annotation: ^4.0.0-nullsafety.0
- oauth1: ^1.0.6
+ oauth1: ^2.0.0-nullsafety.0
 
 dev_dependencies:
   build_runner: ^1.11.1
