@@ -1,3 +1,7 @@
+# 0.5.0
+
+- Add support for web
+
 # 0.4.0
 
 - Migrate to null safety
