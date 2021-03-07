@@ -77,4 +77,4 @@ Please make sure `dartanalyzer` doesn't report any problems before opening a pul
 ### Miscellaneous
 
 - To generate json_serializable models
-  - `dart pub run build_runner build --delete-conflicting-outputs`
+  - `dart run build_runner build --delete-conflicting-outputs`
