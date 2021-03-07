@@ -2,13 +2,9 @@ import 'dart:async';
 import 'dart:developer';
 import 'dart:isolate';
 
-/// Signature for the callback passed to [compute].
-///
-/// Instances of [ComputeCallback] must be top-level functions or static methods
-/// of classes, not closures or instance methods of objects.
-typedef ComputeCallback<Q, R> = FutureOr<R> Function(Q message);
+import 'isolates.dart';
 
-/// The dart:io implementation of [isolate.compute].
+/// The dart:io implementation of [compute].
 Future<R> compute<Q, R>(ComputeCallback<Q, R> callback, Q message) async {
   final flow = Flow.begin();
   Timeline.startSync('$compute: start', flow: flow);
@@ -77,7 +73,8 @@ Future<void> _spawn<Q, R>(
   await Timeline.timeSync(
     configuration.debugLabel,
     () async {
-      final FutureOr<R> applicationResult = await (configuration.apply() as FutureOr<R>);
+      final FutureOr<R> applicationResult =
+          await (configuration.apply() as FutureOr<R>);
       result = await applicationResult;
     },
     flow: Flow.step(configuration.flowId),

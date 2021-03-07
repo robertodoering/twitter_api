@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:dart_twitter_api/src/utils/isolates_io.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
+
+import '_isolates_io.dart' if (dart.library.html) '_isolates_web.dart';
 
 /// Parses the [response] into a [Tweet] object in an isolate.
 Future<Tweet> defaultTweetTransform(Response response) async {
