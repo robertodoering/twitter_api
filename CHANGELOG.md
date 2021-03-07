@@ -1,3 +1,7 @@
+# 0.4.0
+
+- Migrate to null safety
+
 # 0.3.5
 
 - Added `TrendsService` with implementations for all `trends/*` endpoints
