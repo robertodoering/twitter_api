@@ -71,7 +71,7 @@ class TwitterClient extends AbstractTwitterClient {
     Duration? timeout,
   }) {
     return oauthClient
-        .get(uri, headers: headers!)
+        .get(uri, headers: headers)
         .timeout(timeout ?? defaultTimeout)
         .then((response) {
       return (response.statusCode >= 200 && response.statusCode < 300
@@ -89,7 +89,7 @@ class TwitterClient extends AbstractTwitterClient {
     Duration? timeout,
   }) {
     return oauthClient
-        .post(uri, headers: headers!, body: body, encoding: encoding!)
+        .post(uri, headers: headers, body: body, encoding: encoding)
         .timeout(timeout ?? defaultTimeout)
         .then((response) {
       return (response.statusCode >= 200 && response.statusCode < 300
