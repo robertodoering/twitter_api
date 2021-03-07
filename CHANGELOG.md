@@ -1,3 +1,7 @@
+# 0.5.1
+
+- Fix twitter client forcing header argument to be non null
+
 # 0.5.0
 
 - Add support for web
