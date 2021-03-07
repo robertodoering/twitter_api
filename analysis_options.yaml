@@ -2,8 +2,3 @@
 # projects at Google. For details and rationale,
 # see https://github.com/dart-lang/pedantic#enabled-lints.
 include: package:pedantic/analysis_options.yaml
-
-analyzer:
-    errors:
-      # treat missing required parameters as a warning (not a hint)
-      missing_required_param: warning
