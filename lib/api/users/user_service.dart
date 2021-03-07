@@ -6,11 +6,10 @@ import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
-import 'package:meta/meta.dart';
 
 class UserService {
   const UserService({
-    @required this.client,
+    required this.client,
   });
 
   final AbstractTwitterClient client;
@@ -77,12 +76,12 @@ class UserService {
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-list.
   @notImplemented
   Future<PaginatedUsers> followersList({
-    String userId,
-    String screenName,
-    int cursor,
-    int count,
-    bool skipStatus,
-    bool includeUserEntities,
+    String? userId,
+    String? screenName,
+    int? cursor,
+    int? count,
+    bool? skipStatus,
+    bool? includeUserEntities,
     String tweetMode = 'extended',
     TransformResponse<PaginatedUsers> transform =
         defaultPaginatedUsersTransform,
@@ -150,12 +149,12 @@ class UserService {
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-list.
   Future<PaginatedUsers> friendsList({
-    String userId,
-    String screenName,
-    int cursor,
-    int count,
-    bool skipStatus,
-    bool includeUserEntities,
+    String? userId,
+    String? screenName,
+    int? cursor,
+    int? count,
+    bool? skipStatus,
+    bool? includeUserEntities,
     String tweetMode = 'extended',
     TransformResponse<PaginatedUsers> transform =
         defaultPaginatedUsersTransform,
@@ -199,8 +198,8 @@ class UserService {
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-lookup.
   Future<List<Friendship>> friendshipsLookup({
-    List<String> screenNames,
-    List<String> userIds,
+    List<String>? screenNames,
+    List<String>? userIds,
     TransformResponse<List<Friendship>> transform = defaultFriendshipsTransform,
   }) async {
     final params = <String, String>{}
@@ -296,10 +295,10 @@ class UserService {
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-search.
   Future<List<User>> usersSearch({
-    @required String q,
-    int page,
-    int count,
-    bool includeEntities,
+    required String q,
+    int? page,
+    int? count,
+    bool? includeEntities,
     String tweetMode = 'extended',
     TransformResponse<List<User>> transform = defaultUserListTransform,
   }) async {
@@ -342,9 +341,9 @@ class UserService {
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show.
   Future<User> usersShow({
-    String userId,
-    String screenName,
-    bool includeEntities,
+    String? userId,
+    String? screenName,
+    bool? includeEntities,
     String tweetMode = 'extended',
     TransformResponse<User> transform = defaultUserTransform,
   }) async {
@@ -385,9 +384,9 @@ class UserService {
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create.
   Future<User> friendshipsCreate({
-    String userId,
-    String screenName,
-    bool follow,
+    String? userId,
+    String? screenName,
+    bool? follow,
     String tweetMode = 'extended',
     TransformResponse<User> transform = defaultUserTransform,
   }) async {
@@ -426,8 +425,8 @@ class UserService {
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy.
   Future<User> friendshipsDestroy({
-    String userId,
-    String screenName,
+    String? userId,
+    String? screenName,
     String tweetMode = 'extended',
     TransformResponse<User> transform = defaultUserTransform,
   }) async {

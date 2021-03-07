@@ -17,12 +17,12 @@ class BoundingBox {
   /// array in the form of `[longitude, latitude]`. Points are grouped into an
   /// array per bounding box. Bounding box arrays are wrapped in one additional
   /// array to be compatible with the polygon notation.
-  List<List<List<double>>> coordinates;
+  List<List<List<double>>>? coordinates;
 
   /// The type of data encoded in the coordinates property. This will be
   /// “Polygon” for bounding boxes and “Point” for Tweets with exact
   /// coordinates.
-  String type;
+  String? type;
 
   Map<String, dynamic> toJson() => _$BoundingBoxToJson(this);
 }

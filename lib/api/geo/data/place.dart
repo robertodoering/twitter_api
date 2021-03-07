@@ -14,32 +14,32 @@ class Place {
 
   /// ID representing this place. Note that this is represented as a string, not
   /// an integer.
-  String id;
+  String? id;
 
   /// URL representing the location of additional place metadata for this place.
-  String url;
+  String? url;
 
   /// The type of location represented by this place.
   ///
   /// Example: 'city'.
-  String placeType;
+  String? placeType;
 
   /// Short human-readable representation of the place’s name.
   ///
   /// Example: 'Manhattan'.
-  String name;
+  String? name;
 
   /// Full human-readable representation of the place’s name.
-  String fullName;
+  String? fullName;
 
   /// Shortened country code representing the country containing this place.
-  String countryCode;
+  String? countryCode;
 
   /// Name of the country containing this place.
-  String country;
+  String? country;
 
   /// A bounding box of coordinates which encloses this place.
-  BoundingBox boundingBox;
+  BoundingBox? boundingBox;
 
   Map<String, dynamic> toJson() => _$PlaceToJson(this);
 }

@@ -14,15 +14,15 @@ class Trends {
 
   factory Trends.fromJson(Map<String, dynamic> json) => _$TrendsFromJson(json);
 
-  List<Trend> trends;
+  List<Trend>? trends;
 
   @JsonKey(fromJson: convertTwitterDateTime)
-  DateTime asOf;
+  DateTime? asOf;
 
   @JsonKey(fromJson: convertTwitterDateTime)
-  DateTime createdAt;
+  DateTime? createdAt;
 
-  List<TrendLocation> locations;
+  List<TrendLocation>? locations;
 
   Map<String, dynamic> toJson() => _$TrendsToJson(this);
 }

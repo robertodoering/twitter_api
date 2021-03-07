@@ -4,11 +4,10 @@ import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
 import 'package:http/http.dart';
-import 'package:meta/meta.dart';
 
 class MediaService {
   const MediaService({
-    @required this.client,
+    required this.client,
   });
 
   final TwitterClient client;
@@ -38,10 +37,10 @@ class MediaService {
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-init.
   Future<UploadInit> uploadInit({
-    @required int totalBytes,
-    @required String mediaType,
-    String mediaCategory,
-    List<String> additionalOwners,
+    required int totalBytes,
+    required String mediaType,
+    String? mediaCategory,
+    List<String>? additionalOwners,
     TransformResponse<UploadInit> transform = defaultUploadInitTransform,
   }) async {
     final body = <String, String>{}
@@ -75,9 +74,9 @@ class MediaService {
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-append.
   Future<void> uploadAppend({
-    @required String mediaId,
-    @required List<int> media,
-    @required int segmentIndex,
+    required String mediaId,
+    required List<int> media,
+    required int segmentIndex,
   }) async {
     final params = <String, String>{}
       ..addParameter('command', 'APPEND')
@@ -102,7 +101,7 @@ class MediaService {
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status.
   Future<UploadStatus> uploadStatus({
-    @required String mediaId,
+    required String mediaId,
     TransformResponse<UploadStatus> transform = defaultUploadStatusTransform,
   }) async {
     final params = <String, String>{}
@@ -127,7 +126,7 @@ class MediaService {
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload-finalize.
   Future<UploadFinalize> uploadFinalize({
-    @required String mediaId,
+    required String mediaId,
     TransformResponse<UploadFinalize> transform =
         defaultUploadFinalizeTransform,
   }) async {

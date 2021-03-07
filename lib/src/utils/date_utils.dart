@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 /// Creates a [DateTime] from a Twitter timestamp.
 ///
 /// Returns `null`, if [twitterDateString] is `null` or was unable to be parsed.
-DateTime convertTwitterDateTime(String twitterDateString) {
+DateTime? convertTwitterDateTime(String? twitterDateString) {
   if (twitterDateString == null) {
     return null;
   }

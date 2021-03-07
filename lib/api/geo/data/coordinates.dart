@@ -14,11 +14,11 @@ class Coordinates {
 
   /// The longitude and latitude of the Tweet’s location, as a collection in the
   /// form `[longitude, latitude]`.
-  List<double> coordinates;
+  List<double>? coordinates;
 
   /// The type of data encoded in the coordinates property. This will be “Point”
   /// for Tweet coordinates fields.
-  String type;
+  String? type;
 
   Map<String, dynamic> toJson() => _$CoordinatesToJson(this);
 }

@@ -8,12 +8,12 @@ part of 'trend_location.dart';
 
 TrendLocation _$TrendLocationFromJson(Map<String, dynamic> json) {
   return TrendLocation()
-    ..name = json['name'] as String
-    ..woeid = json['woeid'] as int
-    ..country = json['country'] as String
-    ..countryCode = json['countryCode'] as String
-    ..parentid = json['parentid'] as int
-    ..url = json['url'] as String
+    ..name = json['name'] as String?
+    ..woeid = json['woeid'] as int?
+    ..country = json['country'] as String?
+    ..countryCode = json['countryCode'] as String?
+    ..parentid = json['parentid'] as int?
+    ..url = json['url'] as String?
     ..placeType = json['placeType'] == null
         ? null
         : PlaceType.fromJson(json['placeType'] as Map<String, dynamic>);
@@ -32,8 +32,8 @@ Map<String, dynamic> _$TrendLocationToJson(TrendLocation instance) =>
 
 PlaceType _$PlaceTypeFromJson(Map<String, dynamic> json) {
   return PlaceType()
-    ..code = json['code'] as int
-    ..name = json['name'] as String;
+    ..code = json['code'] as int?
+    ..name = json['name'] as String?;
 }
 
 Map<String, dynamic> _$PlaceTypeToJson(PlaceType instance) => <String, dynamic>{

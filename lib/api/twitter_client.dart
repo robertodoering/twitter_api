@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:http/http.dart';
-import 'package:meta/meta.dart';
 import 'package:oauth1/oauth1.dart' as oauth1;
 
 /// A function used to transform the response.
@@ -24,10 +23,10 @@ const Duration _kDefaultTimeout = Duration(seconds: 10);
 /// for the type to be a [Response].
 class TwitterClient extends AbstractTwitterClient {
   TwitterClient({
-    @required this.consumerKey,
-    @required this.consumerSecret,
-    @required this.token,
-    @required this.secret,
+    required this.consumerKey,
+    required this.consumerSecret,
+    required this.token,
+    required this.secret,
     this.defaultTimeout = _kDefaultTimeout,
   });
 
@@ -67,50 +66,47 @@ class TwitterClient extends AbstractTwitterClient {
 
   @override
   Future<Response> get(
-    dynamic uri, {
-    Map<String, String> headers,
-    Duration timeout,
+    Uri uri, {
+    Map<String, String>? headers,
+    Duration? timeout,
   }) {
     return oauthClient
-        .get(uri, headers: headers)
+        .get(uri, headers: headers!)
         .timeout(timeout ?? defaultTimeout)
         .then((response) {
-      return response.statusCode >= 200 && response.statusCode < 300
+      return (response.statusCode >= 200 && response.statusCode < 300
           ? response
-          : Future.error(response);
+          : Future.error(response)) as FutureOr<Response>;
     });
   }
 
   @override
   Future<Response> post(
-    dynamic uri, {
-    Map<String, String> headers,
+    Uri uri, {
+    Map<String, String>? headers,
     dynamic body,
-    Encoding encoding,
-    Duration timeout,
+    Encoding? encoding,
+    Duration? timeout,
   }) {
     return oauthClient
-        .post(uri, headers: headers, body: body, encoding: encoding)
+        .post(uri, headers: headers!, body: body, encoding: encoding!)
         .timeout(timeout ?? defaultTimeout)
         .then((response) {
-      return response.statusCode >= 200 && response.statusCode < 300
+      return (response.statusCode >= 200 && response.statusCode < 300
           ? response
-          : Future.error(response);
+          : Future.error(response)) as FutureOr<Response>;
     });
   }
 
   @override
   Future<Response> multipartRequest(
-    dynamic uri, {
-    List<MultipartFile> files,
-    Map<String, String> headers,
+    Uri uri, {
+    List<MultipartFile>? files,
+    Map<String, String>? headers,
     String method = 'POST',
-    Duration timeout,
+    Duration? timeout,
   }) async {
-    final request = MultipartRequest(
-      method,
-      uri is String ? Uri.parse(uri) : uri as Uri,
-    );
+    final request = MultipartRequest(method, uri);
 
     if (files != null) {
       request.files.addAll(files);
@@ -123,9 +119,9 @@ class TwitterClient extends AbstractTwitterClient {
     return Response.fromStream(await oauthClient.send(request))
         .timeout(timeout ?? defaultTimeout)
         .then((response) {
-      return response.statusCode >= 200 && response.statusCode < 300
+      return (response.statusCode >= 200 && response.statusCode < 300
           ? response
-          : Future.error(response);
+          : Future.error(response)) as FutureOr<Response>;
     });
   }
 }

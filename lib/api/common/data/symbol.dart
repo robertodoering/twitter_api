@@ -17,10 +17,10 @@ class Symbol {
   /// represents the location of the first character after the cashtag.
   /// Therefore the difference between the two numbers will be the length of the
   /// hashtag name plus one (for the `$` character).
-  List<int> indices;
+  List<int>? indices;
 
   /// Name of the cashhtag, minus the leading `$` character.
-  String text;
+  String? text;
 
   Map<String, dynamic> toJson() => _$SymbolToJson(this);
 }

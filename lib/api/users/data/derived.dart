@@ -13,7 +13,7 @@ class Derived {
   factory Derived.fromJson(Map<String, dynamic> json) =>
       _$DerivedFromJson(json);
 
-  List<Location> locations;
+  List<Location>? locations;
 
   Map<String, dynamic> toJson() => _$DerivedToJson(this);
 }

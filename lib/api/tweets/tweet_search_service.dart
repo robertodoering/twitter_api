@@ -3,11 +3,10 @@ import 'package:dart_twitter_api/api/tweets/data/tweet_search.dart';
 import 'package:dart_twitter_api/api/twitter_client.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
-import 'package:meta/meta.dart';
 
 class TweetSearchService {
   const TweetSearchService({
-    @required this.client,
+    required this.client,
   });
 
   final AbstractTwitterClient client;
@@ -78,16 +77,16 @@ class TweetSearchService {
   ///
   /// See https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.
   Future<TweetSearch> searchTweets({
-    @required String q,
-    List<double> geocode,
-    String lang,
-    String locale,
-    String resultType,
-    int count,
-    String until,
-    String sinceId,
-    String maxId,
-    bool includeEntities,
+    required String q,
+    List<double>? geocode,
+    String? lang,
+    String? locale,
+    String? resultType,
+    int? count,
+    String? until,
+    String? sinceId,
+    String? maxId,
+    bool? includeEntities,
     String tweetMode = 'extended',
     TransformResponse<TweetSearch> transform = defaultTweetSearchTransform,
   }) async {

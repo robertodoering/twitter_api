@@ -30,6 +30,8 @@ export 'api/trends/trends_service.dart';
 export 'api/tweets/data/quoted_status_permalink.dart';
 export 'api/tweets/data/tweet.dart';
 export 'api/tweets/data/tweet_search.dart';
+export 'api/tweets/timeline_service.dart';
+export 'api/tweets/tweet_search_service.dart';
 export 'api/tweets/tweet_service.dart';
 export 'api/twitter_client.dart';
 export 'api/users/data/derived.dart';

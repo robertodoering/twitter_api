@@ -14,32 +14,32 @@ class Location {
       _$LocationFromJson(json);
 
   /// The country location for where the user that created the Tweet is from.
-  String country;
+  String? country;
 
   /// A two-letter ISO-3166 country code that corresponds to the country
   /// location for where the user that created the Tweet is from.
-  String countryCode;
+  String? countryCode;
 
   /// The locality location (generally city) for where the user that created the
   /// Tweet is from.
-  String locality;
+  String? locality;
 
   /// The region location (generally state/province) for where the user that
   /// created the Tweet is from.
-  String region;
+  String? region;
 
   /// The sub-region location (generally county) for where the user that created
   /// the Tweet is from.
-  String subRegion;
+  String? subRegion;
 
   /// The full name (excluding sub-region) for where the user that created the
   /// Tweet is from.
-  String fullName;
+  String? fullName;
 
   /// An array that includes a lat/long value for a coordinate that corresponds
   /// to the lowers granularity location for where the user that created the
   /// Tweet is from.
-  Coordinates geo;
+  Coordinates? geo;
 
   Map<String, dynamic> toJson() => _$LocationToJson(this);
 }

@@ -1,10 +1,9 @@
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
-import 'package:meta/meta.dart';
 
 class TrendsService {
   const TrendsService({
-    @required this.client,
+    required this.client,
   });
 
   final AbstractTwitterClient client;
@@ -24,8 +23,8 @@ class TrendsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/trends/trends-for-location/api-reference/get-trends-place.
   Future<List<Trends>> place({
-    @required int id,
-    String exclude,
+    required int id,
+    String? exclude,
     TransformResponse<List<Trends>> transform = defaultTrendsListTransform,
   }) {
     final params = <String, String>{}
@@ -74,8 +73,8 @@ class TrendsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/trends/locations-with-trending-topics/api-reference/get-trends-closest.
   Future<List<TrendLocation>> closest({
-    @required String lat,
-    @required String long,
+    required String lat,
+    required String long,
     TransformResponse<List<TrendLocation>> transform =
         defaultTrendLocationsTransform,
   }) {

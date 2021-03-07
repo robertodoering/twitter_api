@@ -13,9 +13,9 @@ class TweetSearch {
   factory TweetSearch.fromJson(Map<String, dynamic> json) =>
       _$TweetSearchFromJson(json);
 
-  List<Tweet> statuses;
+  List<Tweet>? statuses;
 
-  SearchMetadata searchMetadata;
+  SearchMetadata? searchMetadata;
 
   Map<String, dynamic> toJson() => _$TweetSearchToJson(this);
 }
@@ -27,19 +27,19 @@ class SearchMetadata {
   factory SearchMetadata.fromJson(Map<String, dynamic> json) =>
       _$SearchMetadataFromJson(json);
 
-  double completedIn;
+  double? completedIn;
 
-  String maxIdStr;
+  String? maxIdStr;
 
-  String nextResults;
+  String? nextResults;
 
-  String query;
+  String? query;
 
-  String refreshUrl;
+  String? refreshUrl;
 
-  int count;
+  int? count;
 
-  String sinceIdStr;
+  String? sinceIdStr;
 
   Map<String, dynamic> toJson() => _$SearchMetadataToJson(this);
 }

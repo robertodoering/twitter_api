@@ -12,11 +12,11 @@ class UploadInit {
   factory UploadInit.fromJson(Map<String, dynamic> json) =>
       _$UploadInitFromJson(json);
 
-  String mediaIdString;
+  String? mediaIdString;
 
-  int size;
+  int? size;
 
-  int expiresAfterSecs;
+  int? expiresAfterSecs;
 
   Map<String, dynamic> toJson() => _$UploadInitToJson(this);
 }
@@ -28,11 +28,11 @@ class UploadInit {
 class UploadStatus {
   UploadStatus();
 
-  String mediaIdString;
+  String? mediaIdString;
 
-  int expiresAfterSecs;
+  int? expiresAfterSecs;
 
-  ProcessingInfo processingInfo;
+  ProcessingInfo? processingInfo;
 
   factory UploadStatus.fromJson(Map<String, dynamic> json) =>
       _$UploadStatusFromJson(json);
@@ -47,13 +47,13 @@ class UploadStatus {
 class UploadFinalize {
   UploadFinalize();
 
-  String mediaIdString;
+  String? mediaIdString;
 
-  int expiresAfterSecs;
+  int? expiresAfterSecs;
 
-  int size;
+  int? size;
 
-  ProcessingInfo processingInfo;
+  ProcessingInfo? processingInfo;
 
   factory UploadFinalize.fromJson(Map<String, dynamic> json) =>
       _$UploadFinalizeFromJson(json);
@@ -71,11 +71,11 @@ class ProcessingInfo {
   factory ProcessingInfo.fromJson(Map<String, dynamic> json) =>
       _$ProcessingInfoFromJson(json);
 
-  String state;
+  String? state;
 
-  int progressPercent;
+  int? progressPercent;
 
-  int checkAfterSecs;
+  int? checkAfterSecs;
 
   bool get pending => state == 'pending';
   bool get inProgress => state == 'in_progress';

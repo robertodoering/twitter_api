@@ -8,18 +8,19 @@ part of 'media.dart';
 
 Media _$MediaFromJson(Map<String, dynamic> json) {
   return Media()
-    ..displayUrl = json['display_url'] as String
-    ..expandedUrl = json['expanded_url'] as String
-    ..idStr = json['id_str'] as String
-    ..indicies = (json['indicies'] as List)?.map((e) => e as int)?.toList()
-    ..mediaUrl = json['media_url'] as String
-    ..mediaUrlHttps = json['media_url_https'] as String
+    ..displayUrl = json['display_url'] as String?
+    ..expandedUrl = json['expanded_url'] as String?
+    ..idStr = json['id_str'] as String?
+    ..indicies =
+        (json['indicies'] as List<dynamic>?)?.map((e) => e as int).toList()
+    ..mediaUrl = json['media_url'] as String?
+    ..mediaUrlHttps = json['media_url_https'] as String?
     ..sizes = json['sizes'] == null
         ? null
         : Sizes.fromJson(json['sizes'] as Map<String, dynamic>)
-    ..sourceStatusIdStr = json['source_status_id_str'] as String
-    ..type = json['type'] as String
-    ..url = json['url'] as String
+    ..sourceStatusIdStr = json['source_status_id_str'] as String?
+    ..type = json['type'] as String?
+    ..url = json['url'] as String?
     ..videoInfo = json['video_info'] == null
         ? null
         : VideoInfo.fromJson(json['video_info'] as Map<String, dynamic>)

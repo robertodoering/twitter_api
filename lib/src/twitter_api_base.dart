@@ -1,12 +1,4 @@
-import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
-import 'package:dart_twitter_api/api/direct_messages/direct_messages_service.dart';
-import 'package:dart_twitter_api/api/media/media_service.dart';
-import 'package:dart_twitter_api/api/trends/trends_service.dart';
-import 'package:dart_twitter_api/api/tweets/timeline_service.dart';
-import 'package:dart_twitter_api/api/tweets/tweet_search_service.dart';
-import 'package:dart_twitter_api/api/tweets/tweet_service.dart';
-import 'package:dart_twitter_api/api/users/user_service.dart';
-import 'package:meta/meta.dart';
+import 'package:dart_twitter_api/twitter_api.dart';
 
 /// The [TwitterApi] provides the services used to make requests to the
 /// Twitter API.
@@ -18,12 +10,12 @@ import 'package:meta/meta.dart';
 /// requests.
 class TwitterApi {
   TwitterApi({
-    @required this.client,
-  })  : userService = UserService(client: client),
+    required this.client,
+  })   : userService = UserService(client: client),
         tweetService = TweetService(client: client),
         tweetSearchService = TweetSearchService(client: client),
         timelineService = TimelineService(client: client),
-        mediaService = MediaService(client: client),
+        mediaService = MediaService(client: client as TwitterClient),
         directMessagesService = DirectMessagesService(client: client),
         trendsService = TrendsService(client: client);
 

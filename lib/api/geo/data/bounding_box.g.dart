@@ -8,13 +8,13 @@ part of 'bounding_box.dart';
 
 BoundingBox _$BoundingBoxFromJson(Map<String, dynamic> json) {
   return BoundingBox()
-    ..coordinates = (json['coordinates'] as List)
-        ?.map((e) => (e as List)
-            ?.map((e) =>
-                (e as List)?.map((e) => (e as num)?.toDouble())?.toList())
-            ?.toList())
-        ?.toList()
-    ..type = json['type'] as String;
+    ..coordinates = (json['coordinates'] as List<dynamic>?)
+        ?.map((e) => (e as List<dynamic>)
+            .map((e) =>
+                (e as List<dynamic>).map((e) => (e as num).toDouble()).toList())
+            .toList())
+        .toList()
+    ..type = json['type'] as String?;
 }
 
 Map<String, dynamic> _$BoundingBoxToJson(BoundingBox instance) =>
