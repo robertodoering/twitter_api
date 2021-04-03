@@ -1,3 +1,7 @@
+# 0.5.2
+
+- Fix twitter client non-2xx response not returned correctly
+
 # 0.5.1
 
 - Fix twitter client forcing header argument to be non null

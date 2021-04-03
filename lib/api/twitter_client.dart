@@ -74,9 +74,11 @@ class TwitterClient extends AbstractTwitterClient {
         .get(uri, headers: headers)
         .timeout(timeout ?? defaultTimeout)
         .then((response) {
-      return (response.statusCode >= 200 && response.statusCode < 300
-          ? response
-          : Future.error(response)) as FutureOr<Response>;
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        return response;
+      } else {
+        return Future.error(response);
+      }
     });
   }
 
@@ -92,9 +94,11 @@ class TwitterClient extends AbstractTwitterClient {
         .post(uri, headers: headers, body: body, encoding: encoding)
         .timeout(timeout ?? defaultTimeout)
         .then((response) {
-      return (response.statusCode >= 200 && response.statusCode < 300
-          ? response
-          : Future.error(response)) as FutureOr<Response>;
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        return response;
+      } else {
+        return Future.error(response);
+      }
     });
   }
 
@@ -119,9 +123,11 @@ class TwitterClient extends AbstractTwitterClient {
     return Response.fromStream(await oauthClient.send(request))
         .timeout(timeout ?? defaultTimeout)
         .then((response) {
-      return (response.statusCode >= 200 && response.statusCode < 300
-          ? response
-          : Future.error(response)) as FutureOr<Response>;
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        return response;
+      } else {
+        return Future.error(response);
+      }
     });
   }
 }
