@@ -1,9 +1,9 @@
-import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/twitter_api.dart';
 
 class DirectMessagesService {
   const DirectMessagesService({
     required this.client,
   });
 
-  final TwitterClient client;
+  final AbstractTwitterClient client;
 }

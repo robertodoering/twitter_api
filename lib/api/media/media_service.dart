@@ -1,8 +1,6 @@
-import 'package:dart_twitter_api/api/media/data/media_upload.dart';
-import 'package:dart_twitter_api/api/twitter_client.dart';
 import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
-import 'package:dart_twitter_api/src/utils/transforms.dart';
+import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
 
 class MediaService {
@@ -10,7 +8,7 @@ class MediaService {
     required this.client,
   });
 
-  final TwitterClient client;
+  final AbstractTwitterClient client;
 
   /// The `INIT` command request is used to initiate a file upload session. It
   /// returns a [mediaId] which should be used to execute all subsequent

@@ -15,7 +15,8 @@ class TwitterApi {
         tweetService = TweetService(client: client),
         tweetSearchService = TweetSearchService(client: client),
         timelineService = TimelineService(client: client),
-        mediaService = MediaService(client: client as TwitterClient),
+        mediaService = MediaService(client: client),
+        listsService = ListsService(client: client),
         directMessagesService = DirectMessagesService(client: client),
         trendsService = TrendsService(client: client);
 
@@ -48,6 +49,11 @@ class TwitterApi {
   ///
   /// See https://developer.twitter.com/en/docs/media/upload-media/overview.
   final MediaService mediaService;
+
+  /// Handles creating and managing lists.
+  ///
+  /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/overview.
+  final ListsService listsService;
 
   /// Handles sending and receiving direct message events.
   ///
