@@ -1,5 +1,6 @@
-import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:dart_twitter_api/src/annotations.dart';
+import 'package:dart_twitter_api/src/utils/map_utils.dart';
+import 'package:dart_twitter_api/twitter_api.dart';
 
 /// A list is a curated group of Twitter accounts. You can create your own
 /// lists or subscribe to lists created by others for the authenticated user.
@@ -51,9 +52,30 @@ class ListsService {
   /// would be returned. If your goal is to obtain every list a user owns or
   /// subscribes to, use [ownerships] and/or [subscriptions] instead.
   ///
+  /// [userId] The ID of the user for whom to return results.
+  ///
+  /// [screenName] The screen name of the user for whom to return results.
+  ///
+  /// [reverse] Set this to `true` if you would like owned lists to be
+  /// returned first.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-list.
-  @notImplemented
-  Future<void> list() async {}
+  Future<List<TwitterList>> list({
+    String? userId,
+    String? screenName,
+    bool? reverse,
+    TransformResponse<List<TwitterList>> transform =
+        defaultTwitterListsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('reverse', reverse);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/lists/list.json', params))
+        .then(transform);
+  }
 
   /// Returns the members of the specified list. Private list members will
   /// only be shown if the authenticated user owns the specified list.

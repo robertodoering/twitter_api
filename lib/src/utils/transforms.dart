@@ -154,8 +154,7 @@ List<Trends> _isolateTrendsListTransform(String body) {
 }
 
 Future<List<TrendLocation>> defaultTrendLocationsTransform(
-  Response response,
-) async {
+    Response response) async {
   return await compute<String, List<TrendLocation>>(
     _isolateTrendLocationsTransform,
     response.body,
@@ -170,4 +169,23 @@ List<TrendLocation> _isolateTrendLocationsTransform(String body) {
   }
 
   return trendLocations;
+}
+
+Future<List<TwitterList>> defaultTwitterListsTransform(
+  Response response,
+) async {
+  return await compute<String, List<TwitterList>>(
+    _isolateTwitterListsTransform,
+    response.body,
+  );
+}
+
+List<TwitterList> _isolateTwitterListsTransform(String body) {
+  final twitterLists = <TwitterList>[];
+
+  for (Map<String, dynamic> twitterListJson in json.decode(body)) {
+    twitterLists.add(TwitterList.fromJson(twitterListJson));
+  }
+
+  return twitterLists;
 }

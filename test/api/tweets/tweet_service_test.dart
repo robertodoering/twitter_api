@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 
 import '../mocks/mock_twitter_client.mocks.dart';
 
-void main() async {
+void main() {
   test('`update` parses tweet object from response', () async {
     final mockClient = MockTwitterClient();
 
