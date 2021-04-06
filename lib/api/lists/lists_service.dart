@@ -116,8 +116,8 @@ class ListsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-members.
   Future<PaginatedUsers> members({
-    required int listId,
-    required String slug,
+    int? listId,
+    String? slug,
     String? ownerScreenName,
     int? ownerId,
     int? count,
@@ -146,9 +146,61 @@ class ListsService {
 
   /// Check if the specified user is a member of the specified list.
   ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [userId] The ID of the user for whom to return results.
+  ///
+  /// [screenName] The screen name of the user for whom to return results.
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [includeEntities] The entities node will not be included when set to
+  /// `false`.
+  ///
+  /// [skipStatus] When set to `true` statuses will not be included in the
+  /// returned user objects.
+  ///
+  /// [tweetMode] When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show.
-  @notImplemented
-  Future<void> membersShow() async {}
+  Future<User> membersShow({
+    int? listId,
+    String? slug,
+    String? userId,
+    String? screenName,
+    String? ownerScreenName,
+    int? ownerId,
+    bool? includeEntities,
+    bool? skipStatus,
+    String tweetMode = 'extended',
+    TransformResponse<User> transform = defaultUserTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('skip_status', skipStatus)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .get(
+          Uri.https('api.twitter.com', '1.1/lists/members/show.json', params),
+        )
+        .then(transform);
+  }
 
   /// Returns the lists the specified user has been added to. If [userId] or
   /// [screenName] are not provided, the memberships for the authenticating
