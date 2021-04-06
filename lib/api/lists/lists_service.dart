@@ -59,6 +59,9 @@ class ListsService {
   /// [reverse] Set this to `true` if you would like owned lists to be
   /// returned first.
   ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-list.
   Future<List<TwitterList>> list({
     String? userId,
@@ -80,9 +83,66 @@ class ListsService {
   /// Returns the members of the specified list. Private list members will
   /// only be shown if the authenticated user owns the specified list.
   ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [count] Specifies the number of results to return per page (see
+  /// [cursor]). The default is `20`, with a maximum of 5,000.
+  ///
+  /// [cursor] Causes the collection of list members to be broken into "pages"
+  /// of consistent sizes (specified by the count parameter). If no cursor
+  /// is provided, a value of `-1` will be assumed, which is the first "page".
+  ///
+  /// [includeEntities] The entities node will not be included when set to
+  /// `false`.
+  ///
+  /// [skipStatus] When set to `true` statuses will not be included in the
+  /// returned user objects.
+  ///
+  /// [tweetMode] When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-members.
-  @notImplemented
-  Future<void> members() async {}
+  Future<PaginatedUsers> members({
+    required int listId,
+    required String slug,
+    String? ownerScreenName,
+    int? ownerId,
+    int? count,
+    int? cursor,
+    bool? includeEntities,
+    bool? skipStatus,
+    String tweetMode = 'extended',
+    TransformResponse<PaginatedUsers> transform =
+        defaultPaginatedUsersTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('count', count)
+      ..addParameter('cursor', cursor)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('skip_status', skipStatus)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/lists/members.json', params))
+        .then(transform);
+  }
 
   /// Check if the specified user is a member of the specified list.
   ///
