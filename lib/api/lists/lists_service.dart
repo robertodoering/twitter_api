@@ -206,7 +206,48 @@ class ListsService {
   /// [screenName] are not provided, the memberships for the authenticating
   /// user are returned.
   ///
+  /// [userId] The ID of the user for whom to return results.
+  ///
+  /// [screenName] The screen name of the user for whom to return results.
+  ///
+  /// [count] Specifies the number of results to return per page (see
+  /// [cursor]). The default is `20`, with a maximum of 5,000.
+  ///
+  /// [cursor] Causes the collection of list members to be broken into "pages"
+  /// of consistent sizes (specified by the count parameter). If no cursor
+  /// is provided, a value of `-1` will be assumed, which is the first "page".
+  ///
+  /// [filterToOwnedLists] When set to `true`, will return just lists the
+  /// authenticating user owns, and the user represented by [userId] or
+  /// [screenName] is a member of.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-memberships.
+  Future<PaginatedTwitterLists> memberships({
+    String? userId,
+    String? screenName,
+    int? count,
+    int? cursor,
+    bool? filterToOwnedLists,
+    TransformResponse<PaginatedTwitterLists> transform =
+        defaultPaginatedTwitterListsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('count', count)
+      ..addParameter('cursor', cursor)
+      ..addParameter('filter_to_owned_lists', filterToOwnedLists);
+
+    return client
+        .get(
+          Uri.https('api.twitter.com', '1.1/lists/memberships.json', params),
+        )
+        .then(transform);
+  }
+
   @notImplemented
   Future<void> ownerships() async {}
 

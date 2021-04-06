@@ -189,3 +189,16 @@ List<TwitterList> _isolateTwitterListsTransform(String body) {
 
   return twitterLists;
 }
+
+Future<PaginatedTwitterLists> defaultPaginatedTwitterListsTransform(
+  Response response,
+) async {
+  return await compute<String, PaginatedTwitterLists>(
+    _isolatePaginatedTwitterListsTransform,
+    response.body,
+  );
+}
+
+PaginatedTwitterLists _isolatePaginatedTwitterListsTransform(String body) {
+  return PaginatedTwitterLists.fromJson(json.decode(body));
+}
