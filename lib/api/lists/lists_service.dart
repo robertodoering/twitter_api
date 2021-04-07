@@ -325,9 +325,76 @@ class ListsService {
   /// Retweets are included by default. Use the [includeRts]=false parameter
   /// to omit retweets.
   ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [sinceId] Returns results with an ID greater than (that is, more recent
+  /// than) the specified ID. There are limits to the number of Tweets which
+  /// can be accessed through the API. If the limit of Tweets has occurred
+  /// since the [sinceId], the [sinceId] will be forced to the oldest ID
+  /// available.
+  ///
+  /// [maxId] Returns results with an ID less than (that is, older than) or
+  /// equal to the specified ID.
+  ///
+  /// [count] Specifies the number of results to retrieve per "page."
+  ///
+  /// [includeEntities] Entities are ON by default in API 1.1, each tweet
+  /// includes a node called "entities". This node offers a variety of
+  /// metadata about the tweet in a discreet structure, including:
+  /// user_mentions, urls, and hashtags. You can omit entities from the
+  /// result by using [includeEntities]=false
+  ///
+  /// [includeRts] When set to `true`, the list timeline will contain native
+  /// retweets (if they exist) in addition to the standard stream of tweets.
+  /// The output format of retweeted tweets is identical to the
+  /// representation you see in home_timeline.
+  ///
+  /// [tweetMode] When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-statuses.
-  @notImplemented
-  Future<void> statuses() async {}
+  Future<void> statuses({
+    int? listId,
+    String? slug,
+    String? ownerScreenName,
+    int? ownerId,
+    String? sinceId,
+    String? maxId,
+    int? count,
+    bool? includeEntities,
+    bool? includeRts,
+    String tweetMode = 'extended',
+    TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('since_id', sinceId)
+      ..addParameter('max_id', maxId)
+      ..addParameter('count', count)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_rts', includeRts)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/lists/statuses.json', params))
+        .then(transform);
+  }
 
   /// Returns the subscribers of the specified list. Private list subscribers
   /// will only be shown if the authenticated user owns the specified list.
