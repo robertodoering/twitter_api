@@ -401,35 +401,83 @@ class ListsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-subscribers.
   @notImplemented
-  Future<void> subscribers() async {}
+  Future<PaginatedUsers> subscribers({
+    required Map<String, String> params,
+    TransformResponse<PaginatedUsers> transform =
+        defaultPaginatedUsersTransform,
+  }) async {
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/lists/subscribers.json', params))
+        .then(transform);
+  }
 
   /// Check if the specified user is a subscriber of the specified list.
   /// Returns the user if they are a subscriber.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-subscribers-show.
   @notImplemented
-  Future<void> subscribersShow() async {}
+  Future<User> subscribersShow({
+    required Map<String, String> params,
+    TransformResponse<User> transform = defaultUserTransform,
+  }) async {
+    return client
+        .get(
+          Uri.https(
+            'api.twitter.com',
+            '1.1/lists/subscribers/show.json',
+            params,
+          ),
+        )
+        .then(transform);
+  }
 
   /// Obtain a collection of the lists the specified user is subscribed to,
   /// 20 lists per page by default. Does not include the user's own lists.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-subscriptions.
   @notImplemented
-  Future<void> subscriptions() async {}
+  Future<PaginatedTwitterLists> subscriptions({
+    required Map<String, String> params,
+    TransformResponse<PaginatedTwitterLists> transform =
+        defaultPaginatedTwitterListsTransform,
+  }) async {
+    return client
+        .get(
+          Uri.https('api.twitter.com', '1.1/lists/subscriptions.json', params),
+        )
+        .then(transform);
+  }
 
   /// Creates a new list for the authenticated user. Note that you can create
   /// up to 1000 lists per account.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-create.
   @notImplemented
-  Future<void> create() async {}
+  Future<void> create({
+    required Map<String, String> body,
+    TransformResponse<TwitterList> transform = defaultTwitterListTransform,
+  }) async {
+    return client
+        .post(Uri.https('api.twitter.com', '1.1/lists/create.json'), body: body)
+        .then(transform);
+  }
 
   /// Deletes the specified list. The authenticated user must own the list to
   /// be able to destroy it.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy.
   @notImplemented
-  Future<void> destroy() async {}
+  Future<void> destroy({
+    required Map<String, String> body,
+    TransformResponse<TwitterList> transform = defaultTwitterListTransform,
+  }) async {
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/lists/destroy.json'),
+          body: body,
+        )
+        .then(transform);
+  }
 
   /// Add a member to a list. The authenticated user must own the list to be
   /// able to add members to it. Note that lists cannot have more than 5,000
@@ -437,7 +485,14 @@ class ListsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create.
   @notImplemented
-  Future<void> membersCreate() async {}
+  Future<void> membersCreate({
+    required Map<String, String> body,
+  }) async {
+    await client.post(
+      Uri.https('api.twitter.com', '1.1/lists/members/create'),
+      body: body,
+    );
+  }
 
   /// Adds multiple members to a list, by specifying a comma-separated list
   /// of member ids or screen names. The authenticated user must own the list
@@ -451,14 +506,28 @@ class ListsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all.
   @notImplemented
-  Future<void> membersCreateAll() async {}
+  Future<void> membersCreateAll({
+    required Map<String, String> body,
+  }) async {
+    await client.post(
+      Uri.https('api.twitter.com', '1.1/lists/members/create_all.json'),
+      body: body,
+    );
+  }
 
   /// Removes the specified member from the list. The authenticated user must
   /// be the list's owner to remove members from the list.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy.
   @notImplemented
-  Future<void> membersDestroy() async {}
+  Future<void> membersDestroy({
+    required Map<String, String> body,
+  }) async {
+    await client.post(
+      Uri.https('api.twitter.com', '1.1/lists/members/destroy.json'),
+      body: body,
+    );
+  }
 
   /// Removes multiple members from a list, by specifying a comma-separated
   /// list of member ids or screen names. The authenticated user must own the
@@ -472,24 +541,53 @@ class ListsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all.
   @notImplemented
-  Future<void> membersDestroyAll() async {}
+  Future<void> membersDestroyAll({
+    required Map<String, String> body,
+  }) async {
+    await client.post(
+      Uri.https('api.twitter.com', '1.1/lists/members/destroy_all.json'),
+      body: body,
+    );
+  }
 
   /// Subscribes the authenticated user to the specified list.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-subscribers-create.
   @notImplemented
-  Future<void> subscribersCreate() async {}
+  Future<void> subscribersCreate({
+    required Map<String, String> body,
+    TransformResponse<TwitterList> transform = defaultTwitterListTransform,
+  }) async {
+    await client.post(
+      Uri.https('api.twitter.com', '1.1/lists/subscribers/create.json'),
+      body: body,
+    );
+  }
 
   /// Unsubscribes the authenticated user from the specified list.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-subscribers-destroy.
   @notImplemented
-  Future<void> subscribersDestroy() async {}
+  Future<void> subscribersDestroy({
+    required Map<String, String> body,
+  }) async {
+    await client.post(
+      Uri.https('api.twitter.com', '1.1/lists/subscribers/destroy.json'),
+      body: body,
+    );
+  }
 
   /// Updates the specified list. The authenticated user must own the list to
   /// be able to update it.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-update.
   @notImplemented
-  Future<void> update() async {}
+  Future<void> update({
+    required Map<String, String> body,
+  }) async {
+    await client.post(
+      Uri.https('api.twitter.com', '1.1/lists/update.json'),
+      body: body,
+    );
+  }
 }
