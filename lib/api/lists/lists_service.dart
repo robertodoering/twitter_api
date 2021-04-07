@@ -210,12 +210,12 @@ class ListsService {
   ///
   /// [screenName] The screen name of the user for whom to return results.
   ///
-  /// [count] Specifies the number of results to return per page (see
-  /// [cursor]). The default is `20`, with a maximum of 5,000.
+  /// [count] The amount of results to return per page. Defaults to 20. No
+  /// more than 1000 results will ever be returned in a single page.
   ///
-  /// [cursor] Causes the collection of list members to be broken into "pages"
-  /// of consistent sizes (specified by the count parameter). If no cursor
-  /// is provided, a value of `-1` will be assumed, which is the first "page".
+  /// [cursor] Breaks the results into pages. Provide a value of `-1` to begin
+  /// paging. Provide values as returned in the response body's `nextCursor`
+  /// and `previousCursor` attributes to page back and forth in the list.
   ///
   /// [filterToOwnedLists] When set to `true`, will return just lists the
   /// authenticating user owns, and the user represented by [userId] or
@@ -248,8 +248,46 @@ class ListsService {
         .then(transform);
   }
 
+  /// Returns the lists owned by the specified Twitter user. Private lists
+  /// will only be shown if the authenticated user is also the owner of the
+  /// lists.
+  ///
+  /// [userId] The ID of the user for whom to return results.
+  ///
+  /// [screenName] The screen name of the user for whom to return results.
+  ///
+  /// [count] The amount of results to return per page. Defaults to 20. No
+  /// more than 1000 results will ever be returned in a single page.
+  ///
+  /// [cursor] Breaks the results into pages. Provide a value of `-1` to begin
+  /// paging. Provide values as returned in the response body's `nextCursor`
+  /// and `previousCursor` attributes to page back and forth in the list.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
+  /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-ownerships.
   @notImplemented
-  Future<void> ownerships() async {}
+  Future<PaginatedTwitterLists> ownerships({
+    String? userId,
+    String? screenName,
+    int? count,
+    int? cursor,
+    TransformResponse<PaginatedTwitterLists> transform =
+        defaultPaginatedTwitterListsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('count', count)
+      ..addParameter('cursor', cursor);
+
+    return client
+        .get(
+          Uri.https('api.twitter.com', '1.1/lists/ownerships.json', params),
+        )
+        .then(transform);
+  }
 
   /// Returns the specified list. Private lists will only be shown if the
   /// authenticated user owns the specified list.
