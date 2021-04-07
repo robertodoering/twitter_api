@@ -171,6 +171,17 @@ List<TrendLocation> _isolateTrendLocationsTransform(String body) {
   return trendLocations;
 }
 
+Future<TwitterList> defaultTwitterListTransform(Response response) async {
+  return await compute<String, TwitterList>(
+    _isolateTwitterListTransform,
+    response.body,
+  );
+}
+
+TwitterList _isolateTwitterListTransform(String body) {
+  return TwitterList.fromJson(json.decode(body));
+}
+
 Future<List<TwitterList>> defaultTwitterListsTransform(
   Response response,
 ) async {
