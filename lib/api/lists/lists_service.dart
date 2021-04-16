@@ -116,12 +116,12 @@ class ListsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-members.
   Future<PaginatedUsers> members({
-    int? listId,
+    String? listId,
     String? slug,
     String? ownerScreenName,
-    int? ownerId,
+    String? ownerId,
     int? count,
-    int? cursor,
+    String? cursor,
     bool? includeEntities,
     bool? skipStatus,
     String tweetMode = 'extended',
@@ -173,12 +173,12 @@ class ListsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show.
   Future<User> membersShow({
-    int? listId,
+    String? listId,
     String? slug,
     String? userId,
     String? screenName,
     String? ownerScreenName,
-    int? ownerId,
+    String? ownerId,
     bool? includeEntities,
     bool? skipStatus,
     String tweetMode = 'extended',
@@ -229,7 +229,7 @@ class ListsService {
     String? userId,
     String? screenName,
     int? count,
-    int? cursor,
+    String? cursor,
     bool? filterToOwnedLists,
     TransformResponse<PaginatedTwitterLists> transform =
         defaultPaginatedTwitterListsTransform,
@@ -269,7 +269,7 @@ class ListsService {
     String? userId,
     String? screenName,
     int? count,
-    int? cursor,
+    String? cursor,
     TransformResponse<PaginatedTwitterLists> transform =
         defaultPaginatedTwitterListsTransform,
   }) async {
@@ -304,10 +304,10 @@ class ListsService {
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-show.
   Future<TwitterList> show({
-    int? listId,
+    String? listId,
     String? slug,
     String? ownerScreenName,
-    int? ownerId,
+    String? ownerId,
     TransformResponse<TwitterList> transform = defaultTwitterListTransform,
   }) async {
     final params = <String, String>{}
@@ -366,11 +366,11 @@ class ListsService {
   /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-statuses.
-  Future<void> statuses({
-    int? listId,
+  Future<List<Tweet>> statuses({
+    String? listId,
     String? slug,
     String? ownerScreenName,
-    int? ownerId,
+    String? ownerId,
     String? sinceId,
     String? maxId,
     int? count,
