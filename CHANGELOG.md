@@ -1,18 +1,22 @@
+# 0.5.3
+
+- Added `ListsService` with implementations for all `lists/*` endpoints
+
 # 0.5.2
 
-- Fix twitter client non-2xx response not returned correctly
+- Fixed twitter client non-2xx response not returned correctly
 
 # 0.5.1
 
-- Fix twitter client forcing header argument to be non null
+- Fixed twitter client forcing header argument to be non null
 
 # 0.5.0
 
-- Add support for web
+- Added support for web
 
 # 0.4.0
 
-- Migrate to null safety
+- Migrated to null safety
 
 # 0.3.5
 

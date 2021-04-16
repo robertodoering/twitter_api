@@ -4,7 +4,7 @@
 ![test](https://github.com/robertodoering/twitter_api/workflows/test/badge.svg?branch=master)
 
 This dart package provides a well documented wrapper for the [Twitter v1.1
-API](https://developer.twitter.com/).
+API](https://developer.twitter.com/en/docs/twitter-api/v1).
 
 ## Why use this package?
 
