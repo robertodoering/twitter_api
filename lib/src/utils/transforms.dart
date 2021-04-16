@@ -171,3 +171,46 @@ List<TrendLocation> _isolateTrendLocationsTransform(String body) {
 
   return trendLocations;
 }
+
+Future<TwitterList> defaultTwitterListTransform(Response response) async {
+  return await compute<String, TwitterList>(
+    _isolateTwitterListTransform,
+    response.body,
+  );
+}
+
+TwitterList _isolateTwitterListTransform(String body) {
+  return TwitterList.fromJson(json.decode(body));
+}
+
+Future<List<TwitterList>> defaultTwitterListsTransform(
+  Response response,
+) async {
+  return await compute<String, List<TwitterList>>(
+    _isolateTwitterListsTransform,
+    response.body,
+  );
+}
+
+List<TwitterList> _isolateTwitterListsTransform(String body) {
+  final twitterLists = <TwitterList>[];
+
+  for (Map<String, dynamic> twitterListJson in json.decode(body)) {
+    twitterLists.add(TwitterList.fromJson(twitterListJson));
+  }
+
+  return twitterLists;
+}
+
+Future<PaginatedTwitterLists> defaultPaginatedTwitterListsTransform(
+  Response response,
+) async {
+  return await compute<String, PaginatedTwitterLists>(
+    _isolatePaginatedTwitterListsTransform,
+    response.body,
+  );
+}
+
+PaginatedTwitterLists _isolatePaginatedTwitterListsTransform(String body) {
+  return PaginatedTwitterLists.fromJson(json.decode(body));
+}
