@@ -154,7 +154,8 @@ List<Trends> _isolateTrendsListTransform(String body) {
 }
 
 Future<List<TrendLocation>> defaultTrendLocationsTransform(
-    Response response) async {
+  Response response,
+) async {
   return await compute<String, List<TrendLocation>>(
     _isolateTrendLocationsTransform,
     response.body,
