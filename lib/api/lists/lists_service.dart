@@ -1,4 +1,3 @@
-import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 
@@ -399,13 +398,60 @@ class ListsService {
   /// Returns the subscribers of the specified list. Private list subscribers
   /// will only be shown if the authenticated user owns the specified list.
   ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [count] Specifies the number of results to retrieve per "page."
+  ///
+  /// [cursor] Breaks the results into pages. A single page contains 20 lists
+  /// . Provide a value of `-1` to begin paging.
+  ///
+  /// [includeEntities] The entities node will not be included when set to
+  /// `false`.
+  ///
+  /// [skipStatus] When set to `true` statuses will not be included in the
+  /// returned user objects.
+  ///
+  /// [tweetMode] When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-subscribers.
-  @notImplemented
   Future<PaginatedUsers> subscribers({
-    required Map<String, String> params,
+    String? listId,
+    String? slug,
+    String? ownerScreenName,
+    String? ownerId,
+    int? count,
+    String? cursor,
+    bool? includeEntities,
+    bool? skipStatus,
+    String tweetMode = 'extended',
     TransformResponse<PaginatedUsers> transform =
         defaultPaginatedUsersTransform,
   }) async {
+    final params = <String, String>{}
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('count', count)
+      ..addParameter('cursor', cursor)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('skip_status', skipStatus)
+      ..addParameter('tweet_mode', tweetMode);
+
     return client
         .get(Uri.https('api.twitter.com', '1.1/lists/subscribers.json', params))
         .then(transform);
@@ -414,12 +460,58 @@ class ListsService {
   /// Check if the specified user is a subscriber of the specified list.
   /// Returns the user if they are a subscriber.
   ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [userId] The ID of the user for whom to return results.
+  ///
+  /// [screenName] The screen name of the user for whom to return results.
+  ///
+  /// [includeEntities] The entities node will not be included when set to
+  /// `false`.
+  ///
+  /// [skipStatus] When set to `true` statuses will not be included in the
+  /// returned user objects.
+  ///
+  /// [tweetMode] When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-subscribers-show.
-  @notImplemented
   Future<User> subscribersShow({
-    required Map<String, String> params,
+    String? listId,
+    String? slug,
+    String? ownerScreenName,
+    String? ownerId,
+    String? userId,
+    String? screenName,
+    bool? includeEntities,
+    bool? skipStatus,
+    String tweetMode = 'extended',
     TransformResponse<User> transform = defaultUserTransform,
   }) async {
+    final params = <String, String>{}
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('skip_status', skipStatus)
+      ..addParameter('tweet_mode', tweetMode);
+
     return client
         .get(
           Uri.https(
@@ -434,13 +526,33 @@ class ListsService {
   /// Obtain a collection of the lists the specified user is subscribed to,
   /// 20 lists per page by default. Does not include the user's own lists.
   ///
+  /// [userId] The ID of the user for whom to return results.
+  ///
+  /// [screenName] The screen name of the user for whom to return results.
+  ///
+  /// [count] Specifies the number of results to retrieve per "page."
+  ///
+  /// [cursor] Breaks the results into pages. A single page contains 20 lists
+  /// . Provide a value of `-1` to begin paging.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-subscriptions.
-  @notImplemented
   Future<PaginatedTwitterLists> subscriptions({
-    required Map<String, String> params,
+    String? userId,
+    String? screenName,
+    String? count,
+    String? cursor,
     TransformResponse<PaginatedTwitterLists> transform =
         defaultPaginatedTwitterListsTransform,
   }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('count', count)
+      ..addParameter('cursor', cursor);
+
     return client
         .get(
           Uri.https('api.twitter.com', '1.1/lists/subscriptions.json', params),
@@ -451,12 +563,30 @@ class ListsService {
   /// Creates a new list for the authenticated user. Note that you can create
   /// up to 1000 lists per account.
   ///
+  /// [name] The name for the list. A list's name must start with a letter
+  /// and can consist only of 25 or fewer letters, numbers, "-", or "_"
+  /// characters.
+  ///
+  /// [mode] Whether your list is public or private. Values can be public or
+  /// private . If no mode is specified the list will be public.
+  ///
+  /// [description] The description to give the list.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-create.
-  @notImplemented
-  Future<void> create({
-    required Map<String, String> body,
+  Future<TwitterList> create({
+    String? name,
+    String? mode,
+    String? description,
     TransformResponse<TwitterList> transform = defaultTwitterListTransform,
   }) async {
+    final body = <String, String>{}
+      ..addParameter('name', name)
+      ..addParameter('mode', mode)
+      ..addParameter('description', description);
+
     return client
         .post(Uri.https('api.twitter.com', '1.1/lists/create.json'), body: body)
         .then(transform);
@@ -465,12 +595,35 @@ class ListsService {
   /// Deletes the specified list. The authenticated user must own the list to
   /// be able to destroy it.
   ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy.
-  @notImplemented
-  Future<void> destroy({
-    required Map<String, String> body,
+  Future<TwitterList> destroy({
+    String? ownerScreenName,
+    String? ownerId,
+    String? listId,
+    String? slug,
     TransformResponse<TwitterList> transform = defaultTwitterListTransform,
   }) async {
+    final body = <String, String>{}
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug);
+
     return client
         .post(
           Uri.https('api.twitter.com', '1.1/lists/destroy.json'),
@@ -483,11 +636,39 @@ class ListsService {
   /// able to add members to it. Note that lists cannot have more than 5,000
   /// members.
   ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [userId] The ID of the user for whom to return results.
+  ///
+  /// [screenName] The screen name of the user for whom to return results.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create.
-  @notImplemented
   Future<void> membersCreate({
-    required Map<String, String> body,
+    String? ownerScreenName,
+    String? ownerId,
+    String? listId,
+    String? slug,
+    String? userId,
+    String? screenName,
   }) async {
+    final body = <String, String>{}
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName);
+
     await client.post(
       Uri.https('api.twitter.com', '1.1/lists/members/create'),
       body: body,
@@ -504,11 +685,40 @@ class ListsService {
   /// add memberships. Take care when using these methods such that you are
   /// not too rapidly switching between removals and adds on the same list.
   ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [userId] A list of user IDs, up to 100 are allowed in a single request.
+  ///
+  /// [screenName] A comma separated list of screen names, up to 100 are
+  /// allowed in a single request.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all.
-  @notImplemented
   Future<void> membersCreateAll({
-    required Map<String, String> body,
+    String? ownerScreenName,
+    String? ownerId,
+    String? listId,
+    String? slug,
+    List<String>? userId,
+    List<String>? screenName,
   }) async {
+    final body = <String, String>{}
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName);
+
     await client.post(
       Uri.https('api.twitter.com', '1.1/lists/members/create_all.json'),
       body: body,
@@ -518,11 +728,39 @@ class ListsService {
   /// Removes the specified member from the list. The authenticated user must
   /// be the list's owner to remove members from the list.
   ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [userId] The ID of the user to remove from the list.
+  ///
+  /// [screenName] The screen name of the user for whom to remove from the list.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy.
-  @notImplemented
   Future<void> membersDestroy({
-    required Map<String, String> body,
+    String? ownerScreenName,
+    String? ownerId,
+    String? listId,
+    String? slug,
+    String? userId,
+    String? screenName,
   }) async {
+    final body = <String, String>{}
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName);
+
     await client.post(
       Uri.https('api.twitter.com', '1.1/lists/members/destroy.json'),
       body: body,
@@ -539,11 +777,40 @@ class ListsService {
   /// add memberships. Take care when using these methods such that you are
   /// not too rapidly switching between removals and adds on the same list.
   ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [userId] A list of user IDs, up to 100 are allowed in a single request.
+  ///
+  /// [screenName] A comma separated list of screen names, up to 100 are
+  /// allowed in a single request.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all.
-  @notImplemented
   Future<void> membersDestroyAll({
-    required Map<String, String> body,
+    String? ownerScreenName,
+    String? ownerId,
+    String? listId,
+    String? slug,
+    List<String>? userId,
+    List<String>? screenName,
   }) async {
+    final body = <String, String>{}
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName);
+
     await client.post(
       Uri.https('api.twitter.com', '1.1/lists/members/destroy_all.json'),
       body: body,
@@ -552,25 +819,70 @@ class ListsService {
 
   /// Subscribes the authenticated user to the specified list.
   ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [transform] Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-subscribers-create.
-  @notImplemented
-  Future<void> subscribersCreate({
-    required Map<String, String> body,
+  Future<TwitterList> subscribersCreate({
+    String? ownerScreenName,
+    String? ownerId,
+    String? listId,
+    String? slug,
     TransformResponse<TwitterList> transform = defaultTwitterListTransform,
   }) async {
-    await client.post(
-      Uri.https('api.twitter.com', '1.1/lists/subscribers/create.json'),
-      body: body,
-    );
+    final body = <String, String>{}
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/lists/subscribers/create.json'),
+          body: body,
+        )
+        .then(transform);
   }
 
   /// Unsubscribes the authenticated user from the specified list.
   ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-subscribers-destroy.
-  @notImplemented
   Future<void> subscribersDestroy({
-    required Map<String, String> body,
+    String? ownerScreenName,
+    String? ownerId,
+    String? listId,
+    String? slug,
   }) async {
+    final body = <String, String>{}
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug);
+
     await client.post(
       Uri.https('api.twitter.com', '1.1/lists/subscribers/destroy.json'),
       body: body,
@@ -580,11 +892,44 @@ class ListsService {
   /// Updates the specified list. The authenticated user must own the list to
   /// be able to update it.
   ///
+  /// [ownerScreenName] The screen name of the user who owns the list being
+  /// requested by a [slug].
+  ///
+  /// [ownerId] The user ID of the user who owns the list being requested by
+  /// a [slug].
+  ///
+  /// [listId] The numerical id of the list.
+  ///
+  /// [slug] You can identify a list by its slug instead of its numerical id.
+  /// If you decide to do so, note that you'll also have to specify the list
+  /// owner using the [ownerId] or [ownerScreenName] parameters.
+  ///
+  /// [name] The name for the list.
+  ///
+  /// [mode] Whether your list is public or private. Values can be `public` or
+  /// `private`. If no mode is specified the list will be public.
+  ///
+  /// [description] The description to give the list.
+  ///
   /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/post-lists-update.
-  @notImplemented
   Future<void> update({
-    required Map<String, String> body,
+    String? ownerScreenName,
+    String? ownerId,
+    String? listId,
+    String? slug,
+    String? name,
+    String? mode,
+    String? description,
   }) async {
+    final body = <String, String>{}
+      ..addParameter('owner_screen_name', ownerScreenName)
+      ..addParameter('owner_id', ownerId)
+      ..addParameter('list_id', listId)
+      ..addParameter('slug', slug)
+      ..addParameter('name', name)
+      ..addParameter('mode', mode)
+      ..addParameter('description', description);
+
     await client.post(
       Uri.https('api.twitter.com', '1.1/lists/update.json'),
       body: body,
