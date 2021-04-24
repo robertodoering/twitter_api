@@ -670,7 +670,7 @@ class ListsService {
       ..addParameter('screen_name', screenName);
 
     await client.post(
-      Uri.https('api.twitter.com', '1.1/lists/members/create'),
+      Uri.https('api.twitter.com', '1.1/lists/members/create.json'),
       body: body,
     );
   }
