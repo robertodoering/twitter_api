@@ -133,7 +133,7 @@ void main() {
       Uri.https(
         'api.twitter.com',
         '1.1/statuses/retweets/912456.json',
-        {'count': '100', 'tweet_mode': 'extended'},
+        {'tweet_mode': 'extended'},
       ),
     )).thenAnswer(
       (_) async => Response(
