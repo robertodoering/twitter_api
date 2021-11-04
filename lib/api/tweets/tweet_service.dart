@@ -341,6 +341,7 @@ class TweetService {
   }) {
     final params = <String, String>{}
       ..addParameter('trim_user', trimUser)
+      ..addParameter('count', count)
       ..addParameter('tweet_mode', tweetMode);
 
     return client
