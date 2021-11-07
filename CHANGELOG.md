@@ -1,3 +1,8 @@
+# 0.5.4
+
+- Fixed `ListService.membersCreate` request (Thanks @nikolajjsj!)
+- Fixed `count` param was not included in `TweetService.retweets` (Thanks @dre8597!)
+
 # 0.5.3
 
 - Added `ListsService` with implementations for all `lists/*` endpoints
