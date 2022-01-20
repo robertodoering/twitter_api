@@ -13,7 +13,7 @@ DateTime? convertTwitterDateTime(String? twitterDateString) {
   } catch (e) {
     try {
       final dateString = formatTwitterDateString(twitterDateString);
-      return DateFormat('E MMM dd HH:mm:ss yyyy').parse(dateString, true);
+      return DateFormat('E MMM dd HH:mm:ss yyyy', 'en_US').parse(dateString, true);
     } catch (e) {
       return null;
     }
