@@ -25,7 +25,7 @@ DateTime? convertTwitterDateTime(String? twitterDateString) {
 /// The date strings are always in UTC and the timezone difference is 0,
 /// therefore no information is lost by removing the timezone.
 String formatTwitterDateString(String twitterDateString) {
-  final List sanitized = twitterDateString.split(' ')
+  final sanitized = twitterDateString.split(' ')
     ..removeWhere((part) => part.startsWith('+'));
 
   return sanitized.join(' ');

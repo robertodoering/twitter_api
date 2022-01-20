@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:dart_twitter_api/api/lists/data/twitter_list.dart';
-import 'package:dart_twitter_api/api/lists/lists_service.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
