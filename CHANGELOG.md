@@ -1,3 +1,7 @@
+# 0.5.5
+
+- Fixed unable to parse dates when the dart environment locale was set to some non-en_US locales (Thanks @jonjomckay!)
+
 # 0.5.4
 
 - Fixed `ListService.membersCreate` request (Thanks @nikolajjsj!)
