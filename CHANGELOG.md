@@ -1,3 +1,7 @@
+# 0.5.5+1
+
+- Updated formatting
+
 # 0.5.5
 
 - Fixed unable to parse dates when the dart environment locale was set to some non-en_US locales (Thanks @jonjomckay!)
