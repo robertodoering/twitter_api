@@ -11,7 +11,7 @@ import 'package:dart_twitter_api/twitter_api.dart';
 class TwitterApi {
   TwitterApi({
     required this.client,
-  })   : userService = UserService(client: client),
+  })  : userService = UserService(client: client),
         tweetService = TweetService(client: client),
         tweetSearchService = TweetSearchService(client: client),
         timelineService = TimelineService(client: client),
