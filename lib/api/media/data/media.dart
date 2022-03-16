@@ -29,7 +29,7 @@ class Media {
   /// represents the location of the first non-URL character occurring after the
   /// URL (or the end of the string if the URL is the last part of the Tweet
   /// text).
-  List<int>? indicies;
+  List<int>? indices;
 
   /// An `http://` URL pointing directly to the uploaded media file.
   ///
