@@ -1,3 +1,7 @@
+# 0.5.6
+
+- Fixed `MediaData.indices` was not parsed correctly (Thanks @matiasosuna!)
+
 # 0.5.5+1
 
 - Updated formatting
