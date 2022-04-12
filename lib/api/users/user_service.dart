@@ -74,7 +74,6 @@ class UserService {
   /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-list.
-  @notImplemented
   Future<PaginatedUsers> followersList({
     String? userId,
     String? screenName,
