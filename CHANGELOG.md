@@ -1,3 +1,7 @@
+# 0.5.6+1
+
+- Removed unnecessary annotation (Thanks @myConsciousness!)
+
 # 0.5.6
 
 - Fixed `MediaData.indices` was not parsed correctly (Thanks @matiasosuna!)
