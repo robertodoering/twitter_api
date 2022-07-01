@@ -6,6 +6,8 @@
 This dart package provides a well documented wrapper for the [Twitter v1.1
 API](https://developer.twitter.com/en/docs/twitter-api/v1).
 
+To access the v2 endpoints, check out [twitter-api-v2](https://github.com/twitter-dart/twitter-api-v2).
+
 ## Why use this package?
 
 To make the usage as convenient and comfortable as possible, this package provides
