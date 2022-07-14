@@ -1,6 +1,7 @@
 import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:dart_twitter_api/api/twitter_client.dart';
 import 'package:dart_twitter_api/api/users/data/friendship.dart';
+import 'package:dart_twitter_api/api/users/data/paginated_followers_ids.dart';
 import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
 import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:dart_twitter_api/src/annotations.dart';
@@ -29,11 +30,26 @@ class UserService {
   /// [usersLookup], a method that allows you to convert user IDs into full user
   /// objects in bulk.
   ///
-  /// TODO: implement
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-ids.
-  @notImplemented
-  Future<void> followersIds() async {}
+  Future<PaginatedFollowersIds> followersIds({
+    String? userId,
+    String? screenName,
+    int? cursor,
+    int? count,
+    TransformResponse<PaginatedFollowersIds> transform =
+        defaultPaginatedFollowersIdsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('cursor', cursor)
+      ..addParameter('count', count);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/followers/ids.json', params))
+        .then(transform);
+  }
 
   /// Returns a cursored collection of user objects for users following the
   /// specified user.
