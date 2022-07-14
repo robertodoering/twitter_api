@@ -4,6 +4,7 @@ import 'package:dart_twitter_api/api/users/data/paginated_followers_ids.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
 
+import '../../api/users/data/paginated_friends_ids.dart';
 import '_isolates_io.dart' if (dart.library.html) '_isolates_web.dart';
 
 /// Parses the [response] into a [Tweet] object in an isolate.
@@ -225,4 +226,16 @@ Future<PaginatedTwitterLists> defaultPaginatedTwitterListsTransform(
 
 PaginatedTwitterLists _isolatePaginatedTwitterListsTransform(String body) {
   return PaginatedTwitterLists.fromJson(json.decode(body));
+}
+
+Future<PaginatedFriendsIds> defaultPaginatedFriendsIdsTransform(
+    Response response) async {
+  return await compute<String, PaginatedFriendsIds>(
+    _isolatePaginatedFriendsIdsTransform,
+    response.body,
+  );
+}
+
+PaginatedFriendsIds _isolatePaginatedFriendsIdsTransform(String body) {
+  return PaginatedFriendsIds.fromJson(json.decode(body));
 }

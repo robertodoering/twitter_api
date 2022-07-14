@@ -8,6 +8,8 @@ import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
 
+import 'data/paginated_friends_ids.dart';
+
 class UserService {
   const UserService({
     required this.client,
@@ -118,11 +120,26 @@ class UserService {
   /// Returns a cursored collection of user IDs for every user the specified
   /// user is following (otherwise known as their "friends").
   ///
-  /// TODO: implement
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-ids.
-  @notImplemented
-  Future<void> friendsIds() async {}
+  Future<PaginatedFriendsIds> friendsIds({
+    String? userId,
+    String? screenName,
+    int? cursor,
+    int? count,
+    TransformResponse<PaginatedFriendsIds> transform =
+        defaultPaginatedFriendsIdsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('cursor', cursor)
+      ..addParameter('count', count);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/friends/ids.json', params))
+        .then(transform);
+  }
 
   /// Returns a cursored collection of user objects for every user the specified
   /// user is following (otherwise known as their "friends").
