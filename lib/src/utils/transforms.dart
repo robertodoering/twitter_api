@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dart_twitter_api/api/users/data/paginated_followers_ids.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
 
@@ -57,6 +58,17 @@ List<User> _isolateUserListTransform(String body) {
   }
 
   return users;
+}
+
+/// Parse the [response] into a [PaginatedFollowersIds] object in an isolate.
+Future<PaginatedFollowersIds> defaultPaginatedFollowersIdsTransform(
+    Response response) async {
+  return await compute<String, PaginatedFollowersIds>(
+      _isolatePaginatedFollowersIdsTransform, response.body);
+}
+
+PaginatedFollowersIds _isolatePaginatedFollowersIdsTransform(String body) {
+  return PaginatedFollowersIds.fromJson(json.decode(body));
 }
 
 /// Parses the [response] into a [PaginatedUsers] object in an isolate.
