@@ -1,14 +1,13 @@
 import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:dart_twitter_api/api/twitter_client.dart';
 import 'package:dart_twitter_api/api/users/data/friendship.dart';
-import 'package:dart_twitter_api/api/users/data/paginated_followers_ids.dart';
+import 'package:dart_twitter_api/api/users/data/paginated_ids.dart';
 import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
+import 'package:dart_twitter_api/api/users/data/relationship.dart';
 import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
-
-import 'data/paginated_friends_ids.dart';
 
 class UserService {
   const UserService({
@@ -34,13 +33,12 @@ class UserService {
   ///
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-ids.
-  Future<PaginatedFollowersIds> followersIds({
+  Future<PaginatedIds> followersIds({
     String? userId,
     String? screenName,
     int? cursor,
     int? count,
-    TransformResponse<PaginatedFollowersIds> transform =
-        defaultPaginatedFollowersIdsTransform,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
   }) async {
     final params = <String, String>{}
       ..addParameter('user_id', userId)
@@ -122,13 +120,12 @@ class UserService {
   ///
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-ids.
-  Future<PaginatedFriendsIds> friendsIds({
+  Future<PaginatedIds> friendsIds({
     String? userId,
     String? screenName,
     int? cursor,
     int? count,
-    TransformResponse<PaginatedFriendsIds> transform =
-        defaultPaginatedFriendsIdsTransform,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
   }) async {
     final params = <String, String>{}
       ..addParameter('user_id', userId)
@@ -208,11 +205,19 @@ class UserService {
   /// Returns a collection of numeric IDs for every user who has a pending
   /// request to follow the authenticating user.
   ///
-  /// TODO: implement
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-incoming.
-  @notImplemented
-  Future<void> friendshipsIncoming() async {}
+  Future<PaginatedIds> friendshipsIncoming({
+    int? cursor,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
+  }) async {
+    final params = <String, String>{}..addParameter('cursor', cursor);
+
+    return client
+        .get(Uri.https(
+            'api.twitter.com', '1.1/friendships/incoming.json', params))
+        .then(transform);
+  }
 
   /// Returns the relationships of the authenticating user to the
   /// list of up to 100 [screenNames] or [userIds] provided.
@@ -260,20 +265,42 @@ class UserService {
   /// Returns a collection of numeric IDs for every protected user for whom the
   /// authenticating user has a pending follow request.
   ///
-  /// TODO: implement
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-outgoing.
-  @notImplemented
-  Future<void> friendshipsOutgoing() async {}
+  Future<PaginatedIds> friendshipsOutgoing({
+    int? cursor,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
+  }) async {
+    final params = <String, String>{}..addParameter('cursor', cursor);
+
+    return client
+        .get(Uri.https(
+            'api.twitter.com', '1.1/friendships/outgoing.json', params))
+        .then(transform);
+  }
 
   /// Returns detailed information about the relationship between two arbitrary
   /// users.
   ///
-  /// TODO: implement
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-show.
-  @notImplemented
-  Future<void> friendshipsShow() async {}
+  Future<Relationship> friendshipsShow({
+    String? sourceId,
+    String? sourceScreenName,
+    String? targetId,
+    String? targetScreenName,
+    TransformResponse<Relationship> transform = defaultRelationshipTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('source_id', sourceId)
+      ..addParameter('source_screen_name', sourceScreenName)
+      ..addParameter('target_id', targetId)
+      ..addParameter('target_screen_name', targetScreenName);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/friendships/show.json', params))
+        .then(transform);
+  }
 
   /// Returns fully-hydrated user objects for up to 100 users per request, as
   /// specified by comma-separated values passed to the [userId] and/or
@@ -478,9 +505,33 @@ class UserService {
   /// Enable or disable Retweets and device notifications from the specified
   /// user.
   ///
-  /// TODO: implement
+  /// [screenName]: The screen name of the user being followed.
+  ///
+  /// [userId]: The ID of the user being followed.
+  ///
+  /// [device]: Turn on/off device notifications from the target user.
+  ///
+  /// [retweets]: Turn on/off Retweets from the target user.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update.
-  @notImplemented
-  Future<void> friendshipsUpdate() async {}
+  Future<Relationship> friendshipsUpdate({
+    String? screenName,
+    String? userId,
+    bool? device,
+    bool? retweets,
+    TransformResponse<Relationship> transform = defaultRelationshipTransform,
+  }) async {
+    final body = <String, String>{}
+      ..addParameter('screen_name', screenName)
+      ..addParameter('user_id', userId)
+      ..addParameter('device', device)
+      ..addParameter('retweets', retweets);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/friendships/update.json'),
+          body: body,
+        )
+        .then(transform);
+  }
 }

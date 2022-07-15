@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:dart_twitter_api/api/users/data/paginated_followers_ids.dart';
+import 'package:dart_twitter_api/api/users/data/paginated_ids.dart';
+import 'package:dart_twitter_api/api/users/data/relationship.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
 
-import '../../api/users/data/paginated_friends_ids.dart';
 import '_isolates_io.dart' if (dart.library.html) '_isolates_web.dart';
 
 /// Parses the [response] into a [Tweet] object in an isolate.
@@ -62,14 +62,13 @@ List<User> _isolateUserListTransform(String body) {
 }
 
 /// Parse the [response] into a [PaginatedFollowersIds] object in an isolate.
-Future<PaginatedFollowersIds> defaultPaginatedFollowersIdsTransform(
-    Response response) async {
-  return await compute<String, PaginatedFollowersIds>(
-      _isolatePaginatedFollowersIdsTransform, response.body);
+Future<PaginatedIds> defaultPaginatedIdsTransform(Response response) async {
+  return await compute<String, PaginatedIds>(
+      _isolatePaginatedIdsTransform, response.body);
 }
 
-PaginatedFollowersIds _isolatePaginatedFollowersIdsTransform(String body) {
-  return PaginatedFollowersIds.fromJson(json.decode(body));
+PaginatedIds _isolatePaginatedIdsTransform(String body) {
+  return PaginatedIds.fromJson(json.decode(body));
 }
 
 /// Parses the [response] into a [PaginatedUsers] object in an isolate.
@@ -116,6 +115,18 @@ Future<UploadFinalize> defaultUploadFinalizeTransform(Response response) async {
 
 UploadFinalize _isolateUploadFinalizeTransform(String body) {
   return UploadFinalize.fromJson(json.decode(body));
+}
+
+/// Parses the [response] into a [Relationship] object in an isolate.
+Future<Relationship> defaultRelationshipTransform(Response response) async {
+  return await compute<String, Relationship>(
+    _isolateRelationshipTransform,
+    response.body,
+  );
+}
+
+Relationship _isolateRelationshipTransform(String body) {
+  return Relationship.fromJson(jsonDecode(body));
 }
 
 /// Parses the [response] into a [TweetSearch] object in an isolate.
@@ -226,16 +237,4 @@ Future<PaginatedTwitterLists> defaultPaginatedTwitterListsTransform(
 
 PaginatedTwitterLists _isolatePaginatedTwitterListsTransform(String body) {
   return PaginatedTwitterLists.fromJson(json.decode(body));
-}
-
-Future<PaginatedFriendsIds> defaultPaginatedFriendsIdsTransform(
-    Response response) async {
-  return await compute<String, PaginatedFriendsIds>(
-    _isolatePaginatedFriendsIdsTransform,
-    response.body,
-  );
-}
-
-PaginatedFriendsIds _isolatePaginatedFriendsIdsTransform(String body) {
-  return PaginatedFriendsIds.fromJson(json.decode(body));
 }
