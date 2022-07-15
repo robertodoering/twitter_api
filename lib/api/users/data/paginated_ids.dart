@@ -5,6 +5,7 @@ part 'paginated_ids.g.dart';
 @JsonSerializable(
   explicitToJson: true,
   fieldRename: FieldRename.snake,
+  includeIfNull: false,
 )
 class PaginatedIds {
   PaginatedIds();

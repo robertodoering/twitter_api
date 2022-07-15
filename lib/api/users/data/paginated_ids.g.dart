@@ -13,9 +13,17 @@ PaginatedIds _$PaginatedIdsFromJson(Map<String, dynamic> json) {
     ..nextCursorStr = json['next_cursor_str'] as String?;
 }
 
-Map<String, dynamic> _$PaginatedIdsToJson(PaginatedIds instance) =>
-    <String, dynamic>{
-      'ids': instance.ids,
-      'previous_cursor_str': instance.previousCursorStr,
-      'next_cursor_str': instance.nextCursorStr,
-    };
+Map<String, dynamic> _$PaginatedIdsToJson(PaginatedIds instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ids', instance.ids);
+  writeNotNull('previous_cursor_str', instance.previousCursorStr);
+  writeNotNull('next_cursor_str', instance.nextCursorStr);
+  return val;
+}
