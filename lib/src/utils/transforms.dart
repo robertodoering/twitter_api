@@ -238,3 +238,14 @@ Future<PaginatedTwitterLists> defaultPaginatedTwitterListsTransform(
 PaginatedTwitterLists _isolatePaginatedTwitterListsTransform(String body) {
   return PaginatedTwitterLists.fromJson(json.decode(body));
 }
+
+Future<List<int>> defaultIntListTransform(Response response) async {
+  return await compute<String, List<int>>(
+    _isolateIntListTransform,
+    response.body,
+  );
+}
+
+List<int> _isolateIntListTransform(String body) {
+  return (json.decode(body) as List<dynamic>).map((e) => e as int).toList();
+}

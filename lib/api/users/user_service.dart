@@ -5,7 +5,6 @@ import 'package:dart_twitter_api/api/users/data/paginated_ids.dart';
 import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
 import 'package:dart_twitter_api/api/users/data/relationship.dart';
 import 'package:dart_twitter_api/api/users/data/user.dart';
-import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
 
@@ -304,11 +303,15 @@ class UserService {
   /// Use [friendshipsUpdate] to set the "no retweets" status for a given user
   /// account on behalf of the current user.
   ///
-  /// TODO: implement
-  ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-no_retweets-ids.
-  @notImplemented
-  Future<void> friendshipsNoRetweetsIds() async {}
+  Future<List<int>> friendshipsNoRetweetsIds({
+    TransformResponse<List<int>> transform = defaultIntListTransform,
+  }) async {
+    return client
+        .get(Uri.https(
+            'api.twitter.com', '1.1/friendships/no_retweets/ids.json'))
+        .then(transform);
+  }
 
   /// Returns a collection of numeric IDs for every protected user for whom the
   /// authenticating user has a pending follow request.
@@ -391,11 +394,39 @@ class UserService {
   ///   object, a HTTP 404 will be thrown.
   /// * You are strongly encouraged to use a POST for larger requests.
   ///
-  /// TODO: implement
+  /// [screenName]: The screen name of the user for whom to return results.
+  /// Either an id or [screenName] is required for this method.
+  ///
+  /// [userId]: The ID of the user for whom to return results.
+  /// Either an id or [screenName] is required for this method.
+  ///
+  /// [includeEntities]: The entities node will not be included in embedded
+  /// Tweet objects when set to `false`.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup.
-  @notImplemented
-  Future<void> usersLookup() async {}
+  Future<List<User>> usersLookup({
+    String? screenName,
+    String? userId,
+    bool? includeEntities,
+    String tweetMode = 'extended',
+    TransformResponse<List<User>> transform = defaultUserListTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('screen_name', screenName)
+      ..addParameter('user_id', userId)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/users/lookup.json', params))
+        .then(transform);
+  }
 
   /// Provides a simple, relevance-based search interface to public user
   /// accounts on Twitter. Try querying by topical interest, full name, company
