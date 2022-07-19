@@ -31,6 +31,19 @@ class UserService {
   /// [usersLookup], a method that allows you to convert user IDs into full user
   /// objects in bulk.
   ///
+  /// [userId]: The ID of the user for whom to return results.
+  ///
+  /// [screenName]: The screen name of the user for whom to return results.
+  ///
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-ids.
   Future<PaginatedIds> followersIds({
@@ -118,6 +131,31 @@ class UserService {
   /// Returns a cursored collection of user IDs for every user the specified
   /// user is following (otherwise known as their "friends").
   ///
+  /// At this time, results are ordered with the most recent following first —
+  /// however, this ordering is subject to unannounced change and eventual
+  /// consistency issues. Results are given in groups of 5,000 user IDs and
+  /// multiple "pages" of results can be navigated through using the
+  /// [nextCursor] value in subsequent requests. See
+  /// https://developer.twitter.com/en/docs/basics/cursoring to navigate
+  /// collections for more information.
+  ///
+  /// This method is especially powerful when used in conjunction with
+  /// [usersLookup], a method that allows you to convert user IDs into full
+  /// user objects in bulk.
+  ///
+  /// [userId]: The ID of the user for whom to return results.
+  ///
+  /// [screenName]: The screen name of the user for whom to return results.
+  ///
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-ids.
   Future<PaginatedIds> friendsIds({
@@ -205,6 +243,15 @@ class UserService {
   /// Returns a collection of numeric IDs for every user who has a pending
   /// request to follow the authenticating user.
   ///
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-incoming.
   Future<PaginatedIds> friendshipsIncoming({
@@ -214,8 +261,9 @@ class UserService {
     final params = <String, String>{}..addParameter('cursor', cursor);
 
     return client
-        .get(Uri.https(
-            'api.twitter.com', '1.1/friendships/incoming.json', params))
+        .get(
+          Uri.https('api.twitter.com', '1.1/friendships/incoming.json', params),
+        )
         .then(transform);
   }
 
@@ -265,6 +313,15 @@ class UserService {
   /// Returns a collection of numeric IDs for every protected user for whom the
   /// authenticating user has a pending follow request.
   ///
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-outgoing.
   Future<PaginatedIds> friendshipsOutgoing({
@@ -282,6 +339,16 @@ class UserService {
   /// Returns detailed information about the relationship between two arbitrary
   /// users.
   ///
+  /// [sourceId]: The user ID of the subject user.
+  ///
+  /// [sourceScreenName]: The screen name of the subject user.
+  ///
+  /// [targetId]: The user ID of the target user.
+  ///
+  /// [targetScreenName]: The screen name of the target user.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-show.
   Future<Relationship> friendshipsShow({
@@ -512,6 +579,9 @@ class UserService {
   /// [device]: Turn on/off device notifications from the target user.
   ///
   /// [retweets]: Turn on/off Retweets from the target user.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update.
   Future<Relationship> friendshipsUpdate({

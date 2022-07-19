@@ -5,7 +5,6 @@ part 'relationship_entity.g.dart';
 @JsonSerializable(
   explicitToJson: true,
   fieldRename: FieldRename.snake,
-  includeIfNull: false,
 )
 class RelationshipEntity {
   RelationshipEntity();
@@ -34,6 +33,8 @@ class RelationshipEntity {
   bool? blocking;
 
   bool? blockedBy;
+
+  bool? muting;
 
   bool? wantRetweets;
 
