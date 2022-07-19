@@ -1,9 +1,10 @@
 import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:dart_twitter_api/api/twitter_client.dart';
 import 'package:dart_twitter_api/api/users/data/friendship.dart';
+import 'package:dart_twitter_api/api/users/data/paginated_ids.dart';
 import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
+import 'package:dart_twitter_api/api/users/data/relationship.dart';
 import 'package:dart_twitter_api/api/users/data/user.dart';
-import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
 
@@ -29,11 +30,38 @@ class UserService {
   /// [usersLookup], a method that allows you to convert user IDs into full user
   /// objects in bulk.
   ///
-  /// TODO: implement
+  /// [userId]: The ID of the user for whom to return results.
+  ///
+  /// [screenName]: The screen name of the user for whom to return results.
+  ///
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-followers-ids.
-  @notImplemented
-  Future<void> followersIds() async {}
+  Future<PaginatedIds> followersIds({
+    String? userId,
+    String? screenName,
+    int? cursor,
+    int? count,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('cursor', cursor)
+      ..addParameter('count', count);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/followers/ids.json', params))
+        .then(transform);
+  }
 
   /// Returns a cursored collection of user objects for users following the
   /// specified user.
@@ -102,11 +130,50 @@ class UserService {
   /// Returns a cursored collection of user IDs for every user the specified
   /// user is following (otherwise known as their "friends").
   ///
-  /// TODO: implement
+  /// At this time, results are ordered with the most recent following first —
+  /// however, this ordering is subject to unannounced change and eventual
+  /// consistency issues. Results are given in groups of 5,000 user IDs and
+  /// multiple "pages" of results can be navigated through using the
+  /// [nextCursor] value in subsequent requests. See
+  /// https://developer.twitter.com/en/docs/basics/cursoring to navigate
+  /// collections for more information.
+  ///
+  /// This method is especially powerful when used in conjunction with
+  /// [usersLookup], a method that allows you to convert user IDs into full
+  /// user objects in bulk.
+  ///
+  /// [userId]: The ID of the user for whom to return results.
+  ///
+  /// [screenName]: The screen name of the user for whom to return results.
+  ///
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-ids.
-  @notImplemented
-  Future<void> friendsIds() async {}
+  Future<PaginatedIds> friendsIds({
+    String? userId,
+    String? screenName,
+    int? cursor,
+    int? count,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('user_id', userId)
+      ..addParameter('screen_name', screenName)
+      ..addParameter('cursor', cursor)
+      ..addParameter('count', count);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/friends/ids.json', params))
+        .then(transform);
+  }
 
   /// Returns a cursored collection of user objects for every user the specified
   /// user is following (otherwise known as their "friends").
@@ -175,11 +242,29 @@ class UserService {
   /// Returns a collection of numeric IDs for every user who has a pending
   /// request to follow the authenticating user.
   ///
-  /// TODO: implement
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-incoming.
-  @notImplemented
-  Future<void> friendshipsIncoming() async {}
+  Future<PaginatedIds> friendshipsIncoming({
+    int? cursor,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
+  }) async {
+    final params = <String, String>{}..addParameter('cursor', cursor);
+
+    return client
+        .get(
+          Uri.https('api.twitter.com', '1.1/friendships/incoming.json', params),
+        )
+        .then(transform);
+  }
 
   /// Returns the relationships of the authenticating user to the
   /// list of up to 100 [screenNames] or [userIds] provided.
@@ -218,29 +303,74 @@ class UserService {
   /// Use [friendshipsUpdate] to set the "no retweets" status for a given user
   /// account on behalf of the current user.
   ///
-  /// TODO: implement
-  ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-no_retweets-ids.
-  @notImplemented
-  Future<void> friendshipsNoRetweetsIds() async {}
+  Future<List<int>> friendshipsNoRetweetsIds({
+    TransformResponse<List<int>> transform = defaultIntListTransform,
+  }) async {
+    return client
+        .get(Uri.https(
+            'api.twitter.com', '1.1/friendships/no_retweets/ids.json'))
+        .then(transform);
+  }
 
   /// Returns a collection of numeric IDs for every protected user for whom the
   /// authenticating user has a pending follow request.
   ///
-  /// TODO: implement
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-outgoing.
-  @notImplemented
-  Future<void> friendshipsOutgoing() async {}
+  Future<PaginatedIds> friendshipsOutgoing({
+    int? cursor,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
+  }) async {
+    final params = <String, String>{}..addParameter('cursor', cursor);
+
+    return client
+        .get(Uri.https(
+            'api.twitter.com', '1.1/friendships/outgoing.json', params))
+        .then(transform);
+  }
 
   /// Returns detailed information about the relationship between two arbitrary
   /// users.
   ///
-  /// TODO: implement
+  /// [sourceId]: The user ID of the subject user.
+  ///
+  /// [sourceScreenName]: The screen name of the subject user.
+  ///
+  /// [targetId]: The user ID of the target user.
+  ///
+  /// [targetScreenName]: The screen name of the target user.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-show.
-  @notImplemented
-  Future<void> friendshipsShow() async {}
+  Future<Relationship> friendshipsShow({
+    String? sourceId,
+    String? sourceScreenName,
+    String? targetId,
+    String? targetScreenName,
+    TransformResponse<Relationship> transform = defaultRelationshipTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('source_id', sourceId)
+      ..addParameter('source_screen_name', sourceScreenName)
+      ..addParameter('target_id', targetId)
+      ..addParameter('target_screen_name', targetScreenName);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/friendships/show.json', params))
+        .then(transform);
+  }
 
   /// Returns fully-hydrated user objects for up to 100 users per request, as
   /// specified by comma-separated values passed to the [userId] and/or
@@ -264,11 +394,39 @@ class UserService {
   ///   object, a HTTP 404 will be thrown.
   /// * You are strongly encouraged to use a POST for larger requests.
   ///
-  /// TODO: implement
+  /// [screenName]: The screen name of the user for whom to return results.
+  /// Either an id or [screenName] is required for this method.
+  ///
+  /// [userId]: The ID of the user for whom to return results.
+  /// Either an id or [screenName] is required for this method.
+  ///
+  /// [includeEntities]: The entities node will not be included in embedded
+  /// Tweet objects when set to `false`.
+  ///
+  /// [tweetMode]: When set to `extended`, uses the extended Tweets.
+  /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup.
-  @notImplemented
-  Future<void> usersLookup() async {}
+  Future<List<User>> usersLookup({
+    String? screenName,
+    String? userId,
+    bool? includeEntities,
+    String tweetMode = 'extended',
+    TransformResponse<List<User>> transform = defaultUserListTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('screen_name', screenName)
+      ..addParameter('user_id', userId)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('tweet_mode', tweetMode);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/users/lookup.json', params))
+        .then(transform);
+  }
 
   /// Provides a simple, relevance-based search interface to public user
   /// accounts on Twitter. Try querying by topical interest, full name, company
@@ -445,9 +603,36 @@ class UserService {
   /// Enable or disable Retweets and device notifications from the specified
   /// user.
   ///
-  /// TODO: implement
+  /// [screenName]: The screen name of the user being followed.
+  ///
+  /// [userId]: The ID of the user being followed.
+  ///
+  /// [device]: Turn on/off device notifications from the target user.
+  ///
+  /// [retweets]: Turn on/off Retweets from the target user.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update.
-  @notImplemented
-  Future<void> friendshipsUpdate() async {}
+  Future<Relationship> friendshipsUpdate({
+    String? screenName,
+    String? userId,
+    bool? device,
+    bool? retweets,
+    TransformResponse<Relationship> transform = defaultRelationshipTransform,
+  }) async {
+    final body = <String, String>{}
+      ..addParameter('screen_name', screenName)
+      ..addParameter('user_id', userId)
+      ..addParameter('device', device)
+      ..addParameter('retweets', retweets);
+
+    return client
+        .post(
+          Uri.https('api.twitter.com', '1.1/friendships/update.json'),
+          body: body,
+        )
+        .then(transform);
+  }
 }
