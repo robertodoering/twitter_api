@@ -190,7 +190,6 @@ class TweetService {
   /// [includeMyRetweet]: When `true`, any Tweets returned that have been
   /// retweeted by the authenticating user will include an additional node,
   /// containing the ID of the source status for the retweet.
-  /// TODO: implement
   ///
   /// [includeEntities]: The entities node will not be included when set to
   /// `false`.
@@ -216,7 +215,7 @@ class TweetService {
   Future<Tweet> show({
     required String id,
     bool? trimUser,
-    @notImplemented bool? includeMyRetweet,
+    bool? includeMyRetweet,
     bool? includeEntities,
     @notImplemented bool? includeExtAltText,
     @notImplemented bool? includeCardUri,
