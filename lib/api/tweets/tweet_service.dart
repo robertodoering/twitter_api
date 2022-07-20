@@ -257,10 +257,12 @@ class TweetService {
   /// entities, this parameter will return an ext_alt_text value in the
   /// top-level key for the media entity. If no value has been set, this will be
   /// returned as `null`.
+  /// TODO: implement
   ///
   /// [includeCardUri]: When `true`, the retrieved Tweet will include a card_uri
   /// attribute when there is an ads card attached to the Tweet and when that
   /// card was attached using the card_uri value.
+  /// TODO: implement
   ///
   /// [transform]: Can be used to parse the request. By default, the response is
   /// parsed in an isolate.
@@ -271,8 +273,8 @@ class TweetService {
     bool? includeEntities,
     bool? trimUser,
     bool? map,
-    bool? includeExtAltText,
-    bool? includeCardUri,
+    @notImplemented bool? includeExtAltText,
+    @notImplemented bool? includeCardUri,
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
     final params = <String, String>{}
