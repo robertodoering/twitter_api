@@ -1,6 +1,7 @@
 import 'package:dart_twitter_api/api/common/data/entities.dart';
 import 'package:dart_twitter_api/api/geo/data/coordinates.dart';
 import 'package:dart_twitter_api/api/geo/data/place.dart';
+import 'package:dart_twitter_api/api/tweets/data/current_user_retweet.dart';
 import 'package:dart_twitter_api/api/tweets/data/quoted_status_permalink.dart';
 import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
@@ -135,6 +136,13 @@ class Tweet {
   bool? possiblySensitive;
 
   bool? possiblySensitiveAppealable;
+
+  /// Nullable. This field only surfaces when a Tweet contains a
+  /// current_user_retweet. The meaning of the field doesn’t pertain to the
+  /// Tweet content itself, but instead it is an indicator that the current
+  /// authenticated user reweeted the Tweet. This can be included if
+  /// the [includeMyRetweet] param in any [service] method is set to true.
+  CurrentUserRetweet? currentUserRetweet;
 
   /// Nullable. When present, indicates a BCP 47 language identifier
   /// corresponding to the machine-detected language of the Tweet text, or `und`

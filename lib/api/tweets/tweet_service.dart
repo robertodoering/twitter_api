@@ -2,6 +2,7 @@ import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
 import 'package:dart_twitter_api/api/geo/data/place.dart';
 import 'package:dart_twitter_api/api/tweets/data/tweet.dart';
 import 'package:dart_twitter_api/api/twitter_client.dart';
+import 'package:dart_twitter_api/api/users/data/paginated_ids.dart';
 import 'package:dart_twitter_api/src/annotations.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
 import 'package:dart_twitter_api/src/utils/transforms.dart';
@@ -189,7 +190,6 @@ class TweetService {
   /// [includeMyRetweet]: When `true`, any Tweets returned that have been
   /// retweeted by the authenticating user will include an additional node,
   /// containing the ID of the source status for the retweet.
-  /// TODO: implement
   ///
   /// [includeEntities]: The entities node will not be included when set to
   /// `false`.
@@ -215,7 +215,7 @@ class TweetService {
   Future<Tweet> show({
     required String id,
     bool? trimUser,
-    @notImplemented bool? includeMyRetweet,
+    bool? includeMyRetweet,
     bool? includeEntities,
     @notImplemented bool? includeExtAltText,
     @notImplemented bool? includeCardUri,
@@ -239,11 +239,56 @@ class TweetService {
   /// Returns fully-hydrated Tweet objects for up to 100 Tweets per request, as
   /// specified by comma-separated values passed to the id parameter.
   ///
+  /// [id]: A comma separated list of Tweet IDs, up to 100 are allowed in a
+  /// single request.
+  ///
+  /// [includeEntities]: The entities node will not be included when set to
+  /// false.
+  ///
+  /// [trimUser]: when set to true, each Tweet returned in a timeline will
+  /// include a user object including only the status authors numerical ID.
+  /// Omit this parameter to receive the complete user object.
+  ///
+  /// [map]: when using the map parameter, Tweets that do not exist or cannot be
+  /// viewed by the current user will still have their key represented but with
+  /// an explicitly null value paired with it
+  ///
+  /// [includeExtAltText]: If alt text has been added to any attached media
+  /// entities, this parameter will return an ext_alt_text value in the
+  /// top-level key for the media entity. If no value has been set, this will be
+  /// returned as `null`.
   /// TODO: implement
   ///
+  /// [includeCardUri]: When `true`, the retrieved Tweet will include a card_uri
+  /// attribute when there is an ads card attached to the Tweet and when that
+  /// card was attached using the card_uri value.
+  /// TODO: implement
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
+  ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup.
-  @notImplemented
-  Future<void> lookup() async {}
+  Future<List<Tweet>> lookup({
+    required List<String> id,
+    bool? includeEntities,
+    bool? trimUser,
+    bool? map,
+    @notImplemented bool? includeExtAltText,
+    @notImplemented bool? includeCardUri,
+    TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('id', id)
+      ..addParameter('include_entities', includeEntities)
+      ..addParameter('trim_user', trimUser)
+      ..addParameter('map', map)
+      ..addParameter('include_ext_alt_text', includeExtAltText)
+      ..addParameter('include_card_uri', includeCardUri);
+
+    return client
+        .get(Uri.https('api.twitter.com', '1.1/statuses/lookup.json', params))
+        .then(transform);
+  }
 
   /// Retweets a tweet. Returns the original Tweet with Retweet details
   /// embedded.
@@ -422,11 +467,38 @@ class TweetService {
   ///
   /// This method offers similar data to [retweets].
   ///
-  /// TODO: implement
+  /// [id]: The numerical ID of the desired status.
+  ///
+  /// [count]: Specifies the number of records to retrieve. Must be less than or
+  /// equal to 100.
+  ///
+  /// [cursor]: Causes the results to be broken into pages. If no cursor is
+  /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// The response from the API will include a [previousCursor] and [nextCursor]
+  /// to allow paging back and forth. See Using cursors to navigate collections
+  /// for more information.
+  ///
+  /// [transform]: Can be used to parse the request. By default, the response is
+  /// parsed in an isolate.
   ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweeters-ids.
-  @notImplemented
-  Future<void> retweeters() async {}
+  Future<PaginatedIds> retweeters({
+    required String id,
+    int? count,
+    int? cursor,
+    TransformResponse<PaginatedIds> transform = defaultPaginatedIdsTransform,
+  }) async {
+    final params = <String, String>{}
+      ..addParameter('id', id)
+      ..addParameter('count', count)
+      ..addParameter('cursor', cursor);
+
+    return client
+        .get(Uri.https(
+            'api.twitter.com', '1.1/statuses/retweeters/ids.json', params))
+        .then(transform);
+  }
 
   /// Favorites (likes) the Tweet specified in the ID parameter as the
   /// authenticating user. Returns the favorite Tweet when successful.

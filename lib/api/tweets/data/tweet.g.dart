@@ -48,6 +48,10 @@ Tweet _$TweetFromJson(Map<String, dynamic> json) {
     ..possiblySensitive = json['possibly_sensitive'] as bool?
     ..possiblySensitiveAppealable =
         json['possibly_sensitive_appealable'] as bool?
+    ..currentUserRetweet = json['current_user_retweet'] == null
+        ? null
+        : CurrentUserRetweet.fromJson(
+            json['current_user_retweet'] as Map<String, dynamic>)
     ..lang = json['lang'] as String?
     ..quotedStatusPermalink = json['quoted_status_permalink'] == null
         ? null
@@ -85,6 +89,7 @@ Map<String, dynamic> _$TweetToJson(Tweet instance) => <String, dynamic>{
       'retweeted': instance.retweeted,
       'possibly_sensitive': instance.possiblySensitive,
       'possibly_sensitive_appealable': instance.possiblySensitiveAppealable,
+      'current_user_retweet': instance.currentUserRetweet?.toJson(),
       'lang': instance.lang,
       'quoted_status_permalink': instance.quotedStatusPermalink?.toJson(),
       'full_text': instance.fullText,
