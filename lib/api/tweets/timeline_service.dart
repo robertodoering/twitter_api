@@ -44,6 +44,9 @@ class TimelineService {
   /// [includeEntities]: The `entities` node will not be included when set to
   /// `false`.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -58,6 +61,7 @@ class TimelineService {
     bool? trimUser,
     bool? excludeReplies,
     bool? includeEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -68,6 +72,7 @@ class TimelineService {
       ..addParameter('trim_user', trimUser)
       ..addParameter('exclude_replies', excludeReplies)
       ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', 'extended');
 
     return client
@@ -129,6 +134,9 @@ class TimelineService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [transform]: Can be used to parse the request. By default, the response is
   /// parsed in an isolate.
   ///
@@ -142,6 +150,7 @@ class TimelineService {
     bool? trimUser,
     bool? excludeReplies,
     bool? includeRts,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -154,6 +163,7 @@ class TimelineService {
       ..addParameter('trim_user', trimUser)
       ..addParameter('exclude_replies', excludeReplies)
       ..addParameter('include_rts', includeRts)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', 'extended');
 
     return client
@@ -192,6 +202,9 @@ class TimelineService {
   /// [includeEntities]: The `entities` node will not be included when set to
   /// `false`.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -205,6 +218,7 @@ class TimelineService {
     String? maxId,
     bool? trimUser,
     bool? includeEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -214,6 +228,7 @@ class TimelineService {
       ..addParameter('max_id', maxId)
       ..addParameter('trim_user', trimUser)
       ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', 'extended');
 
     return client

@@ -69,6 +69,9 @@ class TweetSearchService {
   /// [includeEntities]: The entities node will not be included when set to
   /// `false`.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -87,6 +90,7 @@ class TweetSearchService {
     String? sinceId,
     String? maxId,
     bool? includeEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<TweetSearch> transform = defaultTweetSearchTransform,
   }) async {
@@ -101,6 +105,7 @@ class TweetSearchService {
       ..addParameter('since_id', sinceId)
       ..addParameter('max_id', maxId)
       ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', tweetMode);
 
     return client
