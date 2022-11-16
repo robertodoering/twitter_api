@@ -1,8 +1,8 @@
+import 'package:dart_twitter_api/api/common/data/edit_control.dart';
 import 'package:dart_twitter_api/api/common/data/entities.dart';
 import 'package:dart_twitter_api/api/geo/data/coordinates.dart';
 import 'package:dart_twitter_api/api/geo/data/place.dart';
 import 'package:dart_twitter_api/api/tweets/data/current_user_retweet.dart';
-import 'package:dart_twitter_api/api/tweets/data/edit_control.dart';
 import 'package:dart_twitter_api/api/tweets/data/quoted_status_permalink.dart';
 import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
@@ -167,7 +167,10 @@ class Tweet {
   /// start and exclusive end of the displayable content of the tweet.
   List<int>? displayTextRange;
 
-  /// EditInfo
+  /// The info about the tweet edit history
+  ///
+  /// [extEditControl] is only included when receiving extended Tweet objects (when
+  /// adding `include_ext_edit_control=true` as a parameter to any endoint).
   EditControlData? extEditControl;
 
   Map<String, dynamic> toJson() => _$TweetToJson(this);

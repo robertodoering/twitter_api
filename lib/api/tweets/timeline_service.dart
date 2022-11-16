@@ -44,6 +44,9 @@ class TimelineService {
   /// [includeEntities]: The `entities` node will not be included when set to
   /// `false`.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -131,6 +134,9 @@ class TimelineService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [transform]: Can be used to parse the request. By default, the response is
   /// parsed in an isolate.
   ///
@@ -195,6 +201,9 @@ class TimelineService {
   ///
   /// [includeEntities]: The `entities` node will not be included when set to
   /// `false`.
+  ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
   ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.

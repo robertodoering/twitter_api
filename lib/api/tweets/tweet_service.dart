@@ -95,6 +95,9 @@ class TweetService {
   /// [transform]: Can be used to parse the request. By default, the response is
   /// parsed in an isolate.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// See https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.
   Future<Tweet> update({
     required String status,
@@ -112,6 +115,7 @@ class TweetService {
     bool? enableDmcommands,
     bool? failDmcommands,
     String? cardUri,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
@@ -131,7 +135,8 @@ class TweetService {
       ..addParameter('trim_user', trimUser)
       ..addParameter('enable_dmcommands', enableDmcommands)
       ..addParameter('fail_dmcommands', failDmcommands)
-      ..addParameter('card_uri', cardUri);
+      ..addParameter('card_uri', cardUri)
+      ..addParameter('include_ext_edit_control', includeExtEditControl);
 
     return client
         .post(
@@ -154,6 +159,9 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [transform]: Can be used to parse the request. By default, the response is
   /// parsed in an isolate.
   ///
@@ -162,11 +170,13 @@ class TweetService {
     required String id,
     bool? trimUser,
     String tweetMode = 'extended',
+    bool? includeExtEditControl,
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
-      ..addParameter('trim_user', trimUser);
+      ..addParameter('trim_user', trimUser)
+      ..addParameter('include_ext_edit_control', includeExtEditControl);
 
     return client
         .post(
@@ -194,6 +204,9 @@ class TweetService {
   /// [includeEntities]: The entities node will not be included when set to
   /// `false`.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [includeExtAltText]: If alt text has been added to any attached media
   /// entities, this parameter will return an ext_alt_text value in the
   /// top-level key for the media entity. If no value has been set, this will be
@@ -220,6 +233,7 @@ class TweetService {
     @notImplemented bool? includeExtAltText,
     @notImplemented bool? includeCardUri,
     String tweetMode = 'extended',
+    bool? includeExtEditControl,
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
     final params = <String, String>{}
@@ -229,6 +243,7 @@ class TweetService {
       ..addParameter('include_my_retweet', includeMyRetweet)
       ..addParameter('include_entities', includeEntities)
       ..addParameter('include_ext_alt_text', includeExtAltText)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('include_card_uri', includeCardUri);
 
     return client
@@ -253,6 +268,9 @@ class TweetService {
   /// viewed by the current user will still have their key represented but with
   /// an explicitly null value paired with it
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [includeExtAltText]: If alt text has been added to any attached media
   /// entities, this parameter will return an ext_alt_text value in the
   /// top-level key for the media entity. If no value has been set, this will be
@@ -275,6 +293,8 @@ class TweetService {
     bool? map,
     @notImplemented bool? includeExtAltText,
     @notImplemented bool? includeCardUri,
+    bool? includeExtEditControl,
+    String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
     final params = <String, String>{}
@@ -283,7 +303,8 @@ class TweetService {
       ..addParameter('trim_user', trimUser)
       ..addParameter('map', map)
       ..addParameter('include_ext_alt_text', includeExtAltText)
-      ..addParameter('include_card_uri', includeCardUri);
+      ..addParameter('include_card_uri', includeCardUri)
+      ..addParameter('include_ext_edit_control', includeExtEditControl);
 
     return client
         .get(Uri.https('api.twitter.com', '1.1/statuses/lookup.json', params))
@@ -299,6 +320,9 @@ class TweetService {
   /// user object including only the status authors numerical ID. Omit this
   /// parameter to receive the complete user object.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -310,11 +334,13 @@ class TweetService {
     required String id,
     bool? trimUser,
     String tweetMode = 'extended',
+    bool? includeExtEditControl,
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
-      ..addParameter('trim_user', trimUser);
+      ..addParameter('trim_user', trimUser)
+      ..addParameter('include_ext_edit_control', includeExtEditControl);
 
     return client
         .post(
@@ -336,6 +362,9 @@ class TweetService {
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [transform]: Can be used to parse the request. By default, the response is
   /// parsed in an isolate.
   ///
@@ -343,12 +372,14 @@ class TweetService {
   Future<Tweet> unretweet({
     required String id,
     bool? trimUser,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) {
     final body = <String, String>{}
       ..addParameter('tweet_mode', tweetMode)
-      ..addParameter('trim_user', trimUser);
+      ..addParameter('trim_user', trimUser)
+      ..addParameter('include_ext_edit_control', includeExtEditControl);
 
     return client
         .post(
@@ -370,6 +401,9 @@ class TweetService {
   /// user object including only the status authors numerical ID. Omit this
   /// parameter to receive the complete user object.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -382,12 +416,14 @@ class TweetService {
     int? count,
     bool? trimUser,
     String tweetMode = 'extended',
+    bool? includeExtEditControl,
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) {
     final params = <String, String>{}
       ..addParameter('trim_user', trimUser)
       ..addParameter('count', count)
-      ..addParameter('tweet_mode', tweetMode);
+      ..addParameter('tweet_mode', tweetMode)
+      ..addParameter('include_ext_edit_control', includeExtEditControl);
 
     return client
         .get(
@@ -439,6 +475,7 @@ class TweetService {
     bool? trimUser,
     bool? includeEntities,
     bool? includeUserEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -449,6 +486,7 @@ class TweetService {
       ..addParameter('trim_user', trimUser)
       ..addParameter('include_entities', includeEntities)
       ..addParameter('include_user_entities', includeUserEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', tweetMode);
 
     return client
@@ -474,6 +512,9 @@ class TweetService {
   ///
   /// [cursor]: Causes the results to be broken into pages. If no cursor is
   /// provided, a value of `-1` will be assumed, which is the first "page."
+  ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
   ///
   /// The response from the API will include a [previousCursor] and [nextCursor]
   /// to allow paging back and forth. See Using cursors to navigate collections
@@ -513,6 +554,9 @@ class TweetService {
   /// [includeEntities]: The entities node will not be included when set to
   /// `false`.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -523,12 +567,14 @@ class TweetService {
   Future<Tweet> createFavorite({
     required String id,
     bool? includeEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('id', id)
       ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', tweetMode);
 
     return client
@@ -552,6 +598,9 @@ class TweetService {
   /// [includeEntities]: The entities node will not be included when set to
   /// `false`.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -562,12 +611,14 @@ class TweetService {
   Future<Tweet> destroyFavorite({
     required String id,
     bool? includeEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<Tweet> transform = defaultTweetTransform,
   }) async {
     final body = <String, String>{}
       ..addParameter('id', id)
       ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', tweetMode);
 
     return client
@@ -601,6 +652,9 @@ class TweetService {
   /// [includeEntities]: The entities node will not be included when set to
   /// `false`.
   ///
+  /// [includeExtEditControl]: The `includeExtEditControl` node will not be included when set to
+  /// `false`. See https://developer.twitter.com/en/docs/twitter-api/v1/edit-tweets
+  ///
   /// [tweetMode]: When set to `extended`, uses the extended Tweets.
   /// See https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json#extendedtweet.
   ///
@@ -615,6 +669,7 @@ class TweetService {
     String? sinceId,
     String? maxId,
     bool? includeEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -625,6 +680,7 @@ class TweetService {
       ..addParameter('since_id', sinceId)
       ..addParameter('max_id', maxId)
       ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', tweetMode);
 
     return client
