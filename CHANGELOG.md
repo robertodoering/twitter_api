@@ -1,3 +1,7 @@
+# 0.5.7
+
+- Added `extEditControl` field in `Tweet`s and `includeExtEditControl` param in requests (Thanks @ryzizub!)
+
 # 0.5.6+1
 
 - Removed unnecessary annotation (Thanks @myConsciousness!)
