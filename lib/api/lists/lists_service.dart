@@ -375,6 +375,7 @@ class ListsService {
     int? count,
     bool? includeEntities,
     bool? includeRts,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -388,6 +389,7 @@ class ListsService {
       ..addParameter('count', count)
       ..addParameter('include_entities', includeEntities)
       ..addParameter('include_rts', includeRts)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', tweetMode);
 
     return client

@@ -58,6 +58,7 @@ class TimelineService {
     bool? trimUser,
     bool? excludeReplies,
     bool? includeEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -68,6 +69,7 @@ class TimelineService {
       ..addParameter('trim_user', trimUser)
       ..addParameter('exclude_replies', excludeReplies)
       ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', 'extended');
 
     return client
@@ -142,6 +144,7 @@ class TimelineService {
     bool? trimUser,
     bool? excludeReplies,
     bool? includeRts,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -154,6 +157,7 @@ class TimelineService {
       ..addParameter('trim_user', trimUser)
       ..addParameter('exclude_replies', excludeReplies)
       ..addParameter('include_rts', includeRts)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', 'extended');
 
     return client
@@ -205,6 +209,7 @@ class TimelineService {
     String? maxId,
     bool? trimUser,
     bool? includeEntities,
+    bool? includeExtEditControl,
     String tweetMode = 'extended',
     TransformResponse<List<Tweet>> transform = defaultTweetListTransform,
   }) async {
@@ -214,6 +219,7 @@ class TimelineService {
       ..addParameter('max_id', maxId)
       ..addParameter('trim_user', trimUser)
       ..addParameter('include_entities', includeEntities)
+      ..addParameter('include_ext_edit_control', includeExtEditControl)
       ..addParameter('tweet_mode', 'extended');
 
     return client

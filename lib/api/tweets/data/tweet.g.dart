@@ -60,7 +60,11 @@ Tweet _$TweetFromJson(Map<String, dynamic> json) {
     ..fullText = json['full_text'] as String?
     ..displayTextRange = (json['display_text_range'] as List<dynamic>?)
         ?.map((e) => e as int)
-        .toList();
+        .toList()
+    ..extEditControl = json['ext_edit_control'] == null
+        ? null
+        : EditControlData.fromJson(
+            json['ext_edit_control'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$TweetToJson(Tweet instance) => <String, dynamic>{
@@ -94,4 +98,5 @@ Map<String, dynamic> _$TweetToJson(Tweet instance) => <String, dynamic>{
       'quoted_status_permalink': instance.quotedStatusPermalink?.toJson(),
       'full_text': instance.fullText,
       'display_text_range': instance.displayTextRange,
+      'ext_edit_control': instance.extEditControl?.toJson(),
     };
