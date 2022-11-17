@@ -51,6 +51,6 @@ EditedInfo _$EditedInfoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$EditedInfoToJson(EditedInfo instance) =>
     <String, dynamic>{
-      'edit_control_initial': instance.editControlInitial,
+      'edit_control_initial': instance.editControlInitial?.toJson(),
       'initial_tweet_id': instance.initialTweetId,
     };

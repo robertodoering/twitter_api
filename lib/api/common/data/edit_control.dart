@@ -20,6 +20,7 @@ class EditControlData {
 }
 
 @JsonSerializable(
+  explicitToJson: true,
   fieldRename: FieldRename.snake,
 )
 class InitialInfo {
@@ -40,6 +41,7 @@ class InitialInfo {
 }
 
 @JsonSerializable(
+  explicitToJson: true,
   fieldRename: FieldRename.snake,
 )
 class EditedInfo {
