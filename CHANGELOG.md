@@ -1,3 +1,7 @@
+# 0.5.7+1
+
+- Fixed `InitialInfo` and `EditedInfo` models were missing the `explicitToJson: true` flag (Thanks @ryzizub!)
+
 # 0.5.7
 
 - Added `extEditControl` field in `Tweet`s and `includeExtEditControl` param in requests (Thanks @ryzizub!)
