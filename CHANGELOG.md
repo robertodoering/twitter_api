@@ -1,3 +1,6 @@
+# 0.5.8
+- Implemented `UserService.profileBanner` request
+
 # 0.5.7+1
 
 - Fixed `InitialInfo` and `EditedInfo` models were missing the `explicitToJson: true` flag (Thanks @ryzizub!)

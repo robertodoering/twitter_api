@@ -1,12 +1,5 @@
-import 'package:dart_twitter_api/api/abstract_twitter_client.dart';
-import 'package:dart_twitter_api/api/twitter_client.dart';
-import 'package:dart_twitter_api/api/users/data/friendship.dart';
-import 'package:dart_twitter_api/api/users/data/paginated_ids.dart';
-import 'package:dart_twitter_api/api/users/data/paginated_users.dart';
-import 'package:dart_twitter_api/api/users/data/relationship.dart';
-import 'package:dart_twitter_api/api/users/data/user.dart';
 import 'package:dart_twitter_api/src/utils/map_utils.dart';
-import 'package:dart_twitter_api/src/utils/transforms.dart';
+import 'package:dart_twitter_api/twitter_api.dart';
 
 class UserService {
   const UserService({
@@ -632,6 +625,31 @@ class UserService {
         .post(
           Uri.https('api.twitter.com', '1.1/friendships/update.json'),
           body: body,
+        )
+        .then(transform);
+  }
+
+  /// Returns available size variations of the specified user's profile banner.
+  ///
+  /// The profile banner data available at each size variant's URL is in PNG
+  /// format.
+  ///
+  /// If the user has not uploaded a profile banner, a `Future.error` is
+  /// returned instead with the 404 response.
+  ///
+  /// See https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/manage-account-settings/api-reference/get-users-profile_banner.
+  Future<Banner> profileBanner({
+    String? screenName,
+    String? userId,
+    TransformResponse<Banner> transform = defaultBannerTransform,
+  }) {
+    final params = <String, String>{}
+      ..addParameter('screen_name', screenName)
+      ..addParameter('user_id', userId);
+
+    return client
+        .get(
+          Uri.https('api.twitter.com', '1.1/users/profile_banner.json', params),
         )
         .then(transform);
   }

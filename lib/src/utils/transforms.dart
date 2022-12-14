@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:dart_twitter_api/api/users/data/paginated_ids.dart';
-import 'package:dart_twitter_api/api/users/data/relationship.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:http/http.dart';
 
@@ -248,4 +246,12 @@ Future<List<int>> defaultIntListTransform(Response response) async {
 
 List<int> _isolateIntListTransform(String body) {
   return (json.decode(body) as List<dynamic>).map((e) => e as int).toList();
+}
+
+Future<Banner> defaultBannerTransform(Response response) async {
+  return await compute<String, Banner>(_isolateBannerTransform, response.body);
+}
+
+Banner _isolateBannerTransform(String body) {
+  return Banner.fromJson(json.decode(body));
 }
