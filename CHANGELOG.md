@@ -1,3 +1,6 @@
+# 0.6.0
+- Updated dependencies
+
 # 0.5.8
 - Implemented `UserService.profileBanner` request
 
